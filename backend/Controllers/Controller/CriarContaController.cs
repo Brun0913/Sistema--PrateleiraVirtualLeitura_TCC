@@ -18,10 +18,18 @@ namespace backend.Controllers
 
 
         [HttpPost("Criarnovaconta")]
-        public Models.Response.CriarContaRequest CriarNovaConta(Models.Request.LoginRequest req)
+        public ActionResult<Models.Response.CriarContaRequest> CriarNovaConta(Models.Request.LoginRequest req)
         {
+            try{
             Models.Response.CriarContaRequest result = verificacoes.verificarparametroscliente(req);
             return result;
+            }
+            catch(System.Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErroResponse(ex,404)
+                );
+            }
         }
     }
 }
