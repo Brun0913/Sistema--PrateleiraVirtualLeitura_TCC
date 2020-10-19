@@ -152,8 +152,7 @@ export default function CriarConta(){
                 <div className="eventos">
 
                     <div className="termos">
-                        <input type="checkbox" className="maldito"></input>
-                        Eu aceito os <Link to="/termosEcondicoes">Termos e Condicões</Link>
+                       Ao criar a conta você aceita os<Link to="/termosEcondicoes">Termos e Condicões</Link>
                     </div>
 
                     <div className="acoes">
