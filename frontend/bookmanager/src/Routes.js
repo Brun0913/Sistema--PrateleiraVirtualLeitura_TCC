@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import CriarConta from './Pages/CriarConta/App'
+import CriarConta from './Pages/CriarConta/App.js'
 import termos from './Pages/CriarConta/index'
 
 export default function Routes(){

@@ -36,7 +36,6 @@ namespace backend
                 app.UseDeveloperExceptionPage();
             }
 
-            
             app.UseCors(
                 x => x.AllowAnyOrigin()
                 .AllowAnyHeader());

@@ -40,7 +40,7 @@ export default function CriarConta(){
                 senha:senha
             }
         });
-        toast.success('Criado com sucesso');
+        toast.success('🚀 Criado com sucesso');
     }
 
 

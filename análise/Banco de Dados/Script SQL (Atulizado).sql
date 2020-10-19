@@ -59,7 +59,6 @@ vl_preco decimal (15,2)
 create table tb_compra(
 id_compra int primary key auto_increment,
 dt_compra date,
-tp_pagamento varchar(100),
 vl_total decimal (15,2) ,
 
 id_cliente int,
@@ -92,7 +91,7 @@ insert into tb_login (ds_email, ds_senha,ds_perfil)
 values("funcionario@gmail.com","123456","funcionario");
 
 
-insert into tb_cliente(nm_cliente,dt_nascimento,ds_cpf,ds_rg,id_login, ds_cartao_credito,nr_codigo_seguranca,dt_vencimento_cartal,ds_enderenco,ds_telefone)
+insert into tb_cliente(nm_cliente,dt_nascimento,ds_cpf,ds_rg,id_login, ds_cartao_credito,nr_codigo_seguranca,dt_vencimento_cartao,ds_endereco,ds_telefone)
 value("Bruno Gomes",'2002-11-22',"123.132.122-22","23443.23",2,"1244 2345 1345 4545",913,'2021-09-11',"rua bofim n°31","(11) 92345-2345");
 
 
@@ -110,12 +109,12 @@ insert into tb_livro(nm_livro,nm_autor,nr_serie,nm_editora,nr_paginas,ds_sinopse
 values("harry potter","j.k","volume 7","empresa 1",400,"um livro sobre magia",'2005-12-10',"ingles",'2',"aventura",140.90);
 
 
-insert into tb_compra(dt_compra,tp_pagamento,vl_total,id_cliente)
-values("2020-01-01","cartao de credito",251.80,1);
+insert into tb_compra(dt_compra,vl_total,id_cliente)
+values("2020-01-01",251.80,1);
 
 
 insert into tb_compra_livro(id_livro,id_compra)
-values(3,1);
+values(2,1);
 
 insert into tb_compra_livro(id_livro,id_compra)
-values(4,1);
+values(1,1);
