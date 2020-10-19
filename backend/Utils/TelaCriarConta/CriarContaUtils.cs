@@ -5,7 +5,7 @@ namespace backend.Utils
 {
     public class CriarContaUtils
     {
-        public Models.TbLogin loginparatb(Models.Request.LoginRequest req)
+        public Models.TbLogin loginparatb(Models.Request.CriarContaRequest req)
         {
             Models.TbLogin ctx = new Models.TbLogin();
 
@@ -39,9 +39,8 @@ namespace backend.Utils
 
             return x;
         }
-    
-
-        public Models.TbCliente clienteparatb(Models.Request.LoginRequest req, Models.TbLogin conta)
+  
+        public Models.TbCliente clienteparatb(Models.Request.CriarContaRequest req, Models.TbLogin conta)
         {
             Models.TbCliente ctx = new Models.TbCliente();
 

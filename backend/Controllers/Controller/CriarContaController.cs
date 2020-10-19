@@ -17,8 +17,8 @@ namespace backend.Controllers
         Utils.CriarContaUtils converter = new Utils.CriarContaUtils();
 
 
-        [HttpPost("Criarnovaconta")]
-        public ActionResult<Models.Response.CriarContaRequest> CriarNovaConta(Models.Request.LoginRequest req)
+       [HttpPost("Criarnovaconta")]
+        public ActionResult<Models.Response.CriarContaRequest> CriarNovaConta(Models.Request.CriarContaRequest req)
         {
             try{
             Models.Response.CriarContaRequest result = verificacoes.verificarparametroscliente(req);
@@ -31,5 +31,26 @@ namespace backend.Controllers
                 );
             }
         }
+
+        [HttpPost("acessar")]
+        public ActionResult<Models.Response.EmailPerfilResponse> acessar (Models.Request.EmailRequest login)
+        {
+            try{
+            Utils.TelaCriarConta.AcessarUtils acesso = new Utils.TelaCriarConta.AcessarUtils();
+            Business.TelaCriarConta.AcessarBusiness verificarexistencia = new Business.TelaCriarConta.AcessarBusiness();
+
+            Models.TbLogin parte1 = verificarexistencia.verificarcontaexistente(login);
+            Models.Response.EmailPerfilResponse parte2 = acesso.TbLoginParaLoginResponse(parte1);
+
+            return parte2;
+            }
+            catch(System.Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErroResponse(ex,400)
+                );
+            }
+        }
+        
     }
 }

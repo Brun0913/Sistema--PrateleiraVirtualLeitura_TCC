@@ -11,7 +11,7 @@ namespace backend.Controllers.Business
         Business.RequisitosMinimos minimosdecaracteres = new RequisitosMinimos();
         Business.CamposVazios camposvazios = new CamposVazios();
 
-        public Models.Response.CriarContaRequest verificarparametroscliente(Models.Request.LoginRequest conta)
+         public Models.Response.CriarContaRequest verificarparametroscliente(Models.Request.CriarContaRequest conta)
         {
 
             minimosdecaracteres.CaracteresCartaodeCredito(conta.InformacoesCliente);

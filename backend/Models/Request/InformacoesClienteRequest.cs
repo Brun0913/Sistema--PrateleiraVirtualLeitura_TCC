@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace backend.Models.Request
 {
-    public class InformacoesClienteRequest
+    public class    InformacoesClienteRequest
     {
         public string nome {get;set;}
         public DateTime nascimento {get;set;}
