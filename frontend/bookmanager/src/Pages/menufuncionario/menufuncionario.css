@@ -1,0 +1,56 @@
+.mainfuncionario{
+    flex-direction: column;
+    display: flex;
+    height: 95vh;
+    width: 43vw;
+    flex-direction: column;
+    display: flex;
+    margin-left: 350px;
+    margin-bottom: 23px;
+}
+
+.titulofuncionario{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    left: 100px;
+    text-align: center;
+    border-radius: 80%;
+    margin-bottom: 120px;
+    text-decoration: underline;
+}
+
+.cadastrarlivro{
+    align-items: center;
+    flex-direction: row;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.consultarlivro{
+    align-items: center;
+    flex-direction: row;
+    margin-left: 20px;
+    margin-bottom: 200px;    
+}
+
+.bvoltar{
+    align-items: center;
+    flex-direction: row;
+    margin-left: 500px;
+}
+
+.prifuncionario{
+    background-attachment: scroll;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRPSju2xFlQ-aLT-RY8S61LItvl0hjPrbX-zQ&usqp=CAU);
+    background-repeat: no-repeat;
+    background-image: linear-gradient(gray, white); 
+}
+
+.mainfuncionario{
+    align-items: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    opacity: 100%;
+    background-image: linear-gradient(gray, white);
+}
+
+
+

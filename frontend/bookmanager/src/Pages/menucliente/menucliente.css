@@ -1,0 +1,60 @@
+.main{
+    flex-direction: column;
+    display: flex;
+    height: 95vh;
+    width: 43vw;
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    margin-left: 350px;
+    margin-bottom: 23px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.titulo{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    left: 100px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.perfil{
+    margin-bottom: 100px;
+    margin-left: 500px;
+    flex-direction: column;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.historico{
+    flex-direction: column;
+    display: flex;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.fazercompra{
+    flex-direction: column;
+    display: flex;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.voltar{
+    flex-direction: column;
+    display: flex;
+    margin-left: 500px;
+    margin-bottom: 100px;
+}
+
+.primaria{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: linear-gradient(gray, white);
+}
+
+img{
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+}
+
