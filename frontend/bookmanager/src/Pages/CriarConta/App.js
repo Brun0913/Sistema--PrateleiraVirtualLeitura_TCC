@@ -23,7 +23,7 @@ export default function CriarConta(){
     const [endereco,setEndereco] = useState('');
     
     const CriarConta = async() =>{
-        const retorno = API.CriarConta({
+        const retorno = await API.CriarConta({
             InformacoesCliente:{
                 nome:nome,
                 nascimento:nascimento,
@@ -152,13 +152,13 @@ export default function CriarConta(){
                 <div className="eventos">
 
                     <div className="termos">
-                       Ao criar a conta você aceita os<Link to="/termosEcondicoes">Termos e Condicões</Link>
+                       Ao criar a conta você aceita os<Link to="/termosEcondicoes" >Termos e Condicões</Link>
                     </div>
 
                     <div className="acoes">
-                        <div className="btn btn-primary evento1">
+                        <a className="btn btn-primary evento1" href="/" >
                             voltar
-                        </div>
+                        </a>
                         <div className="btn btn-success evento2" onClick={CriarConta}>
                             Criar
                         </div>

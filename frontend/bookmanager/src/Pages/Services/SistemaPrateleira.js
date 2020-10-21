@@ -10,4 +10,9 @@ export default class Funcoes{
         const x = await API.post('/Criarnovaconta', parametros);
         return x.data;
     }
+
+    async Logar(parametros){
+        const x = await API.post('/acessar',parametros);
+        return x.data;
+    }
 }

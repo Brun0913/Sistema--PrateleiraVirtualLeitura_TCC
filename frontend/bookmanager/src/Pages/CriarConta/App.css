@@ -95,7 +95,7 @@ body{
 }
 
 .termos{
-    width: 20vw;
+    width: 30vw;
     margin-top: 5px;
     justify-content: space-around;
     display: flex;
@@ -140,4 +140,14 @@ body{
 .evento3{
     margin: 15px;
     margin-left:520px;
+}
+
+.white{
+    background-image: url(https://i.pinimg.com/originals/ff/ca/82/ffca82def668a2a5dc221ddd321b0171.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
