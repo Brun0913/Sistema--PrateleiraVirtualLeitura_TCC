@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import {Link} from 'react-router-dom'
 import { ToastContainer, toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import './criarconta.css'
+import './App.css'
 
 import api from '../Services/SistemaPrateleira'
 
@@ -152,12 +152,7 @@ export default function CriarConta(){
                 <div className="eventos">
 
                     <div className="termos">
-<<<<<<< HEAD
                        Ao criar a conta você aceita os<Link to="/termosEcondicoes" >Termos e Condicões</Link>
-=======
-                        <input type="checkbox" className="maldito"></input>
-                        Eu aceito os <Link to="/termosEcondicoes">Termos e Condicões</Link>
->>>>>>> 575443500523e0041d4c2ffd3211234dd30eccbe
                     </div>
 
                     <div className="acoes">

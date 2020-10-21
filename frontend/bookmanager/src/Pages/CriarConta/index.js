@@ -1,5 +1,5 @@
 import React from 'react'
-import './criarconta.css'
+import './App.css'
 
 export default function termos(){
 
