@@ -13,6 +13,12 @@ namespace backend.Controllers.Database
             Models.TbLogin x = db.TbLogin.FirstOrDefault(x => x.DsEmail == req.email && x.DsSenha == req.senha);
             return x;
         }
+
+        public Models.TbLivro VerificarExistenciaTbLivro(int id)
+        {
+            Models.TbLivro x = db.TbLivro.FirstOrDefault(x => x.IdLivro == id);
+            return x;
+        }
     
     }
 }

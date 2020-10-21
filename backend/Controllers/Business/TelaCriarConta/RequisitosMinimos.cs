@@ -17,7 +17,6 @@ namespace backend.Controllers.Business
 
         }
 
-
         public void CaracteresMinimosCpf(Models.Request.InformacoesClienteRequest req)
         {
             if(req.cpf.Length < 11)
@@ -26,7 +25,7 @@ namespace backend.Controllers.Business
 
         public void CaracteresMinimosRg(Models.Request.InformacoesClienteRequest req)
         {
-            if(req.rg.Length < 11)
+            if(req.rg.Length < 9)
                 throw new ArgumentException("Numeros de caracteres do Rg inváldo");
         }
 
