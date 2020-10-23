@@ -8,6 +8,7 @@ import termos from './Pages/CriarConta/index'
 import menucliente from './Pages/menucliente/menucliente'
 import menugerente from './Pages/menugerente/menugerente'
 import menufuncionario from './Pages/menufuncionario/menufuncionario'
+import ExcluirLivro from './Pages/menufuncionario/TelaExcluirLivro/index'
 
 
 export default function Routes(){
@@ -21,6 +22,7 @@ export default function Routes(){
                 <Route path="/menucliente" component={menucliente} />
                 <Route path="/menugerente" component={menugerente} />
                 <Route path="/menufuncionario" component={menufuncionario} />
+                <Route path="/excluirlivro" component={ExcluirLivro} />
             </Switch>
         </BrowserRouter>
     )

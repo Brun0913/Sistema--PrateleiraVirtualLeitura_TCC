@@ -4,7 +4,7 @@ import './App.css'
 export default function termos(){
 
     return(
-        <body>
+        <div className="body">
             <div className="container">
 
                 <div className="container3">
@@ -58,6 +58,6 @@ export default function termos(){
                 </div>
 
             </div>
-        </body>
+        </div>
     );
 }

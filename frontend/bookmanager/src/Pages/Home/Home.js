@@ -31,6 +31,7 @@ export default function Home(){
         else if(perfil === "gerente")
             setMenu("/menugerente")
 
+        return menu;
     }
 
     return (
@@ -53,7 +54,7 @@ export default function Home(){
                         <input type="password" onChange={(e) => setSenha(e.target.value)} required></input>
                     </div>
 
-                    <Link to={menu} onClick={Logar} className="btn btn-outline-success acao">Logar</Link> 
+                    <Link onClick={Logar} to={menu} className="btn btn-outline-success acao">Logar</Link> 
 
                     <div className="acao2">
                         <a href="/criarconta" className="btn btn-dark" >Criar conta</a>

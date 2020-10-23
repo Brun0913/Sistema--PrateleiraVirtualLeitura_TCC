@@ -1,0 +1,56 @@
+
+.alinhamento{
+    flex-direction: row;
+    width:500px ;
+    height: 15vh;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+}
+
+.container{
+    height: 100vh;
+    align-items: center;
+    display: flexbox;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.container2{
+    width: 550px;
+    height: 50vh;
+    background-color: whitesmoke;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border: 5px solid black;
+    border-radius: 30px;
+}
+
+.divisor{
+    width: 500px;
+    height: 12vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: red;
+}
+
+.divisor2{
+    width: 200px;
+    height: 15vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+}
+
+.botao1, .botao2{
+    width: 200px;
+}
+
+.containersupremo{
+    background-image: url(https://i.pinimg.com/564x/bc/9c/c8/bc9cc868c6f6968a46014e24217a1b94.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
