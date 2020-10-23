@@ -14,5 +14,24 @@ namespace backend.Controllers.Database
 
             return RegistroLivro;
         }
+
+        public Models.TbLivro alterarlivro(Models.Request.RequestFuncionario.RequestLivro req, int id)
+        {
+            Models.TbLivro atual = db.TbLivro.First(x => x.IdLivro == id);
+            atual.NmAutor = req.autor;
+            atual.NmEditora = req.editora;
+            atual.NmLivro = req.livro;
+            atual.NrPaginas = req.paginas;
+            atual.NrSerie = req.numeroserie;
+            atual.TpIdiomaOriginal = req.idiomaprimario;
+            atual.VlPreco = req.preco;
+            atual.DsEdicaoLivro = req.edicaolivro;
+            atual.DsGenero = req.genero;
+            atual.DsSinopse = req.sinopse;
+            atual.DtPublicacao = req.publicacao;
+
+            db.SaveChanges();
+            return atual;
+        }
     }
 }

@@ -13,5 +13,11 @@ namespace backend.Controllers.Database
             List<Models.TbLivro> livros = db.TbLivro.ToList();
             return livros;
         }
+        public Models.TbLivro Procurarlivro(int id)
+        {
+            Models.TccContext db = new Models.TccContext();
+            Models.TbLivro x = db.TbLivro.First(x => x.IdLivro == id);
+            return x;
+        }
     }
 }

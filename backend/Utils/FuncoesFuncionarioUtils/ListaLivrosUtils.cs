@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections;
 
 namespace backend.Utils.FuncoesFuncionarioUtils
 {
@@ -32,6 +33,26 @@ namespace backend.Utils.FuncoesFuncionarioUtils
                 novalista.Add(TbLivroparaLivroResponse(livro));
             }
             return novalista;
+        }
+
+        public Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone TbLivroparaLivroResponseCompleto(Models.TbLivro request)
+        {
+            Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone response = new Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone();
+
+            response.id = request.IdLivro;
+            response.autor = request.NmAutor;
+            response.livro = request.NmLivro;
+            response.editora = request.NmEditora;
+            response.paginas = request.NrPaginas;
+            response.numeroserie = request.NrSerie;
+            response.idiomaprimario = request.TpIdiomaOriginal;
+            response.preco = request.VlPreco;
+            response.edicaolivro = request.DsEdicaoLivro;
+            response.genero = request.DsGenero;
+            response.sinopse = request.DsSinopse;
+            response.publicacao = request.DtPublicacao;
+
+            return response;
         }
     }
 }

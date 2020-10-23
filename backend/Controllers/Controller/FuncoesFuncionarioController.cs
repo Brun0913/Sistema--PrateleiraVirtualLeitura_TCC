@@ -50,5 +50,25 @@ namespace backend.Controllers.Controller
                 );
             }
         }
+
+        [HttpPut("alterarlivro/{id}")]
+        public ActionResult<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone> AlterarLivro (int id,Models.Request.RequestFuncionario.RequestLivro novasinformacoes )
+        {   
+            try{
+            Utils.FuncoesFuncionarioUtils.ListaLivrosUtils AlterarModelo = new Utils.FuncoesFuncionarioUtils.ListaLivrosUtils();
+            Business.BusinessFuncionario.ValidarAlteracaoLivroParte2 validacao = new Business.BusinessFuncionario.ValidarAlteracaoLivroParte2();
+
+            Models.TbLivro atual =  validacao.UltimaParteParaAlterar(novasinformacoes, id);
+
+            Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone AlteradoComSucesso = AlterarModelo.TbLivroparaLivroResponseCompleto(atual);
+            return AlteradoComSucesso;
+            }
+            catch(System.Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErroResponse(ex, 400)
+                );
+            }
+        }
     }
 }

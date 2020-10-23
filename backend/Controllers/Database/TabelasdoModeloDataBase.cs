@@ -19,6 +19,7 @@ namespace backend.Controllers.Database
             Models.TbLivro x = db.TbLivro.FirstOrDefault(x => x.IdLivro == id);
             return x;
         }
+
     
     }
 }
