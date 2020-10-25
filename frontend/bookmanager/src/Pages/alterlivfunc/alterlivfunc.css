@@ -1,0 +1,59 @@
+.marcacaoalterliv{
+    margin: 10px;
+    flex-direction: row;
+    height: 5px;
+    margin-bottom: 10px;
+}
+
+.imputalterar{
+    height: 60vh;
+    width: 20vw;
+    margin: 10px;
+    margin-top: 20px;
+
+    flex-direction: row;
+}
+
+.maralter{
+    margin-top: 20px;
+    flex-direction: row;
+}
+
+.imputalter{
+    margin-top: 20.8px;
+    flex-direction: column;
+    width: 25vw;
+    margin-left: 200px;
+}
+
+.v{
+    height: 89vh;
+    width: 43vw;
+    flex-direction: row;
+    align-items: center;  
+
+    border: 1px solid black;
+    background-color: darkgray;
+}
+
+
+.prialterlivfunc{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+
+    height: 120vh;
+    width: 98.7vw;
+}
+
+.botoesalterliv{
+    flex-direction: column;
+    display: flex;
+    width: 40vw;
+    height: 20vh;
+    background-color: darkgrey;
+
+    align-items: center;
+}

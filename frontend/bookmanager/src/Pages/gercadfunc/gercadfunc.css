@@ -1,0 +1,67 @@
+.marcacao{
+    margin: 10px;
+    flex-direction: row;
+    height: 5px;
+    margin-bottom: 10px;
+}
+
+.imput{
+    height: 60vh;
+    width: 20vw;
+    margin: 10px;
+    margin-top: 20px;
+
+    flex-direction: row;
+}
+
+.titulo{
+    height: 10vh;
+    margin-left: 10px;
+    margin-right: 10px;
+    align-items: center;
+}
+
+.page{
+    margin-top: 20px;
+    flex-direction: row;
+}
+
+.page2{
+    margin-top: 20.8px;
+    flex-direction: column;
+    width: 25vw;
+    margin-left: 200px;
+}
+
+.mainger{
+    height: 89vh;
+    width: 43vw;
+    flex-direction: row;    
+
+    border: 1px solid black;
+    background-color: darkgray;
+}
+
+.prigercad{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+
+    height: 120vh;
+    width: 98.7vw;
+}
+
+.botoes{
+    flex-direction: column;
+    display: flex;
+    width: 40vw;
+    height: 20vh;
+    background-color: darkgrey;
+
+    align-items: center;
+}
+
+
+
