@@ -1,11 +1,9 @@
-<<<<<<< HEAD:frontend/bookmanager/src/Pages/menufuncionario/alterlivfunc/alterlivfunc.js
 import React from 'react'
 import { useState } from 'react';
 import './alterlivfunc.css';
-=======
+
 import React from 'react';
 import './alterlivfunc.css'
->>>>>>> 16b6025b12a06a1bc88a96b0bcb297fe0befaffd:frontend/bookmanager/src/Pages/alterlivfunc/alterlivfunc.js
 
 import { Link } from 'react-router-dom'
 
@@ -206,15 +204,13 @@ function alterlivfunc(props){
 
           <div className="botoes">
 
-<<<<<<< HEAD:frontend/bookmanager/src/Pages/menufuncionario/alterlivfunc/alterlivfunc.js
-            <div className="alterliv">
+         <div className="alterliv">
               <button variant="gray" size="lg" block onClick={atualizarRegistros}>
                 Alterar Livro
               </button>
 
               <div className="bvoltaralterliv">
                 <Link to="/conlivfunc">
-=======
             <div className="cadasfunc">
               <button variant="gray" size="lg" block>
                 Alterar Livro
@@ -222,7 +218,6 @@ function alterlivfunc(props){
 
               <div className="bvoltar">
                 <Link to="/menufuncionario">
->>>>>>> 16b6025b12a06a1bc88a96b0bcb297fe0befaffd:frontend/bookmanager/src/Pages/alterlivfunc/alterlivfunc.js
                  <button variant="gray" size="lg" block>
                    Voltar
                  </button>
@@ -230,10 +225,6 @@ function alterlivfunc(props){
               </div>
 
             </div>
-<<<<<<< HEAD:frontend/bookmanager/src/Pages/menufuncionario/alterlivfunc/alterlivfunc.js
-=======
-
->>>>>>> 16b6025b12a06a1bc88a96b0bcb297fe0befaffd:frontend/bookmanager/src/Pages/alterlivfunc/alterlivfunc.js
           </div>
 
         </div>
