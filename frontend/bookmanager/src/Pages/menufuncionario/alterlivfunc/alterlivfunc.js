@@ -1,6 +1,11 @@
+<<<<<<< HEAD:frontend/bookmanager/src/Pages/menufuncionario/alterlivfunc/alterlivfunc.js
 import React from 'react'
 import { useState } from 'react';
 import './alterlivfunc.css';
+=======
+import React from 'react';
+import './alterlivfunc.css'
+>>>>>>> 16b6025b12a06a1bc88a96b0bcb297fe0befaffd:frontend/bookmanager/src/Pages/alterlivfunc/alterlivfunc.js
 
 import { Link } from 'react-router-dom'
 
@@ -46,59 +51,59 @@ function alterlivfunc(props){
             <h1>Alterar Livro- Bookmananger</h1>
           </div>
 
-          <div className="mainger">
+          <div className="mainalterliv">
 
-          <div className="marcacaoalterliv">
+          <div className="marcacao">
 
-            <div className="maralter">
+            <div className="page">
               <label>Nome do Livro:</label>
             </div>
 
-            <div className="maralter">
+            <div className="page">
               <label>Nome do Autor:</label>
             </div>
 
-            <div className="maralter">
+            <div className="page">
               <label>Número de Série:</label>
             </div>
 
-            <div className="maralter">
+            <div className="page">
               <label>Nome da Editora:</label>
             </div>
             
-            <div className="maralter">
+            <div className="page">
               <label>Número de Páginas:</label>
             </div>
 
-            <div className="maralter">
+            <div className="page">
               <label>Sinopse:</label>
             </div>
 
-            <div className="maralter">
+            <div className="page">
               <label>Data de Publicação:</label>
             </div>
 
-            <div className="maralter">
+            <div className="page">
               <label>Idioma Original:</label>
             </div>
 
-            <div className="maralter">
+            <div className="page">
               <label>Gênero:</label>
             </div>
 
-            <div className="maralter">
+            <div className="page">
               <label>Edição do Livro:</label>
             </div>
 
-            <div className="maralter">
+            <div className="page">
               <label>Preço:</label>
             </div>
 
           </div>
 
-          <div className="imputalterar">
+          <div className="imput">
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="text"
@@ -107,7 +112,7 @@ function alterlivfunc(props){
             />
           </div>
           
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="text"
@@ -116,7 +121,7 @@ function alterlivfunc(props){
             />
           </div>
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="text"
@@ -125,7 +130,7 @@ function alterlivfunc(props){
             />
           </div>
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="number"
@@ -134,7 +139,7 @@ function alterlivfunc(props){
             />
           </div>
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="number"
@@ -143,7 +148,7 @@ function alterlivfunc(props){
             />
           </div>
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="text"
@@ -152,7 +157,7 @@ function alterlivfunc(props){
             />
           </div>
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="text"
@@ -161,7 +166,7 @@ function alterlivfunc(props){
             />
           </div>
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="date"
@@ -170,7 +175,7 @@ function alterlivfunc(props){
             />
           </div>
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="text"
@@ -179,7 +184,7 @@ function alterlivfunc(props){
             />
           </div>
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="text"
@@ -188,7 +193,7 @@ function alterlivfunc(props){
             />
           </div>
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="text"
@@ -199,8 +204,9 @@ function alterlivfunc(props){
 
           </div>
 
-          <div className="botoesalterliv">
+          <div className="botoes">
 
+<<<<<<< HEAD:frontend/bookmanager/src/Pages/menufuncionario/alterlivfunc/alterlivfunc.js
             <div className="alterliv">
               <button variant="gray" size="lg" block onClick={atualizarRegistros}>
                 Alterar Livro
@@ -208,6 +214,15 @@ function alterlivfunc(props){
 
               <div className="bvoltaralterliv">
                 <Link to="/conlivfunc">
+=======
+            <div className="cadasfunc">
+              <button variant="gray" size="lg" block>
+                Alterar Livro
+              </button>
+
+              <div className="bvoltar">
+                <Link to="/menufuncionario">
+>>>>>>> 16b6025b12a06a1bc88a96b0bcb297fe0befaffd:frontend/bookmanager/src/Pages/alterlivfunc/alterlivfunc.js
                  <button variant="gray" size="lg" block>
                    Voltar
                  </button>
@@ -215,9 +230,14 @@ function alterlivfunc(props){
               </div>
 
             </div>
+<<<<<<< HEAD:frontend/bookmanager/src/Pages/menufuncionario/alterlivfunc/alterlivfunc.js
+=======
+
+>>>>>>> 16b6025b12a06a1bc88a96b0bcb297fe0befaffd:frontend/bookmanager/src/Pages/alterlivfunc/alterlivfunc.js
           </div>
 
         </div>
+
         </div>
     )
 } 
