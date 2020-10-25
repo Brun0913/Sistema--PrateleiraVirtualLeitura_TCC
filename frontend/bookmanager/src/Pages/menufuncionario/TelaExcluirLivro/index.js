@@ -25,7 +25,7 @@ export default function ExcluirLivro(props){
                     </div>
 
                     <div className="divisor2">
-                        <h5>você tem certeza que deseja exlcuir o livro chamado(a) Harry Potter?</h5>
+                        <h5>você tem certeza que deseja exlcuir o livro chamado(a) {props.location.state.livro}?</h5>
                     </div>
 
                     <div className="alinhamento">

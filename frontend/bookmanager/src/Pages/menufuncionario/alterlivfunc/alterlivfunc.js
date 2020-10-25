@@ -1,9 +1,44 @@
-import React from 'react';
+import React from 'react'
+import { useState } from 'react';
 import './alterlivfunc.css';
 
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-function alterlivfunc(){
+import api from '../../Services/FuncoesFuncionario'
+
+function alterlivfunc(props){
+
+    const funcoesfuncionario = new api();
+    const [id,setId] = useState(props.location.state.id);
+    const [livro,setLivro] = useState(props.location.state.livro);
+    const [autor,setAutor] = useState(props.location.state.autor);
+    const [genero,setGenero] = useState(props.location.state.genero);
+    const [preco,setPreco] = useState(props.location.state.preco)
+    const [paginas,setPaginas] = useState(props.location.state.paginas);
+    const [idioma,setIdiomaprimario] = useState(props.location.state.idiomaprimario);
+    const [sinopse,setSinopse] = useState(props.location.state.sinopse);
+    const [publicacao,setPublicacao] = useState(props.location.state.publicacao);
+    const [editora,setEditora] = useState(props.location.state.editora);
+    const [numeroserie,setNumeroserie] = useState(props.location.state.numeroserie);
+    const [edicaolivro,setEdicaolivro] = useState(props.location.state.edicaolivro);
+
+    const atualizarRegistros = async() =>{
+      const x = await funcoesfuncionario.AlterarLivro(id, {
+        livro:livro,
+        autor:autor,
+        genero:genero,
+        preco:preco,
+        paginas:paginas,
+        idiomaprimario:idioma,
+        sinopse:sinopse,
+        publicacao:publicacao,
+        editora:editora,
+        numeroserie:numeroserie,
+        edicaolivro:edicaolivro
+      });
+      return x;
+    }
+
     return(
         <div classname="prialterlivfunc">
 
@@ -67,8 +102,8 @@ function alterlivfunc(){
             <input
               id=""
               type="text"
-              //value={}
-              //onChange={}
+              value={livro}
+              onChange={e => setLivro(e.target.value)}
             />
           </div>
           
@@ -76,8 +111,8 @@ function alterlivfunc(){
             <input
               id=""
               type="text"
-              //value={}
-              //onChange={}
+              value={autor}
+              onChange={e => setAutor(e.target.value)}
             />
           </div>
 
@@ -85,8 +120,26 @@ function alterlivfunc(){
             <input
               id=""
               type="text"
-              //value={}
-              //onChange={}
+              value={genero}
+              onChange={e => setGenero(e.target.value)}
+            />
+          </div>
+
+          <div className="imputalter">
+            <input
+              id=""
+              type="number"
+              value={preco}
+              onChange={e => setPreco.Number((e.target.value))}
+            />
+          </div>
+
+          <div className="imputalter">
+            <input
+              id=""
+              type="number"
+              value={paginas}
+              onChange={e => setPaginas(e.target.value)}
             />
           </div>
 
@@ -94,8 +147,8 @@ function alterlivfunc(){
             <input
               id=""
               type="text"
-              //value={}
-              //onChange={}
+              value={idioma}
+              onChange={setIdiomaprimario}
             />
           </div>
 
@@ -103,17 +156,8 @@ function alterlivfunc(){
             <input
               id=""
               type="text"
-              //value={}
-              //onChange={}
-            />
-          </div>
-
-          <div className="imputalter">
-            <input
-              id=""
-              type="text"
-              //value={}
-              //onChange={}
+              value={sinopse}
+              onChange={e => setSinopse(e.target.value)}
             />
           </div>
 
@@ -121,8 +165,8 @@ function alterlivfunc(){
             <input
               id=""
               type="date"
-              //value={}
-              //onChange={}
+              value={publicacao}
+              onChange={e => setPublicacao}
             />
           </div>
 
@@ -130,8 +174,8 @@ function alterlivfunc(){
             <input
               id=""
               type="text"
-              //value={}
-              //onChange={}
+              value={editora}
+              onChange={e => setEditora(e.target.value)}
             />
           </div>
 
@@ -139,8 +183,8 @@ function alterlivfunc(){
             <input
               id=""
               type="text"
-              //value={}
-              //onChange={}
+              value={numeroserie}
+              onChange={e => setNumeroserie(e.target.value)}
             />
           </div>
 
@@ -148,17 +192,8 @@ function alterlivfunc(){
             <input
               id=""
               type="text"
-              //value={}
-              //onChange={}
-            />
-          </div>
-
-          <div className="imputalter">
-            <input
-              id=""
-              type="text"
-              //value={}
-              //onChange={}
+              value={edicaolivro}
+              onChange={e => setEdicaolivro(e.target.value)}
             />
           </div>
 
@@ -167,12 +202,12 @@ function alterlivfunc(){
           <div className="botoesalterliv">
 
             <div className="alterliv">
-              <button variant="gray" size="lg" block>
+              <button variant="gray" size="lg" block onClick={atualizarRegistros}>
                 Alterar Livro
               </button>
 
               <div className="bvoltaralterliv">
-                <Link to="/menufuncionario">
+                <Link to="/conlivfunc">
                  <button variant="gray" size="lg" block>
                    Voltar
                  </button>
@@ -180,20 +215,6 @@ function alterlivfunc(){
               </div>
 
             </div>
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
           </div>
 
         </div>
