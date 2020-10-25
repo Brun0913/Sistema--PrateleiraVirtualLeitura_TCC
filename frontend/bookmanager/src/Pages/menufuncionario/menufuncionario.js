@@ -20,9 +20,11 @@ function menufuncionario(){
                 </div>
 
                 <div className="consultarlivro">
+                  <Link to="/conlivfunc">
                      <button variant="gray" size="lg" block>
                        Consultar Livro
-                     </button> 
+                     </button>
+                  </Link>    
                 </div>
 
                 <div className="bvoltar">

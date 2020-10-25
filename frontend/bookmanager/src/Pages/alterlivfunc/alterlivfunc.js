@@ -1,5 +1,5 @@
 import React from 'react';
-import './alterlivfunc.css';
+import './alterlivfunc.css'
 
 import {Link} from 'react-router-dom'
 
@@ -11,59 +11,59 @@ function alterlivfunc(){
             <h1>Alterar Livro- Bookmananger</h1>
           </div>
 
-          <div className="mainger">
+          <div className="mainalterliv">
 
-          <div className="marcacaoalterliv">
+          <div className="marcacao">
 
-            <div className="maralter">
+            <div className="page">
               <label>Nome do Livro:</label>
             </div>
 
-            <div className="maralter">
+            <div className="page">
               <label>Nome do Autor:</label>
             </div>
 
-            <div className="maralter">
+            <div className="page">
               <label>Número de Série:</label>
             </div>
 
-            <div className="maralter">
+            <div className="page">
               <label>Nome da Editora:</label>
             </div>
             
-            <div className="maralter">
+            <div className="page">
               <label>Número de Páginas:</label>
             </div>
 
-            <div className="maralter">
+            <div className="page">
               <label>Sinopse:</label>
             </div>
 
-            <div className="maralter">
+            <div className="page">
               <label>Data de Publicação:</label>
             </div>
 
-            <div className="maralter">
+            <div className="page">
               <label>Idioma Original:</label>
             </div>
 
-            <div className="maralter">
+            <div className="page">
               <label>Gênero:</label>
             </div>
 
-            <div className="maralter">
+            <div className="page">
               <label>Edição do Livro:</label>
             </div>
 
-            <div className="maralter">
+            <div className="page">
               <label>Preço:</label>
             </div>
 
           </div>
 
-          <div className="imputalterar">
+          <div className="imput">
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="text"
@@ -72,7 +72,7 @@ function alterlivfunc(){
             />
           </div>
           
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="text"
@@ -81,7 +81,7 @@ function alterlivfunc(){
             />
           </div>
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="text"
@@ -90,7 +90,7 @@ function alterlivfunc(){
             />
           </div>
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="text"
@@ -99,7 +99,7 @@ function alterlivfunc(){
             />
           </div>
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="text"
@@ -108,7 +108,7 @@ function alterlivfunc(){
             />
           </div>
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="text"
@@ -117,7 +117,7 @@ function alterlivfunc(){
             />
           </div>
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="date"
@@ -126,7 +126,7 @@ function alterlivfunc(){
             />
           </div>
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="text"
@@ -135,7 +135,7 @@ function alterlivfunc(){
             />
           </div>
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="text"
@@ -144,7 +144,7 @@ function alterlivfunc(){
             />
           </div>
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="text"
@@ -153,7 +153,7 @@ function alterlivfunc(){
             />
           </div>
 
-          <div className="imputalter">
+          <div className="page2">
             <input
               id=""
               type="text"
@@ -164,14 +164,14 @@ function alterlivfunc(){
 
           </div>
 
-          <div className="botoesalterliv">
+          <div className="botoes">
 
-            <div className="alterliv">
+            <div className="cadasfunc">
               <button variant="gray" size="lg" block>
                 Alterar Livro
               </button>
 
-              <div className="bvoltaralterliv">
+              <div className="bvoltar">
                 <Link to="/menufuncionario">
                  <button variant="gray" size="lg" block>
                    Voltar
@@ -181,22 +181,10 @@ function alterlivfunc(){
 
             </div>
 
-            
-
-
-
-
-
-
-
-
-
-
-
-
           </div>
 
         </div>
+
         </div>
     )
 } 
