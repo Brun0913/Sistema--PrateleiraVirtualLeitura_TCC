@@ -1,0 +1,29 @@
+.mae{
+    background-repeat: no-repeat;   
+    background-size: 100% 100%;
+    background-image: linear-gradient(rgb(212, 173, 0), white);
+}
+
+
+.pai{
+    height: 50vh;
+    width: 15vw;
+    margin: 10px;
+    margin-left: 50px;
+    flex-direction: column;
+    display: flex;
+}
+
+.perfi1{
+    height: 10vh;
+    margin-left: 600px;
+    margin-right: 10px;
+}
+
+.voltar{
+    height: 10vh;
+    margin-top: 80px;
+    margin-left: 1100px;
+    margin-right: 10px;
+
+}
