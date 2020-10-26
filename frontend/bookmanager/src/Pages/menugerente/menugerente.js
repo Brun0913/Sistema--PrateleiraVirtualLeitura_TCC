@@ -27,8 +27,8 @@ function menugerente(){
 
                 <div className="gerenfinancas">
                      <button variant="gray" size="lg" block>
-                       Gerenciamento de Finanças
-                     </button>  
+                     <a href="gerenciarfinancas">Gerenciamento de finanças</a>
+                     </button>
                 </div>
 
                 <div className="bvoltar">
