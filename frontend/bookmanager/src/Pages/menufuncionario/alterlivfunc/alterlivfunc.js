@@ -2,14 +2,11 @@ import React from 'react'
 import { useState } from 'react';
 import './alterlivfunc.css';
 
-import React from 'react';
-import './alterlivfunc.css'
-
 import { Link } from 'react-router-dom'
 
 import api from '../../Services/FuncoesFuncionario'
 
-function alterlivfunc(props){
+export default function Alterlivfunc(props){
 
     const funcoesfuncionario = new api();
     const [id,setId] = useState(props.location.state.id);
@@ -97,6 +94,7 @@ function alterlivfunc(props){
               <label>Preço:</label>
             </div>
 
+          </div>
           </div>
 
           <div className="imput">
@@ -202,35 +200,35 @@ function alterlivfunc(props){
 
           </div>
 
-          <div className="botoes">
+            <div className="botoes">
 
-         <div className="alterliv">
-              <button variant="gray" size="lg" block onClick={atualizarRegistros}>
-                Alterar Livro
-              </button>
+                <div className="alterliv">
+                      <button variant="gray" size="lg" block onClick={atualizarRegistros}>
+                        Alterar Livro
+                      </button>
 
-              <div className="bvoltaralterliv">
-                <Link to="/conlivfunc">
-            <div className="cadasfunc">
-              <button variant="gray" size="lg" block>
-                Alterar Livro
-              </button>
+                      <div className="bvoltaralterliv">
+                        <Link to="/conlivfunc">
+                          <div className="cadasfunc">
+                            <button variant="gray" size="lg" block>
+                              Alterar Livro
+                            </button>
+                          </div>
+                        </Link>
+                      </div>
 
-              <div className="bvoltar">
-                <Link to="/menufuncionario">
-                 <button variant="gray" size="lg" block>
-                   Voltar
-                 </button>
-                </Link>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
+                      <div className="bvoltar">
+                        <Link to="/menufuncionario">
+                        <button variant="gray" size="lg" block>
+                          Voltar
+                        </button>
+                        </Link>
+                      </div>
+                  
+                  </div>
+            </div>     
 
         </div>
     )
 } 
 
-export default alterlivfunc;

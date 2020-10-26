@@ -40,7 +40,7 @@ export default function Home(){
             <div className="telainicial">
 
                 <div className="container7">
-                    <div className="titulo" >
+                    <div className="tituloinicial" >
                         <h2>Book Manager: </h2>
                     </div>
                     

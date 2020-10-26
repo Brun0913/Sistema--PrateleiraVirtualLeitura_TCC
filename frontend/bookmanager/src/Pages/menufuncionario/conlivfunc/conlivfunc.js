@@ -7,10 +7,10 @@ import { Search } from "react-bootstrap-icons";
 
 import api from '../../Services/FuncoesFuncionario'
 
-export default function conlivfunc(){
+export default function Conlivfunc(){
 
     const funcoes = new api();
-    const [livros,setLivros] = useState();
+    const [livros,setLivros] = useState([]);
 
     const buscarlivros = async () =>{
         const x = await funcoes.ConsultarLivros();
