@@ -3,7 +3,6 @@ import './menucliente.css';
 import {Link} from 'react-router-dom';
 
 import perfilimage from './perfil-de-usuario.png'
-import iconelivro from './images.png'
 
 
 function menucliente(){

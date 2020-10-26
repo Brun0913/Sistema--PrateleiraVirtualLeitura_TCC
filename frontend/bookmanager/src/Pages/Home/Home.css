@@ -29,6 +29,15 @@
 
     flex-direction: column;
 }
+
 .tituloinicial{
     text-align: center;
+}
+
+.white{
+    background-image: url(https://i.pinimg.com/564x/ff/ca/82/ffca82def668a2a5dc221ddd321b0171.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    justify-content: center;
+    display: flex;
 }

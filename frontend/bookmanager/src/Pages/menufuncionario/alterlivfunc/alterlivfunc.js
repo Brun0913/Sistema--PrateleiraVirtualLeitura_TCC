@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 import api from '../../Services/FuncoesFuncionario'
 
-export default function Alterlivfunc(props){
+export default function AlterarLivroFunc(props){
 
     const funcoesfuncionario = new api();
     const [id,setId] = useState(props.location.state.id);
@@ -26,7 +26,7 @@ export default function Alterlivfunc(props){
       const x = await funcoesfuncionario.AlterarLivro(id, {
         livro:livro,
         autor:autor,
-        genero:genero,
+        genero:genero, 
         preco:preco,
         paginas:paginas,
         idiomaprimario:idioma,
@@ -46,60 +46,59 @@ export default function Alterlivfunc(props){
             <h1>Alterar Livro- Bookmananger</h1>
           </div>
 
-          <div className="mainalterliv">
+          <div className="mainger">
 
-          <div className="marcacao">
+          <div className="marcacaoalterliv">
 
-            <div className="page">
+            <div className="maralter">
               <label>Nome do Livro:</label>
             </div>
 
-            <div className="page">
+            <div className="maralter">
               <label>Nome do Autor:</label>
             </div>
 
-            <div className="page">
+            <div className="maralter">
               <label>Número de Série:</label>
             </div>
 
-            <div className="page">
+            <div className="maralter">
               <label>Nome da Editora:</label>
             </div>
             
-            <div className="page">
+            <div className="maralter">
               <label>Número de Páginas:</label>
             </div>
 
-            <div className="page">
+            <div className="maralter">
               <label>Sinopse:</label>
             </div>
 
-            <div className="page">
+            <div className="maralter">
               <label>Data de Publicação:</label>
             </div>
 
-            <div className="page">
+            <div className="maralter">
               <label>Idioma Original:</label>
             </div>
 
-            <div className="page">
+            <div className="maralter">
               <label>Gênero:</label>
             </div>
 
-            <div className="page">
+            <div className="maralter">
               <label>Edição do Livro:</label>
             </div>
 
-            <div className="page">
+            <div className="maralter">
               <label>Preço:</label>
             </div>
 
           </div>
-          </div>
 
-          <div className="imput">
+          <div className="imputalterar">
 
-          <div className="page2">
+          <div className="imputalter">
             <input
               id=""
               type="text"
@@ -108,7 +107,7 @@ export default function Alterlivfunc(props){
             />
           </div>
           
-          <div className="page2">
+          <div className="imputalter">
             <input
               id=""
               type="text"
@@ -117,7 +116,7 @@ export default function Alterlivfunc(props){
             />
           </div>
 
-          <div className="page2">
+          <div className="imputalter">
             <input
               id=""
               type="text"
@@ -126,7 +125,7 @@ export default function Alterlivfunc(props){
             />
           </div>
 
-          <div className="page2">
+          <div className="imputalter">
             <input
               id=""
               type="number"
@@ -135,7 +134,7 @@ export default function Alterlivfunc(props){
             />
           </div>
 
-          <div className="page2">
+          <div className="imputalter">
             <input
               id=""
               type="number"
@@ -144,7 +143,7 @@ export default function Alterlivfunc(props){
             />
           </div>
 
-          <div className="page2">
+          <div className="imputalter">
             <input
               id=""
               type="text"
@@ -153,7 +152,7 @@ export default function Alterlivfunc(props){
             />
           </div>
 
-          <div className="page2">
+          <div className="imputalter">
             <input
               id=""
               type="text"
@@ -162,7 +161,7 @@ export default function Alterlivfunc(props){
             />
           </div>
 
-          <div className="page2">
+          <div className="imputalter">
             <input
               id=""
               type="date"
@@ -171,7 +170,7 @@ export default function Alterlivfunc(props){
             />
           </div>
 
-          <div className="page2">
+          <div className="imputalter">
             <input
               id=""
               type="text"
@@ -180,7 +179,7 @@ export default function Alterlivfunc(props){
             />
           </div>
 
-          <div className="page2">
+          <div className="imputalter">
             <input
               id=""
               type="text"
@@ -189,7 +188,7 @@ export default function Alterlivfunc(props){
             />
           </div>
 
-          <div className="page2">
+          <div className="imputalter">
             <input
               id=""
               type="text"
@@ -198,36 +197,24 @@ export default function Alterlivfunc(props){
             />
           </div>
 
+          <div className="botoesalterliv">
+            <div className="alterliv">
+              <button variant="gray" size="lg" block onClick={atualizarRegistros}>
+                Alterar Livro
+              </button>
+            </div>
           </div>
+          
+              <div className="bvoltaralterliv">
+                <Link to="/conlivfunc">
+                 <button variant="gray" size="lg" block>
+                   Voltar
+                 </button>
+                </Link>
+              </div>
 
-            <div className="botoes">
-
-                <div className="alterliv">
-                      <button variant="gray" size="lg" block onClick={atualizarRegistros}>
-                        Alterar Livro
-                      </button>
-
-                      <div className="bvoltaralterliv">
-                        <Link to="/conlivfunc">
-                          <div className="cadasfunc">
-                            <button variant="gray" size="lg" block>
-                              Alterar Livro
-                            </button>
-                          </div>
-                        </Link>
-                      </div>
-
-                      <div className="bvoltar">
-                        <Link to="/menufuncionario">
-                        <button variant="gray" size="lg" block>
-                          Voltar
-                        </button>
-                        </Link>
-                      </div>
-                  
-                  </div>
-            </div>     
-
+            </div>
+          </div>
         </div>
     )
 } 

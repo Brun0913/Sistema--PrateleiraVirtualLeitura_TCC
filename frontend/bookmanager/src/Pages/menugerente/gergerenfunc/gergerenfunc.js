@@ -1,10 +1,7 @@
 import React from 'react';
 import './gergerenfunc.css';
 
-import {Link} from 'react-router-dom';
 import { Search } from "react-bootstrap-icons";
-
-
 
 function gergerenfunc(){
     return(

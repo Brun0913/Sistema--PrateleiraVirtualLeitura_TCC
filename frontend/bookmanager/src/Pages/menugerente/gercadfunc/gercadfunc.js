@@ -1,9 +1,7 @@
 import React from 'react'
 import './gercadfunc.css'
 
-import {Link} from 'react-router-dom'
-
-function gercadfunc(){
+function Gercadfunc(){
     return(
         <div className="prigercad">
 
@@ -108,4 +106,4 @@ function gercadfunc(){
     )
 }
 
-export default gercadfunc;
+export default Gercadfunc;

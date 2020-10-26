@@ -35,7 +35,7 @@ export default function Home(){
     }
 
     return (
-        <div className="white">
+        <body className="white">
             
             <div className="telainicial">
 
@@ -62,6 +62,6 @@ export default function Home(){
                 </div>
 
             </div>
-        </div>
+        </body>
     );
 }
