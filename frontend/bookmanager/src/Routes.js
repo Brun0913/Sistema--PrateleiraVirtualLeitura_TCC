@@ -12,7 +12,8 @@ import gercadfunc from './Pages/menugerente/gercadfunc/gercadfunc'
 import gergerenfunc from './Pages/menugerente/gergerenfunc/gergerenfunc'
 import alterlivfunc from './Pages/menufuncionario/alterlivfunc/alterlivfunc'
 import conlivfunc from './Pages/menufuncionario/conlivfunc/conlivfunc'
-
+import GerenciarFinancas from'./Pages/menugerente/GerenciarFinancas/gerenfinancas.js'
+import MeuPerfil from'./Pages/menucliente/MeuPerfil/Perfil'
 
 export default function Routes(){
 
@@ -29,6 +30,8 @@ export default function Routes(){
                 <Route path="/gergerenfunc" component={gergerenfunc} />
                 <Route path="/alterlivfunc" component={alterlivfunc} />
                 <Route path="/conlivfunc" component={conlivfunc} />
+                <Route path="/gerenciarfinancas" component={GerenciarFinancas}/>
+                <Route path="/Perfil" component={MeuPerfil}/>
             </Switch>
         </BrowserRouter>
     )
