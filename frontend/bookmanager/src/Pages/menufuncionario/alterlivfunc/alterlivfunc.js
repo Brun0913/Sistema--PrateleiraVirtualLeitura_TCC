@@ -2,220 +2,102 @@ import React from 'react'
 import { useState } from 'react';
 import './alterlivfunc.css';
 
-import { Link } from 'react-router-dom'
-
 import api from '../../Services/FuncoesFuncionario'
 
 export default function AlterarLivroFunc(props){
 
-    const funcoesfuncionario = new api();
-    const [id,setId] = useState(props.location.state.id);
-    const [livro,setLivro] = useState(props.location.state.livro);
-    const [autor,setAutor] = useState(props.location.state.autor);
-    const [genero,setGenero] = useState(props.location.state.genero);
-    const [preco,setPreco] = useState(props.location.state.preco)
-    const [paginas,setPaginas] = useState(props.location.state.paginas);
-    const [idioma,setIdiomaprimario] = useState(props.location.state.idiomaprimario);
-    const [sinopse,setSinopse] = useState(props.location.state.sinopse);
-    const [publicacao,setPublicacao] = useState(props.location.state.publicacao);
-    const [editora,setEditora] = useState(props.location.state.editora);
-    const [numeroserie,setNumeroserie] = useState(props.location.state.numeroserie);
-    const [edicaolivro,setEdicaolivro] = useState(props.location.state.edicaolivro);
+  const funcoesfuncionario = new api();
+  const id = useState(props.location.state.id);
+  const [livro,setLivro] = useState(props.location.state.livro);
+  const [autor,setAutor] = useState(props.location.state.autor);
+  const [genero,setGenero] = useState(props.location.state.genero);
+  const [preco,setPreco] = useState(props.location.state.preco)
+  const [paginas,setPaginas] = useState(props.location.state.paginas);
+  const [idioma,setIdiomaprimario] = useState(props.location.state.idiomaprimario);
+  const [sinopse,setSinopse] = useState(props.location.state.sinopse);
+  const [publicacao,setPublicacao] = useState(props.location.state.publicacao);
+  const [editora,setEditora] = useState(props.location.state.editora);
+  const [numeroserie,setNumeroserie] = useState(props.location.state.numeroserie);
+  const [edicaolivro,setEdicaolivro] = useState(props.location.state.edicaolivro);
 
-    const atualizarRegistros = async() =>{
-      const x = await funcoesfuncionario.AlterarLivro(id, {
-        livro:livro,
-        autor:autor,
-        genero:genero, 
-        preco:preco,
-        paginas:paginas,
-        idiomaprimario:idioma,
-        sinopse:sinopse,
-        publicacao:publicacao,
-        editora:editora,
-        numeroserie:numeroserie,
-        edicaolivro:edicaolivro
-      });
-      return x;
-    }
+  const atualizarRegistros = async() =>{
+    console.log(props.location.state.id);
+    const x = await funcoesfuncionario.AlterarLivro(id, {
+      livro:livro,
+      autor:autor,
+      genero:genero, 
+      preco:preco,
+      paginas:paginas,
+      idiomaprimario:idioma,
+      sinopse:sinopse,
+      publicacao:publicacao,
+      editora:editora,
+      numeroserie:numeroserie,
+      edicaolivro:edicaolivro
+    });
+    return x;
+  }
 
     return(
-        <div classname="prialterlivfunc">
+      
+    <body className="telaalterar">
+        <div className="manager">
 
-          <div className="titulo">
-            <h1>Alterar Livro- Bookmananger</h1>
-          </div>
+          <h2 className="titulotelaalterar">Alterar Livro: </h2>
 
-          <div className="mainger">
-
-          <div className="marcacaoalterliv">
-
-            <div className="maralter">
-              <label>Nome do Livro:</label>
+          <div className="planilha">
+            <div className="entradas">
+              <label>Livro: </label>
+              <input type="text" value={livro} onChange={e => setLivro(e.target.value)}></input>
             </div>
-
-            <div className="maralter">
-              <label>Nome do Autor:</label>
+            <div className="entradas">
+              <label>Autor: </label>
+              <input type="text" value={autor} onChange={e => setAutor(e.target.value)}></input>
             </div>
-
-            <div className="maralter">
-              <label>Número de Série:</label>
+            <div className="entradas">
+              <label>Genero</label>
+              <input type="text" value={genero} onChange={e => setGenero(e.target.value)}></input>
             </div>
-
-            <div className="maralter">
-              <label>Nome da Editora:</label>
+            <div className="entradas">
+              <label>Preço: </label>
+              <input type="number" value={preco} onChange={e => setPreco(e.target.value)}></input>
             </div>
-            
-            <div className="maralter">
-              <label>Número de Páginas:</label>
+            <div className="entradas">
+              <label>Páginas: </label>
+              <input type="number" value={paginas} onChange={e => setPaginas(e.target.value)}></input>
             </div>
-
-            <div className="maralter">
-              <label>Sinopse:</label>
+            <div className="entradas">
+              <label>Idioma Primário: </label>
+              <input type="text" value={idioma} onChange={e => setIdiomaprimario(e.target.value)}></input>
             </div>
-
-            <div className="maralter">
-              <label>Data de Publicação:</label>
+            <div className="entradas">
+              <label>Sinopse: </label>
+              <textarea value={sinopse} onChange={e => setSinopse(e.target.value)}></textarea>
             </div>
-
-            <div className="maralter">
-              <label>Idioma Original:</label>
+            <div className="entradas">
+              <label>Publicação: </label>
+              <input type="date" value={publicacao} onChange={e => setPublicacao(e.target.value)}></input>
             </div>
-
-            <div className="maralter">
-              <label>Gênero:</label>
+            <div className="entradas">
+              <label>Editora: </label>
+              <input type="text" value={editora} onChange={e => setEditora(e.target.value)}></input>
             </div>
-
-            <div className="maralter">
-              <label>Edição do Livro:</label>
+            <div className="entradas">
+              <label>Numero de Serie: </label>
+              <input type="text" value={numeroserie} onChange={e => setNumeroserie(e.target.value)}></input>
             </div>
-
-            <div className="maralter">
-              <label>Preço:</label>
-            </div>
-
-          </div>
-
-          <div className="imputalterar">
-
-          <div className="imputalter">
-            <input
-              id=""
-              type="text"
-              value={livro}
-              onChange={e => setLivro(e.target.value)}
-            />
-          </div>
-          
-          <div className="imputalter">
-            <input
-              id=""
-              type="text"
-              value={autor}
-              onChange={e => setAutor(e.target.value)}
-            />
-          </div>
-
-          <div className="imputalter">
-            <input
-              id=""
-              type="text"
-              value={genero}
-              onChange={e => setGenero(e.target.value)}
-            />
-          </div>
-
-          <div className="imputalter">
-            <input
-              id=""
-              type="number"
-              value={preco}
-              onChange={e => setPreco.Number((e.target.value))}
-            />
-          </div>
-
-          <div className="imputalter">
-            <input
-              id=""
-              type="number"
-              value={paginas}
-              onChange={e => setPaginas(e.target.value)}
-            />
-          </div>
-
-          <div className="imputalter">
-            <input
-              id=""
-              type="text"
-              value={idioma}
-              onChange={setIdiomaprimario}
-            />
-          </div>
-
-          <div className="imputalter">
-            <input
-              id=""
-              type="text"
-              value={sinopse}
-              onChange={e => setSinopse(e.target.value)}
-            />
-          </div>
-
-          <div className="imputalter">
-            <input
-              id=""
-              type="date"
-              value={publicacao}
-              onChange={e => setPublicacao}
-            />
-          </div>
-
-          <div className="imputalter">
-            <input
-              id=""
-              type="text"
-              value={editora}
-              onChange={e => setEditora(e.target.value)}
-            />
-          </div>
-
-          <div className="imputalter">
-            <input
-              id=""
-              type="text"
-              value={numeroserie}
-              onChange={e => setNumeroserie(e.target.value)}
-            />
-          </div>
-
-          <div className="imputalter">
-            <input
-              id=""
-              type="text"
-              value={edicaolivro}
-              onChange={e => setEdicaolivro(e.target.value)}
-            />
-          </div>
-
-          <div className="botoesalterliv">
-            <div className="alterliv">
-              <button variant="gray" size="lg" block onClick={atualizarRegistros}>
-                Alterar Livro
-              </button>
+            <div className="entradas">
+              <label>Edição do Livro: </label>
+              <input type="text" value={edicaolivro} onChange={e => setEdicaolivro(e.target.value)}></input>
             </div>
           </div>
-          
-              <div className="bvoltaralterliv">
-                <Link to="/conlivfunc">
-                 <button variant="gray" size="lg" block>
-                   Voltar
-                 </button>
-                </Link>
-              </div>
 
-            </div>
+          <div className="botoesalterar">
+            <button className="btn btn-primary" onClick={atualizarRegistros}>Salvar Alterações</button>
+            <a href="/conlivfunc" className="btn btn-dark">Voltar</a>
           </div>
         </div>
+    </body>
     )
 } 
 

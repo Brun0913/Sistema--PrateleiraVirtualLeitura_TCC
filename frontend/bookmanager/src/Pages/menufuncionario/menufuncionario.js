@@ -14,22 +14,18 @@ function menufuncionario(){
                 </div>
 
                 <div className="cadastrarlivro">
-                     <button variant="gray" size="lg" block>
+                     <Link className="btn btn-primary" to="">
                        Cadastrar Livro
-                     </button> 
+                     </Link> 
                 </div>
 
                 <div className="consultarlivro">
-                     <button variant="gray" size="lg" block>
-                       Consultar Livro
-                     </button> 
+                      <Link to="/conlivfunc" className="btn btn-primary">Consultar Livro</Link>
                 </div>
 
                 <div className="bvoltar">
                     <Link to="/">
-                     <button variant="gray" size="lg" block>
-                       Voltar
-                     </button>
+                        Voltar
                      </Link>
                 </div>
 

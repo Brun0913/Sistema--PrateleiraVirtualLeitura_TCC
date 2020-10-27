@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './style.css'
 import {Link} from 'react-router-dom'
 import { ToastContainer, toast} from "react-toastify";
@@ -11,8 +11,10 @@ export default function ExcluirLivro(props){
     const API = new api();
 
     const ConfirmarExcluicao = async () =>{
+        console.log(props.location.state.id);
         const result = await API.DeletarLivro(props.location.state.id);
         toast.info('🚀 Livro Excluído com sucesso!');
+        return result;
     }
 
     return(
@@ -30,7 +32,7 @@ export default function ExcluirLivro(props){
 
                     <div className="alinhamento">
                         <div>
-                            <Link to="*" className="btn btn-dark botao1">Não</Link>
+                            <Link to="/conlivfunc" className="btn btn-dark botao1">Não</Link>
                         </div>
                         <div>
                             <button onClick={ConfirmarExcluicao} className="btn btn-danger botao2">Sim</button>

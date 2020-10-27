@@ -1,40 +1,51 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import {useState} from 'react'
 import './conlivfunc.css';
 import {Link} from 'react-router-dom';
 import { Search } from "react-bootstrap-icons";
+import LoadingBar from 'react-top-loading-bar'
 
 import api from '../../Services/FuncoesFuncionario'
 
 export default function ConsultarLivroFunc(){
-
+    
+    const loadingBar = useRef(null);
     const funcoes = new api();
     const [livros,setLivros] = useState([]);
 
-    const buscarlivros = async () =>{
+    const Buscarlivros = async () =>{
+        loadingBar.current.continuousStart();
         const x = await funcoes.ConsultarLivros();
         setLivros([...x]);
+        loadingBar.current.complete();
     }
+    useEffect(() => {
+        Buscarlivros();
+      }, []);
 
     return(
-        <div className="priconlivfunc">
-
+        <body className="corpo">
+                <LoadingBar
+                color='red'
+                height={5}
+                ref={loadingBar}
+                />
             <div className="titulo">
                 <h1>Consultar Livros</h1>
             </div>
 
             <div className="maingergerenfunc">
-                <h4>Buscar Livros</h4>
+                <h4>Buscar Livros </h4>
 
-                <Search size={16} style={{ cursor: "pointer"}} />
+                <Search size={26} style={{ cursor: "pointer"}} onClick={Buscarlivros} />
             
             </div>
   
             <div className="bvoltargerenfunc">
-               <button variant="gray" size="lg" block>
-                  Voltar
-               </button>
+               <Link to="menufuncionario" className="btn btn-primary">
+                Voltar
+               </Link>
             </div>
 
             <div className="table">
@@ -84,7 +95,7 @@ export default function ConsultarLivroFunc(){
             
             </div>
 
-        </div>
+        </body>
     );
 }
 
