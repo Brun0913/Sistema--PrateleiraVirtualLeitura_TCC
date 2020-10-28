@@ -1,0 +1,76 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    background-size: 100% 100%;
+    margin-bottom: 0%;
+
+}
+
+
+img{
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 250px;
+    width: 200px;
+}
+
+.book{
+    display: flex;
+    flex-direction: row;
+
+}
+.preco{
+    margin-top: 100px;
+    margin-right: 530px;
+}
+
+.sinopse{
+    margin-top: 260px;
+}
+
+.comprar{
+    margin-top: 230px;
+    margin-right: 100px;
+}
+
+.mae{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-size: 100% 100%;
+    background-image: linear-gradient(gray, white);
+}
+.odin{
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.pag{
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.autor{
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.editor{
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.publicacao{
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.serie{
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.genero{
+    margin-top: 30px;
+    margin-left: 50px;
+}
