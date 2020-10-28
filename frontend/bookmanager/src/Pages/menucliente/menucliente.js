@@ -21,6 +21,7 @@ function menucliente(){
                </div>      
           </div>
           
+          
           <div className="historico">
             <button variant="gray" size="lg" block>
               <a href="/HistCompras">Histórico de Compras</a>

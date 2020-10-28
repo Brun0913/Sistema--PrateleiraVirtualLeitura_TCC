@@ -16,6 +16,8 @@ import GerenciarFinancas from'./Pages/menugerente/GerenciarFinancas/gerenfinanca
 import MeuPerfil from'./Pages/menucliente/MeuPerfil/Perfil'
 import HistoricoCompras from'./Pages/menucliente/HistoricoCompras/HistCompras'
 import FazerCompra from'./Pages/menucliente/FazerCompra/fazerCompra'
+import Compra from'./Pages/menucliente/Compra/compra'
+import FinalizarCompra from'./Pages/menucliente/FinalizarCompra/finalizar'
 
 
 export default function Routes(){
@@ -37,6 +39,8 @@ export default function Routes(){
                 <Route path="/Perfil" component={MeuPerfil}/>
                 <Route path="/HistCompras" component={HistoricoCompras}/>
                 <Route path="/fazerCompra" component={FazerCompra}/>
+                <Route path="/Compra" component={Compra}/>
+                <Route path="/finalizar" component={FinalizarCompra}/>
             </Switch>
         </BrowserRouter>
     )
