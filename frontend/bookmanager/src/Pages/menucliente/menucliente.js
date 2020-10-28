@@ -15,7 +15,7 @@ function menucliente(){
           </div>
 
           <div className="perfil">
-                <Link>Meu perfil</Link>
+                <Link to='/Perfil' >Meu perfil</Link>
                <div className="imageper"> 
                 <img src={perfilimage}/>
                </div>      
@@ -23,13 +23,13 @@ function menucliente(){
           
           <div className="historico">
             <button variant="gray" size="lg" block>
-              Histórico de Compras
+              <a href="/HistCompras">Histórico de Compras</a>
             </button>
           </div>
 
           <div className="fazercompra">
             <button variant="gray" size="lg" block>
-             Fazer uma Compra
+             <a href="/fazerCompra"> Fazer uma Compra </a>
             </button>
           </div>
 

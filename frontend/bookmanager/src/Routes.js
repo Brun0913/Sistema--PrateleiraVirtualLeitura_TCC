@@ -14,6 +14,9 @@ import alterlivfunc from './Pages/menufuncionario/alterlivfunc/alterlivfunc'
 import conlivfunc from './Pages/menufuncionario/conlivfunc/conlivfunc'
 import GerenciarFinancas from'./Pages/menugerente/GerenciarFinancas/gerenfinancas.js'
 import MeuPerfil from'./Pages/menucliente/MeuPerfil/Perfil'
+import HistoricoCompras from'./Pages/menucliente/HistoricoCompras/HistCompras'
+import FazerCompra from'./Pages/menucliente/FazerCompra/fazerCompra'
+
 
 export default function Routes(){
 
@@ -32,6 +35,8 @@ export default function Routes(){
                 <Route path="/conlivfunc" component={conlivfunc} />
                 <Route path="/gerenciarfinancas" component={GerenciarFinancas}/>
                 <Route path="/Perfil" component={MeuPerfil}/>
+                <Route path="/HistCompras" component={HistoricoCompras}/>
+                <Route path="/fazerCompra" component={FazerCompra}/>
             </Switch>
         </BrowserRouter>
     )
