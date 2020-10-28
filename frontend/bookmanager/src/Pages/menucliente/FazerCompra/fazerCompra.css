@@ -1,0 +1,35 @@
+.procura{
+    flex-direction: row;
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    margin-left: 100px;
+
+}
+
+.tabelinha{
+    flex-direction: row;
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    margin-left: 420px;
+}
+
+.first{
+    margin: 0%;
+    padding: 0%;
+    height: 100vh;
+    background-repeat: no-repeat;   
+    background-size: 100% 100%;
+    background-image: linear-gradient(rgba(3, 80, 224, 0.856), white);
+}
+
+.voltar{
+    flex-direction: row;
+    align-items: flex-end;
+    margin-left: 1000px;
+}
+
+.titulo{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
