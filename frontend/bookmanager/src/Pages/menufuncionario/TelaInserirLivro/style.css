@@ -1,0 +1,53 @@
+.titulopaginserir{
+    color: royalblue;
+    margin: 10px;
+}
+.containertelainserir{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-image: url(https://i.pinimg.com/564x/a3/10/9a/a3109a6144a0b4d710703f0c96cd679e.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 100vh;
+}
+.formularioinserirlivro{
+    border: 4px solid black;
+    border-radius: 25px;
+    height: auto;
+    width: auto;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    background-color: whitesmoke;
+}
+.entradadedados{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.container2inserirlivro{
+    background-color: burlywood;
+    flex-direction: column;
+    height: auto;
+    width: auto;
+    margin: 20px;
+    border: 2px solid black;
+}
+.container3inserirlivro{
+    background-color: aquamarine;   
+    flex-direction: column;
+    height: auto;
+    width: auto;
+    margin: 20px;
+    border: 2px solid black;
+}
+.eventostelainserir{
+    margin: 17.5px;
+    width: 20vw;
+    justify-content: space-evenly;
+    display: flex;
+}
+.acc{
+    width: 100px;
+}

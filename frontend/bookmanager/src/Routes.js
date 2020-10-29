@@ -12,13 +12,14 @@ import gercadfunc from './Pages/menugerente/gercadfunc/gercadfunc'
 import gergerenfunc from './Pages/menugerente/gergerenfunc/gergerenfunc'
 import alterlivfunc from './Pages/menufuncionario/alterlivfunc/alterlivfunc'
 import conlivfunc from './Pages/menufuncionario/conlivfunc/conlivfunc'
-import GerenciarFinancas from'./Pages/menugerente/GerenciarFinancas/gerenfinancas.js'
+import GerenciarFinancas from'./Pages/menugerente/GerenciarFinancas/gerenfinancas'
 import MeuPerfil from'./Pages/menucliente/MeuPerfil/Perfil'
 import HistoricoCompras from'./Pages/menucliente/HistoricoCompras/HistCompras'
 import FazerCompra from'./Pages/menucliente/FazerCompra/fazerCompra'
 import Compra from'./Pages/menucliente/Compra/compra'
 import FinalizarCompra from'./Pages/menucliente/FinalizarCompra/finalizar'
-
+import ExcluirLivro from './Pages/menufuncionario/TelaExcluirLivro'
+import InserirLivro from './Pages/menufuncionario/TelaInserirLivro/livros'
 
 export default function Routes(){
 
@@ -41,6 +42,8 @@ export default function Routes(){
                 <Route path="/fazerCompra" component={FazerCompra}/>
                 <Route path="/Compra" component={Compra}/>
                 <Route path="/finalizar" component={FinalizarCompra}/>
+                <Route path="/excluirlivro" component={ExcluirLivro}/>
+                <Route path="/inserirlivro" component={InserirLivro}/>
             </Switch>
         </BrowserRouter>
     )
