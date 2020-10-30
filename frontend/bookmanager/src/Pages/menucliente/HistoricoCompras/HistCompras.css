@@ -2,10 +2,18 @@
 .Gaia{
     margin-top: 0%;
     padding: 0%;
-    height: 100vh;
+    height: 20vh;
     background-repeat: no-repeat;   
     background-size: 100% 100%;
     background-image: linear-gradient(orange,purple);
+}
+.tabela{ 
+    margin-top: 0px;
+    padding: 0%;
+    height: 83vh;
+    background-repeat: no-repeat;   
+    background-size: 100% 100%;
+    background-image: linear-gradient(white,white);
 }
 
 .Titulo{

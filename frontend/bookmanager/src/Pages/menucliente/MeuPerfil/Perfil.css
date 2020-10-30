@@ -1,7 +1,19 @@
-.mae{
+.um{
+    margin-top: 0%;
+    padding: 0%;
+    height: 15vh;
     background-repeat: no-repeat;   
     background-size: 100% 100%;
-    background-image: linear-gradient(rgb(212, 173, 0), white);
+    background-image: linear-gradient(orange,purple);
+}
+ 
+.dois{
+    margin-top: 0%;
+    padding: 0%;
+    height: 90vh;
+    background-repeat: no-repeat;   
+    background-size: 100% 100%;
+    background-image: linear-gradient(white,white);
 }
 
 
@@ -9,9 +21,40 @@
     height: 50vh;
     width: 15vw;
     margin: 10px;
-    margin-left: 50px;
+    margin-left: 150px;
     flex-direction: column;
     display: flex;
+}
+.pessoa{
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+.niver{
+    margin-bottom: 40px;
+}
+
+.cpf{
+    margin-bottom: 40px;
+}
+
+.rg{
+    margin-bottom: 40px;
+}
+
+.cartao{
+    margin-bottom: 40px;
+}
+
+.CDC{
+    margin-bottom: 40px;
+}
+
+.vencimento{
+    margin-bottom: 40px;
+}
+
+.rua{
+    margin-bottom: 40px;
 }
 
 .perfi1{

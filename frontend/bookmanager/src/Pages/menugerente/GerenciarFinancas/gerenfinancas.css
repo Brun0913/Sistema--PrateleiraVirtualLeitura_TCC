@@ -1,25 +1,33 @@
 .financas{
-    background-attachment: scroll;
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRPSju2xFlQ-aLT-RY8S61LItvl0hjPrbX-zQ&usqp=CAU);
-    background-repeat: no-repeat;
-    background-image: linear-gradient(rgb(2, 146, 110), white);
-    text-align: center;
+    margin-top: 0%;
+    padding: 0%;
+    height: 20vh;
+    background-repeat: no-repeat;   
+    background-size: 100% 100%;
+    background-image: linear-gradient(orange,purple);
 }
-
+.irmao{
+    margin-top: 0px;
+    padding: 0%;
+    height: 80vh;
+    background-repeat: no-repeat;   
+    background-size: 100% 100%;
+    background-image: linear-gradient(white,white);
+}
 .gerenciamento{
     flex-direction: column;
     display: flex;
     text-align: center;
     flex-direction: column;
     display: flex;
-    margin-bottom: 23px;
+    margin-bottom: 20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .Lucro{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     left: 100px;
-    margin-top: 150px;
+    margin-top: 87px;
     margin-left: 75px;
     text-align: left;
     margin-bottom: 50px;
@@ -39,4 +47,9 @@
     margin-left: 75px;
     text-align: left;
     margin-bottom: 50px;
+}
+.voltar{
+    margin: 1px;
+    padding: 0%;
+    margin-left: 80%;
 }
