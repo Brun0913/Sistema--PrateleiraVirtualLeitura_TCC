@@ -12,7 +12,6 @@ function menucliente(props){
         
           <div className="titulo">
               <h1>Menu do Cliente</h1>
-              {props.location.state.email}
           </div>
 
           <div className="perfil">
