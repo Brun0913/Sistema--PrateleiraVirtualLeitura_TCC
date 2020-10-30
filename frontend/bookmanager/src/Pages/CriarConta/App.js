@@ -41,6 +41,7 @@ export default function CriarConta(){
                 senha:senha
             }
         });
+        toast.success("🚀 Conta Criada com sucesso");
         }
         catch(ex)
         {
