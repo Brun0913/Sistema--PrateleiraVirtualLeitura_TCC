@@ -11,7 +11,6 @@ function menufuncionario(props){
 
                 <div className="titulofuncionario">
                     <h1>Menu do Funcionário</h1>
-                    {props.location.state.email}
                 </div>
 
                 <div className="cadastrarlivro">
