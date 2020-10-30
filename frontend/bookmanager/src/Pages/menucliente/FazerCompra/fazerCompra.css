@@ -1,35 +1,67 @@
-.procura{
-    flex-direction: row;
-    display: flex;
-    margin: 10px;
-    align-items: center;
-    margin-left: 100px;
-
-}
-
-.tabelinha{
-    flex-direction: row;
-    display: flex;
-    margin: 10px;
-    align-items: center;
-    margin-left: 420px;
-}
-
 .first{
-    margin: 0%;
-    padding: 0%;
     height: 100vh;
-    background-repeat: no-repeat;   
-    background-size: 100% 100%;
-    background-image: linear-gradient(rgba(3, 80, 224, 0.856), white);
-}
-
-.voltar{
+    width: 100vw;
     flex-direction: row;
-    align-items: flex-end;
-    margin-left: 1000px;
+    display: flex;
 }
 
-.titulo{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.subcontainer{
+    height: 100vh;
+    width: 30vw;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(orange,purple);
+    background-attachment: fixed;
+}
+
+.subcontainer2{
+    height: 100vh;
+    width: 70vw;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(orange,purple);
+}
+
+#titulo{
+    margin: 20px;
+}
+
+#posicaotabela{
+    height: auto;
+    width: auto;
+}
+
+#tabela{
+    margin: 20px;
+}
+
+#botao{
+    margin: 20px;
+}
+
+#imagem{
+    height: 50vh;
+    width: 29vw;
+    padding-left: 20px;
+}
+
+#imagem{
+    height: 50vh;
+    width: 20vw;
+    margin: 50px;
+}
+
+#acao{
+    margin: 30px;
+}
+
+#colunas{
+    background-color: orange;
+}
+#registros{
+    background-color: black;
+}
+#cor{
+    color: white;
 }
