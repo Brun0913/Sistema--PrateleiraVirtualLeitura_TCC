@@ -25,13 +25,24 @@ export default function Home(){
         });
         
         if (x.perfil === "cliente")
-            history.push('/menucliente');
+            history.push({
+                pathname:"/menucliente",
+                state:x
+            });
 
         else if(x.perfil === "funcionario")
-            history.push("/menufuncionario");
+            history.push({
+                pathname:"/menufuncionario",
+                state:x
+            });
         
         else if(x.perfil === "gerente")
-            history.push("menugerente");
+            history.push(
+                {
+                    pathname:"/menugerente",
+                    state:x
+                }
+            );
         }
         catch(ex)
         {

@@ -3,7 +3,7 @@ import './menugerente.css';
 
 import { Link } from "react-router-dom";
 
-function menugerente(){
+function menugerente(props){
     return(
       <div className="prigerente">
           <div className="maingerente">
@@ -11,31 +11,28 @@ function menugerente(){
 
                 <div className="titulogerente">
                     <h1>Menu Gerente</h1>
+                    {props.location.state.email}
                 </div>
 
                 <div className="addfuncionario">
-                     <button variant="gray" size="lg" block>
+                     <a href="/gercadfunc" variant="gray" size="lg" block>
                        Adicionar Funcionário
-                     </button> 
+                     </a> 
                 </div>
 
                 <div className="gerenfuncionario">
-                     <button variant="gray" size="lg" block>
+                     <a href="/gergerenfunc" variant="gray" size="lg" block>
                        Gerenciamento de Funcionário
-                     </button>
+                     </a>
                 </div>
 
                 <div className="gerenfinancas">
-                     <button variant="gray" size="lg" block>
                      <a href="gerenciarfinancas">Gerenciamento de finanças</a>
-                     </button>
                 </div>
 
                 <div className="bvoltar">
                     <Link to="/">
-                     <button variant="gray" size="lg" block>
-                       Voltar
-                     </button> 
+                        Voltar
                     </Link>
                 </div>
 

@@ -3,7 +3,7 @@ import './menufuncionario.css';
 
 import { Link } from "react-router-dom";
 
-function menufuncionario(){
+function menufuncionario(props){
     return(
         <div className="prifuncionario">
             <div className="mainfuncionario">
@@ -11,10 +11,11 @@ function menufuncionario(){
 
                 <div className="titulofuncionario">
                     <h1>Menu do Funcionário</h1>
+                    {props.location.state.email}
                 </div>
 
                 <div className="cadastrarlivro">
-                     <Link className="btn btn-primary" to="">
+                     <Link className="btn btn-primary" to="/inserirlivro">
                        Cadastrar Livro
                      </Link> 
                 </div>

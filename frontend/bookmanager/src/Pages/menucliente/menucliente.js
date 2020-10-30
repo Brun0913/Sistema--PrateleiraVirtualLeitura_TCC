@@ -5,13 +5,14 @@ import {Link} from 'react-router-dom';
 import perfilimage from './perfil-de-usuario.png'
 
 
-function menucliente(){
+function menucliente(props){
     return(
     <div className="primaria">
       <div className="main">
         
           <div className="titulo">
               <h1>Menu do Cliente</h1>
+              {props.location.state.email}
           </div>
 
           <div className="perfil">
