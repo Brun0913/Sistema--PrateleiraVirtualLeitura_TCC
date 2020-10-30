@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import perfilimage from './perfil-de-usuario.png'
 
 
-function menucliente(){
+function menucliente(props){
     return(
     <div className="primaria">
       <div className="main">

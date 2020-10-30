@@ -1,37 +1,56 @@
 import React from 'react'
 import { useState } from 'react';
 import './Home.css'
-import {Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
 import Services from '../Services/SistemaPrateleira'
+
+import { ToastContainer, toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home(){
 
     const api = new Services();
+    const history = useHistory();
 
     const [email,setEmail] = useState('');
     const [senha,setSenha] = useState('');
-    const [menu,setMenu] = useState('');
-    const [perfil,setPerfil] = useState('');
 
     const Logar = async() => {
 
+        try{
         const x = await api.Logar({
             email:email,
             senha:senha
         });
-        setPerfil(x.perfil)
-
-        if (perfil === "cliente")
-            setMenu("/menucliente")
-
-        else if(perfil === "funcionario")
-            setMenu("/menufuncionario")
         
-        else if(perfil === "gerente")
-            setMenu("/menugerente")
+        if (x.perfil === "cliente")
+            history.push({
+                pathname:"/menucliente",
+                state:x
+            });
 
-        return menu;
+        else if(x.perfil === "funcionario")
+            history.push({
+                pathname:"/menufuncionario",
+                state:x
+            });
+        
+        else if(x.perfil === "gerente")
+            history.push(
+                {
+                    pathname:"/menugerente",
+                    state:x
+                }
+            );
+        }
+        catch(ex)
+        {
+            if(ex.response.data.codigo)
+            toast.dark("😵 " + ex.response.data.motivo);
+            else
+            toast.error("😔 Tente Novamente mais tarde")
+        }
     }
 
     return (
@@ -47,6 +66,7 @@ export default function Home(){
                     <div className="input" >
                         <label>Email: </label>
                         <input type="text" onChange={(e) => setEmail(e.target.value)} required></input>
+
                     </div>
 
                     <div className="input2">
@@ -54,7 +74,9 @@ export default function Home(){
                         <input type="password" onChange={(e) => setSenha(e.target.value)} required></input>
                     </div>
 
-                    <Link onClick={Logar} to={menu} className="btn btn-outline-success acao">Logar</Link> 
+                    <div className="acao">
+                        <button onClick={Logar} className="btn btn-outline-success">Logar</button>
+                    </div>
 
                     <div className="acao2">
                         <a href="/criarconta" className="btn btn-dark" >Criar conta</a>
@@ -62,6 +84,7 @@ export default function Home(){
                 </div>
 
             </div>
+            <ToastContainer />
         </body>
     );
 }
