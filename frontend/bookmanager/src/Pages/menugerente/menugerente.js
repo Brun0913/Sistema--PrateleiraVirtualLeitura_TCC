@@ -11,7 +11,6 @@ function menugerente(props){
 
                 <div className="titulogerente">
                     <h1>Menu Gerente</h1>
-                    {props.location.state.email}
                 </div>
 
                 <div className="addfuncionario">
