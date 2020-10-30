@@ -23,6 +23,7 @@ export default function CriarConta(){
     const [endereco,setEndereco] = useState('');
     
     const CriarConta = async() =>{
+        try{
         const retorno = await API.CriarConta({
             InformacoesCliente:{
                 nome:nome,
@@ -40,8 +41,15 @@ export default function CriarConta(){
                 senha:senha
             }
         });
-        toast.success('Criado com sucesso');
-        return retorno;
+        }
+        catch(ex)
+        {
+            if(ex.response.data.motivo)
+            toast.dark("😵 " + ex.response.data.motivo);
+            else
+            toast.error("😔 Tente Novamente");
+        }
+
     }
 
 
