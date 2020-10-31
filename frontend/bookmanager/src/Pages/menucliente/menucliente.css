@@ -1,60 +1,87 @@
-.main{
+#body{
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    background-color: whitesmoke;
+}
+
+#main{
     flex-direction: column;
     display: flex;
-    height: 95vh;
-    width: 43vw;
+    height: 100vh;
+}
+
+#container{
+    width: auto;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    display: flex;
+}
+
+#subcontainer1{
+    height: 70vh;
+    width: 30vw;
+    border-right: 1px solid black;
+    margin: 10px;
+}
+
+#subcontainer2{
+    height: 70vh;
+    width: 30vw;
+    margin: 10px;    
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(orange,purple);
+}
+#subcontainer3{
+    height: 70vh;
+    width: 30vw;
+    border-left: 1px solid black;
+    margin: 10px;
+    justify-content: flex-end;
+    display: flex;
+}
+
+#titulo{
+    width: auto;
+    flex-direction: row;
+    background-color: orange;
     text-align: center;
+}
+#acoes{
     flex-direction: column;
+    justify-content: center;
     display: flex;
-    margin-left: 350px;
-    margin-bottom: 23px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.titulo{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    left: 100px;
-    text-align: center;
-    margin-bottom: 30px;
-}
 
-.perfil{
-    margin-bottom: 100px;
-    margin-left: 500px;
-    flex-direction: column;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+#acao{
+    width: 150px;
+    margin: 10px;
 }
-
-.historico{
-    flex-direction: column;
-    display: flex;
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.fazercompra{
-    flex-direction: column;
-    display: flex;
-    text-align: center;
-    margin-bottom: 100px;
-}
-
-.voltar{
-    flex-direction: column;
-    display: flex;
-    margin-left: 500px;
-    margin-bottom: 100px;
-}
-
-.primaria{
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-image: linear-gradient(gray, white);
-}
-
-img{
-    width: 50px;
+#img{
     height: 50px;
-    margin-left: 10px;
+    width: 50px;
 }
 
+#titulo2{
+    margin: 10px;
+}
+
+#rodape{
+    background-color: purple;
+    margin-top: 20px;
+    height: 20vh;
+    text-align: center;
+    justify-content: center;
+}
+#color{
+    color: white;
+}
+.campoimg{
+    height: 50px;
+    width: 50px;
+    margin: 20px;
+}

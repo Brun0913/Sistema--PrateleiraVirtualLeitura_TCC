@@ -3,43 +3,46 @@ import './menugerente.css';
 
 import { Link } from "react-router-dom";
 
-function menugerente(props){
+function MenuGerente(props){
+
     return(
-      <div className="prigerente">
+      <body>
+        <div className="prigerente">
+
           <div className="maingerente">
-                <h1>Olá seja bem-vindo gerente</h1>
-
-                <div className="titulogerente">
-                    <h1>Menu Gerente</h1>
-                    {props.location.state.email}
-                </div>
-
-                <div className="addfuncionario">
-                     <a href="/gercadfunc" variant="gray" size="lg" block>
-                       Adicionar Funcionário
-                     </a> 
-                </div>
-
-                <div className="gerenfuncionario">
-                     <a href="/gergerenfunc" variant="gray" size="lg" block>
-                       Gerenciamento de Funcionário
-                     </a>
-                </div>
-
-                <div className="gerenfinancas">
-                     <a href="gerenciarfinancas">Gerenciamento de finanças</a>
-                </div>
-
-                <div className="bvoltar">
-                    <Link to="/">
-                        Voltar
-                    </Link>
-                </div>
-
+            <div id="secgerente">
+                <h1>Olá seja bem-vindo</h1>
+            </div>
           </div>
+              
+              <div id="grandecontainer">
+                <div id="container1"></div>
 
-    </div>
+                <div id="container2">
+                  <div id="sub-container2">
+                    <div id="gerenciarfinancas">
+                      <a href="/gerenciarfinancas" className="btn btn-light" id="sub-botao">Gerenciar Finanças</a>
+                    </div>
+                    <div id="cadastrarfuncionario">
+                      <a href="/gercadfunc" className="btn btn-light" id="sub-botao">Cadastrar Funcionario</a>
+                    </div>
+                    <div id="gerenciarfuncionarios">
+                      <a href="/gergerenfunc" className="btn btn-light" id="sub-botao">Lista de Funcionario</a>
+                    </div>
+                    <div id="voltar">
+                      <a href="/" className="btn btn-secondary" id="sub-botao">Sair</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="container3"></div>
+              </div>
+          <div id="thirdgerente">
+            <h2>Direitos do site reservados @Copyright</h2>
+          </div>
+        </div>
+      </body>
     )
 }
 
-export default menugerente;
+export default MenuGerente;
