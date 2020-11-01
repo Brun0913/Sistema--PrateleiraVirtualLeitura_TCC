@@ -15,6 +15,11 @@ export default class FuncoesCliente{
         return x.data;
     }
     async FazerCompra(idlivro,idcliente){
-        const x = api.post("fazercompra/"+ idlivro + "/" + "idcliente")
+        const x = api.post("fazercompra/"+ idlivro + "/" + idcliente);
+        return x.data;
+    }
+    async Perfil(id){
+        const x = await api.get("perfil/" + id);
+        return x.data
     }
 }
