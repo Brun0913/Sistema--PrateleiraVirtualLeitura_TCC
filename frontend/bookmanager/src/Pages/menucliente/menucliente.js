@@ -5,15 +5,7 @@ import {Link} from 'react-router-dom';
 import perfilimage from './perfil-de-usuario.png'
 
 
-<<<<<<< HEAD
 function MenuCliente(props){
-    
-      return(
-    
-      <body id="body">
-        <div id="main">
-=======
-function menucliente(props){
     return(
     <div className="primaria">
       <div className="main">
@@ -21,7 +13,6 @@ function menucliente(props){
           <div className="titulo">
               <h1>Menu do Cliente</h1>
           </div>
->>>>>>> b04afbb6c826192a7379cf0ecdf24ee8d17f1ddf
 
           <div id="titulo">
               <h2 id="color">Menu Cliente:</h2>
@@ -59,8 +50,4 @@ function menucliente(props){
     )
 }
 
-<<<<<<< HEAD
 export default MenuCliente;
-=======
-export default menucliente;
->>>>>>> b04afbb6c826192a7379cf0ecdf24ee8d17f1ddf
