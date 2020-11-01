@@ -26,7 +26,7 @@ namespace backend.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                    optionsBuilder.UseMySql("server=localhost;user id=admin@%;password=Space_2020;database=Tcc", x => x.ServerVersion("8.0.18-mysql"));
+                optionsBuilder.UseMySql("server=localhost;user id=root;password=K5752043;database=Tcc", x => x.ServerVersion("8.0.21-mysql"));
             }
         }
 
@@ -77,10 +77,6 @@ namespace backend.Models
 
                 entity.HasIndex(e => e.IdCliente)
                     .HasName("id_cliente");
-
-                entity.Property(e => e.TpPagamento)
-                    .HasCharSet("utf8mb4")
-                    .HasCollation("utf8mb4_0900_ai_ci");
 
                 entity.HasOne(d => d.IdClienteNavigation)
                     .WithMany(p => p.TbCompra)

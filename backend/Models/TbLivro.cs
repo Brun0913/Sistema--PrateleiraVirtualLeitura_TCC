@@ -14,7 +14,7 @@ namespace backend.Models
         }
 
         [Key]
-        [Column("id_livro", TypeName = "int(11)")]
+        [Column("id_livro")]
         public int IdLivro { get; set; }
         [Column("nm_livro", TypeName = "varchar(50)")]
         public string NmLivro { get; set; }
@@ -24,7 +24,7 @@ namespace backend.Models
         public string NrSerie { get; set; }
         [Column("nm_editora", TypeName = "varchar(50)")]
         public string NmEditora { get; set; }
-        [Column("nr_paginas", TypeName = "int(11)")]
+        [Column("nr_paginas")]
         public int? NrPaginas { get; set; }
         [Column("ds_sinopse", TypeName = "varchar(300)")]
         public string DsSinopse { get; set; }

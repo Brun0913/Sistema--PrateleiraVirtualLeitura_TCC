@@ -9,7 +9,7 @@ namespace backend.Models
     public partial class TbEmpregado
     {
         [Key]
-        [Column("id_empregado", TypeName = "int(11)")]
+        [Column("id_empregado")]
         public int IdEmpregado { get; set; }
         [Column("nm_empregado", TypeName = "varchar(100)")]
         public string NmEmpregado { get; set; }
@@ -29,7 +29,7 @@ namespace backend.Models
         public string DsCargaHorariaSemanal { get; set; }
         [Column("vl_salario", TypeName = "decimal(15,2)")]
         public decimal? VlSalario { get; set; }
-        [Column("id_login", TypeName = "int(11)")]
+        [Column("id_login")]
         public int? IdLogin { get; set; }
 
         [ForeignKey(nameof(IdLogin))]

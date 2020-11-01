@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace backend
 {
@@ -26,7 +27,8 @@ namespace backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers().AddNewtonsoftJson();
+            services.AddControllers().AddNewtonsoftJson( x=> { x.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore; });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

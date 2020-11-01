@@ -14,7 +14,7 @@ namespace backend.Models
         }
 
         [Key]
-        [Column("id_cliente", TypeName = "int(11)")]
+        [Column("id_cliente")]
         public int IdCliente { get; set; }
         [Column("nm_cliente", TypeName = "varchar(100)")]
         public string NmCliente { get; set; }
@@ -26,7 +26,7 @@ namespace backend.Models
         public string DsRg { get; set; }
         [Column("ds_cartao_credito", TypeName = "varchar(100)")]
         public string DsCartaoCredito { get; set; }
-        [Column("nr_codigo_seguranca", TypeName = "int(11)")]
+        [Column("nr_codigo_seguranca")]
         public int? NrCodigoSeguranca { get; set; }
         [Column("dt_vencimento_cartao", TypeName = "datetime")]
         public DateTime? DtVencimentoCartao { get; set; }
@@ -34,7 +34,7 @@ namespace backend.Models
         public string DsEndereco { get; set; }
         [Column("ds_telefone", TypeName = "varchar(50)")]
         public string DsTelefone { get; set; }
-        [Column("id_login", TypeName = "int(11)")]
+        [Column("id_login")]
         public int? IdLogin { get; set; }
 
         [ForeignKey(nameof(IdLogin))]

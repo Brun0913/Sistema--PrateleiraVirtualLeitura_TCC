@@ -9,11 +9,11 @@ namespace backend.Models
     public partial class TbCompraLivro
     {
         [Key]
-        [Column("id_compra_livro", TypeName = "int(11)")]
+        [Column("id_compra_livro")]
         public int IdCompraLivro { get; set; }
-        [Column("id_livro", TypeName = "int(11)")]
+        [Column("id_livro")]
         public int? IdLivro { get; set; }
-        [Column("id_compra", TypeName = "int(11)")]
+        [Column("id_compra")]
         public int? IdCompra { get; set; }
 
         [ForeignKey(nameof(IdCompra))]
