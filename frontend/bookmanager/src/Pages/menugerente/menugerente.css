@@ -1,49 +1,83 @@
 .maingerente{
-    flex-direction: column;
-    display: flex;
-    height: 95vh;
-    width: 43vw;
+    background-color:orange;
+    width: 100vw;
     text-align: center;
-    flex-direction: column;
-    display: flex;
-    margin-left: 350px;
-    margin-bottom: 23px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.titulogerente{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    left: 100px;
-    text-align: center;
-    margin-bottom: 130px;
 }
 
 .addfuncionario{
-    align-items: center;
-    flex-direction: row;
-    margin-left: 50px;
-    margin-bottom: 20px;
+    height: 40vh;
+    width: 20vw;
+    background-color: aqua;
 }
 
 .gerenfuncionario{
-    align-items: center;
-    flex-direction: row;
-    margin-left: 50px;
-    margin-bottom: 30px;
+    height: 40vh;
+    width: 20vw;
+    background-color: aqua;
+
 }
 
 .gerenfinancas{
-    align-items: center;
-    flex-direction: row;
-    margin-left: 50px;
-    margin-bottom: 50px;
+    height: 40vh;
+    width: 20vw;
 }
 
 .prigerente{
-    background-attachment: scroll;
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRPSju2xFlQ-aLT-RY8S61LItvl0hjPrbX-zQ&usqp=CAU);
-    background-repeat: no-repeat;
-    background-image: linear-gradient(gray, white);
-    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
 }
 
+#grandecontainer{
+    flex-direction: row;
+    justify-content: space-around;
+    display: flex;
+    height: 80vh;
+    margin: 20px;
+}
+
+#container2{
+    align-items: center;
+    display: flex;
+    height: 70vh;
+    width: 30vw;
+    justify-content: center;
+    margin: 10px;
+    background-image: linear-gradient(orange,purple);
+}
+#container1{
+    margin: 10px;
+    height: 70vh;
+    width: 30vw;
+    border-right: 1px solid darkgray;
+}
+#container3{
+    margin: 10px;
+    height: 70vh;
+    width: 30vw;
+    border-left: 1px solid darkgray;
+}
+
+#sub-container2{
+    height: auto;
+    flex-direction: column;
+    width: auto;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+#sub-botao{
+    margin: 10px;
+    width: 150px;
+}
+#thirdgerente{
+    width: 100vw;
+    height: 10vh;
+    background-color: purple;
+    margin-top: 10px;
+    text-align: center;
+}
+h1,h2{
+    color: whitesmoke;
+}
