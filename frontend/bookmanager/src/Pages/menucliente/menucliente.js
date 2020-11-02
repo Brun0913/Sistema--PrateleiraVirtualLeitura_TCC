@@ -4,6 +4,10 @@ import {Link} from 'react-router-dom';
 
 import perfilimage from './perfil-de-usuario.png'
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 340c7261cef78154604c5b35e4b714563d509949
 function MenuCliente(props){
     return(
     <div className="primaria">
@@ -57,5 +61,8 @@ function MenuCliente(props){
 }
 
 export default MenuCliente;
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 340c7261cef78154604c5b35e4b714563d509949
