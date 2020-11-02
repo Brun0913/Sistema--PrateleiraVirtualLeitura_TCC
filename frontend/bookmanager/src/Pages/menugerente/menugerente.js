@@ -4,10 +4,7 @@ import './menugerente.css';
 import { Link } from "react-router-dom";
 
 function MenuGerente(props){
-<<<<<<< HEAD
-=======
 
->>>>>>> 340c7261cef78154604c5b35e4b714563d509949
     return(
       <body>
         <div className="prigerente">
@@ -48,10 +45,4 @@ function MenuGerente(props){
     )
 }
 
-<<<<<<< HEAD
-
 export default MenuGerente;
-
-=======
-export default MenuGerente;
->>>>>>> 340c7261cef78154604c5b35e4b714563d509949
