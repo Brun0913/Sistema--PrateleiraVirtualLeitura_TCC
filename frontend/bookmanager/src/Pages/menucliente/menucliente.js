@@ -4,16 +4,7 @@ import {Link} from 'react-router-dom';
 
 import perfilimage from './perfil-de-usuario.png'
 
-
-<<<<<<< HEAD
 function MenuCliente(props){
-    
-      return(
-    
-      <body id="body">
-        <div id="main">
-=======
-function menucliente(props){
     return(
     <div className="primaria">
       <div className="main">
@@ -21,7 +12,6 @@ function menucliente(props){
           <div className="titulo">
               <h1>Menu do Cliente</h1>
           </div>
->>>>>>> b04afbb6c826192a7379cf0ecdf24ee8d17f1ddf
 
           <div id="titulo">
               <h2 id="color">Menu Cliente:</h2>
@@ -32,12 +22,19 @@ function menucliente(props){
             <div id="subcontainer2">
               
               <div id="acoes">
+
+              <Link to='/FazerCompra'>
                 <div>
                   <a href="" className="btn btn-light" id="acao">Fazer Compra</a>
                 </div>
+              </Link> 
+
+              <Link to='/HistCompras'> 
                 <div>
-                  <a href="" className="btn btn-light" id="acao">Consultar Livros</a>
+                  <a href="" className="btn btn-light" id="acao">Histórico de Compra</a>
                 </div>
+              </Link>
+
                 <div>
                 <a href="/" className="btn btn-secondary" id="acao">Sair</a>
                 </div>
@@ -55,12 +52,10 @@ function menucliente(props){
             <h3 id="color">Direitos do site reservados</h3>
           </div>
         </div>
-      </body>
+      </div>
     )
 }
 
-<<<<<<< HEAD
 export default MenuCliente;
-=======
-export default menucliente;
->>>>>>> b04afbb6c826192a7379cf0ecdf24ee8d17f1ddf
+
+

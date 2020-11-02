@@ -15,7 +15,7 @@ import conlivfunc from './Pages/menufuncionario/conlivfunc/conlivfunc'
 import GerenciarFinancas from'./Pages/menugerente/GerenciarFinancas/gerenfinancas'
 import MeuPerfil from'./Pages/menucliente/MeuPerfil/Perfil'
 import HistoricoCompras from'./Pages/menucliente/HistoricoCompras/HistCompras'
-import FazerCompra from'./Pages/menucliente/FazerCompra/fazerCompra'
+import FazerCompra from './Pages/menucliente/FazerCompra/fazerCompra'
 import Compra from'./Pages/menucliente/Compra/compra'
 import FinalizarCompra from'./Pages/menucliente/FinalizarCompra/finalizar'
 import ExcluirLivro from './Pages/menufuncionario/TelaExcluirLivro'
@@ -39,7 +39,7 @@ export default function Routes(){
                 <Route path="/gerenciarfinancas" component={GerenciarFinancas}/>
                 <Route path="/Perfil" component={MeuPerfil}/>
                 <Route path="/HistCompras" component={HistoricoCompras}/>
-                <Route path="/fazerCompra" component={FazerCompra}/>
+                <Route path="/FazerCompra" component={FazerCompra} />
                 <Route path="/Compra" component={Compra}/>
                 <Route path="/finalizar" component={FinalizarCompra}/>
                 <Route path="/excluirlivro" component={ExcluirLivro}/>

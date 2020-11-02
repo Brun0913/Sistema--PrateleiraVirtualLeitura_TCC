@@ -1,4 +1,5 @@
 import Axios from 'axios'
+import { Zoom } from 'react-toastify';
 
 const api = Axios.create({
     BaseUrl:"http://localhost:5000/Funcoescliente/"
@@ -15,6 +16,7 @@ export default class FuncoesCliente{
         return x.data;
     }
     async FazerCompra(idlivro,idcliente){
-        const x = api.post("fazercompra/"+ idlivro + "/" + "idcliente")
+        const x = api.post("fazercompra/"+ idlivro + "/" + idcliente)
+        return x.data;
     }
 }

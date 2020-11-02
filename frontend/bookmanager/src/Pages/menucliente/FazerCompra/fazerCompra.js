@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import './fazerCompra.css'
 
 import { Search } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
+import LoadingBar from 'react-top-loading-bar';
 
-function fazerCompras(){
+import api from '../../Services/FuncoesCliente';
+
+function FazerCompras(){
+
+  const funcoes = new api();
+  const[lista,setLista] = useState([]);
+
+  const consultarlivros = async() =>{
+    const x = await funcoes.ConsultarLivro();
+    return x;
+}
+
     return(
         <body>
           <div className="first">
@@ -33,19 +45,17 @@ function fazerCompras(){
                         </tr>  
                       </thead> 
                       <tbody id="registros">
-                        <tr id="cor">
-                          <td>Harry Potter</td>  
-                          <td>J.K</td>  
-                          <td>ADH23098FV</td>  
-                          <td>20-09-2012</td>  
-                          <td>149.90</td>  
-                          <td>
-                            <Link to={{
-                              pathname:"/Compra",
-                              state:"Harry Potter"
-                            }}>Comprar</Link> 
-                          </td> 
-                        </tr>  
+
+                          {lista.map(e =>(
+                            <tr key={e.id}>
+                              <td>{e.livro}</td>
+                              <td>{e.autor}</td>
+                              <td>{e.serie}</td>
+                              <td>{e.preco}</td>
+                            </tr>
+
+                          ))}
+
                       </tbody>                     
                   </table>
                 </div>
@@ -56,4 +66,4 @@ function fazerCompras(){
     )
 }
 
-export default fazerCompras;
+export default FazerCompras;

@@ -1,6 +1,8 @@
 import React from 'react'
 import './gercadfunc.css'
 
+import { Link } from 'react-router-dom';
+
 function Gercadfunc(){
     return(
         <div className="prigercad">
@@ -91,12 +93,14 @@ function Gercadfunc(){
                               Cadastrar Funcionário
                            </button>
                         </div>
-
+                        
+                        <Link to='/menugerente'>
                         <div className="bvoltar">
                            <button variant="gray" size="lg" block>
                               Voltar
                            </button>
                         </div>
+                        </Link>
 
                     </div>
 
