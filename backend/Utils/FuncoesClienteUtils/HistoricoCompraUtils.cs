@@ -79,7 +79,7 @@ namespace backend.Utils.FuncoesClienteUtils
             return ctx;
             
         }
-        public Models.Request.RequestCliente.FazerCompraRequest convertfazercompra(int a, Decimal? b, DateTime c)
+        public Models.Request.RequestCliente.FazerCompraRequest convertfazercompra(int a, Decimal b, DateTime c)
         {
             Models.Request.RequestCliente.FazerCompraRequest x = new Models.Request.RequestCliente.FazerCompraRequest();
 

@@ -61,7 +61,7 @@ namespace backend.Controllers.Business.BusinessFuncionario
 
         public void ValidarAlteracaopreco (Models.Request.RequestFuncionario.RequestLivro request )
         {
-            if(request.preco == 0 || request.preco == null)
+            if(request.preco == 0)
                 throw new ArgumentException("Voce precisa definir um preço para esse livro");
         }
 
