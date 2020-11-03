@@ -30,12 +30,6 @@ export default function MenuCliente(props){
           state:retorno
         })
       }
-
-      return(
-      <body id="body123">
-        <div id="main">
-
-function MenuCliente(props){
     return(
     <div className="primaria">
       <div className="main">
@@ -76,7 +70,6 @@ function MenuCliente(props){
               <h3 id="color">Direitos do site reservados @CopyRight</h3>
             </div>
         </div>
-      </body>
+      </div>
     )
 }
-export default MenuCliente;
