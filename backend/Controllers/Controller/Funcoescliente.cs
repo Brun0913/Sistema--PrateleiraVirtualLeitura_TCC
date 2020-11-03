@@ -52,8 +52,9 @@ namespace backend.Controllers.Controller
 
             Models.TbLivro parte1 = db.TbLivro.First(x => x.IdLivro == idlivro);
             DateTime agr = DateTime.Now;
+            Decimal? preco = parte1.VlPreco;
 
-            Models.Request.RequestCliente.FazerCompraRequest ctx = convert.convertfazercompra(idcliente,parte1.VlPreco,agr);
+            Models.Request.RequestCliente.FazerCompraRequest ctx = convert.convertfazercompra(idcliente,preco,agr);
             Models.TbCompra z = convert.convertfazercompratb(ctx);
             db.TbCompra.Add(z);
             db.SaveChanges();

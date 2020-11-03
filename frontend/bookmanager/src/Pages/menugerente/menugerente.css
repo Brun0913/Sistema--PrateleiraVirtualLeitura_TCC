@@ -27,6 +27,8 @@
     display: flex;
     flex-direction: column;
     background-color: whitesmoke;
+    justify-content: space-around;
+    display: flex;
 }
 
 #grandecontainer{
@@ -75,8 +77,9 @@
     width: 100vw;
     height: 10vh;
     background-color: purple;
-    margin-top: 10px;
-    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 h1,h2{
     color: whitesmoke;

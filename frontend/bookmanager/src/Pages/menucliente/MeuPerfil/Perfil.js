@@ -1,12 +1,34 @@
-import React from "react";
+import React, {useState, useRef, useEffect} from "react";
 import './Perfil.css';
+import LoadingBar from 'react-top-loading-bar'
 
 import { Link } from "react-router-dom";
 
-function MeuPerfil(){
+import API from "../../Services/FuncoesCliente"
+
+function MeuPerfil(props){
+    const loadingBar = useRef(null);
+    const api = new API();
+    const [informacoes,setInfo] = useState([]);
+
+    const perfilcliente = async()=>{
+        loadingBar.current.continuousStart(); 
+        const x = await api.Perfil(props.location.state.id);
+        setInfo(x);
+        loadingBar.current.complete();
+    }
+    useEffect(() => {
+        perfilcliente();
+      }, []);
+
+
     return(
     <div className='um'>
-
+            <LoadingBar
+            height={4}
+            color='#f11946'
+            ref={loadingBar}
+            />
             <div className='perfi1'>
                 <h1>Meu Perfil</h1>
             </div>
@@ -17,48 +39,48 @@ function MeuPerfil(){
 
 
                 <div className='pessoa'>
-                    <h3>Nome</h3>
+                    <h4>Nome: {informacoes.cliente}</h4>
                 </div>
 
                 <div className='niver'>
-                    <h3>Data de nascimento</h3>
+                    <h4>Data de nascimento: {informacoes.nascimento}</h4>
                 </div>
 
                 <div className='cpf'>
-                    <h3>CPF</h3>
+                    <h4>CPF:{informacoes.cpf}</h4>
                 </div>
 
                 <div className='rg'>
-                    <h3>R.g</h3>
+                    <h4>R.G.: {informacoes.rg} </h4>
                 </div>
 
                 <div className='cartao'>
-                    <h3>Número do cartão</h3>
+                    <h4>Número do cartão: {informacoes.cartaocredito} </h4>
                 </div>
 
                 <div className='CDC'>
-                    <h3>Código de segurança (cartão) </h3>
+                    <h4>Código de segurança (cartão): {informacoes.codigoseguranca} </h4>
                 </div>
 
                 <div className='vencimento'>
-                    <h3>Data de vencimento do cartão</h3>
+                    <h4>Data de vencimento do cartão: {informacoes.vencimentocartao} </h4>
                 </div>
 
                 <div className='rua'>
-                    <h3>Endereço</h3>
+                    <h4>Endereço: {informacoes.endereco} </h4>
                 </div>
 
 
                 </div>
-
-
-
 
                 <div className="voltar">
-                    <Link to="/menucliente">
-                        <button variant="gray" size="lg" block>
+                    <Link to={{
+                        pathname:"/menucliente",
+                        state:props.location.state
+                    }}>
+                       <button variant="secondary" size="lg" block>
                             Voltar
-                        </button> 
+                       </button> 
                     </Link>
                 </div>
             </div>  

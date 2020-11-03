@@ -6,7 +6,7 @@ namespace backend.Utils.ConversorGerenteUtils
 {
     public class ConversorGerenteUtils
     {
-        public Models.Response.GerenteResponse.GerenciarFinancasResponse convertgerenciarfinancas(int a,int b, decimal c)
+        public Models.Response.GerenteResponse.GerenciarFinancasResponse convertgerenciarfinancas(int a,int b, decimal? c)
         {
             Models.Response.GerenteResponse.GerenciarFinancasResponse ctx = new Models.Response.GerenteResponse.GerenciarFinancasResponse();
 

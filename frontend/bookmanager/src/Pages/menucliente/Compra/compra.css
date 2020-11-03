@@ -1,76 +1,86 @@
-*{
-    margin: 0%;
-    padding: 0%;
-    background-size: 100% 100%;
-    margin-bottom: 0%;
 
+#corpotelacompra{
+    margin: 0px;
+    padding: 0px;
+    background-image: repeating-linear-gradient(orange,purple);
 }
 
-
-img{
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: 250px;
-    width: 200px;
-}
-
-.book{
-    display: flex;
-    flex-direction: row;
-
-}
-.preco{
-    margin-top: 100px;
-    margin-right: 530px;
-}
-
-.sinopse{
-    margin-top: 260px;
-}
-
-.comprar{
-    margin-top: 230px;
-    margin-right: 100px;
-}
-
-.mae{
-    display: flex;
-    flex-direction: column;
+#mae{
     height: 100vh;
+    flex-direction: column;
+}
+#titulocompralivro{
+    height: 10vh;
+    width: 100vw;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+#containerimglivro{
+    height: auto;
+    width: 100vw;
+    justify-content: space-around;
+    display: flex;
+}
+.capadolivrocompra{
+    background-image: url(https://books.google.com.br/books/content?id=qDYQCwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE71Qn81ooyGqAepvRrhdJbOj1MYbFSe5zi34pLx7-XUJqsYav4WG_SYAclFROon7fh_1ErFt-4URG1rftLTrHWF4EWXug9TgZwhWKsFp98o0Rfzmy0-wJcI9HVO2Or-XAzsddwbY);
+    height: 200px;
+    background-repeat: no-repeat;
     background-size: 100% 100%;
-    background-image: linear-gradient(gray, white);
 }
-.odin{
-    margin-top: 30px;
-    margin-left: 50px;
+#imagemcapalivro{
+    margin: 10px;
 }
 
-.pag{
-    margin-top: 30px;
-    margin-left: 50px;
+#informacoesrelevante{
+    height: auto;
+    width:40vw;
+    flex-direction: column;
+    display: flex;
+    margin: 10px;
+    background-color: whitesmoke;
+    border: 1px solid black;
+}
+#valorlivrocompra{
+    margin: 5px;
+}
+#acaodecompra{
+    margin: 5px;
+}
+p{
+    margin: 5px;
 }
 
-.autor{
-    margin-top: 30px;
-    margin-left: 50px;
+#caracteristicasimportantes{
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+}
+#minititulo{
+    margin:20px;
+    color: black;
+}
+#informacoesessenciais{
+    flex-grow: 1;
+    flex-direction: row;
+    display: flex;
+}
+#infocontainer1{
+    height: auto;
+    width: auto;
+    flex-direction: column;
+    display: flexbox;
+    margin: 10px;
+}
+#espaconasinformacoes{
+    margin: 10px;
 }
 
-.editor{
-    margin-top: 30px;
-    margin-left: 50px;
-}
-
-.publicacao{
-    margin-top: 30px;
-    margin-left: 50px;
-}
-
-.serie{
-    margin-top: 30px;
-    margin-left: 50px;
-}
-
-.genero{
-    margin-top: 30px;
-    margin-left: 50px;
+#infocontainer2{
+    height: auto;
+    width: auto;
+    flex-direction: column;
+    display: flexbox;
+    margin: 10px;
 }

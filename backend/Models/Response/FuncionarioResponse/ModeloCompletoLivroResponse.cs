@@ -16,5 +16,6 @@ namespace backend.Models.Response.FuncionarioResponse
         public string editora {get;set;}
         public string numeroserie {get;set;}
         public string edicaolivro {get;set;}
+        public string nomeimagem {get;set;}
     }
 }

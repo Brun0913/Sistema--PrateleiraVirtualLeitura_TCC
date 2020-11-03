@@ -1,14 +1,15 @@
-#body{
+#body123{
     height: 100vh;
-    margin: 0px;
-    padding: 0px;
     background-color: whitesmoke;
+    
+    justify-content: space-between;
+    display: flex;
 }
 
 #main{
     flex-direction: column;
     display: flex;
-    height: 100vh;
+    width: 100vw;
 }
 
 #container{
@@ -22,7 +23,7 @@
 #subcontainer1{
     height: 70vh;
     width: 30vw;
-    border-right: 1px solid black;
+    border-right: 1px solid darkgray;
     margin: 10px;
 }
 
@@ -38,17 +39,16 @@
 #subcontainer3{
     height: 70vh;
     width: 30vw;
-    border-left: 1px solid black;
+    border-left: 1px solid darkgray;
     margin: 10px;
     justify-content: flex-end;
     display: flex;
 }
 
 #titulo{
-    width: auto;
-    flex-direction: row;
-    background-color: orange;
     text-align: center;
+    margin: 20px;
+    background-color: orange;
 }
 #acoes{
     flex-direction: column;
@@ -72,10 +72,11 @@
 
 #rodape{
     background-color: purple;
-    margin-top: 20px;
-    height: 20vh;
-    text-align: center;
+    align-items: center;
     justify-content: center;
+    margin-top: 20px;
+    flex-grow: 1;
+    display: flex;
 }
 #color{
     color: white;

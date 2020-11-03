@@ -1,0 +1,85 @@
+.corpotabela{
+    flex-direction: column;
+    display: flex;
+    height: 100vh;
+    justify-content: space-between;
+    display: flex;
+}
+.corpo{
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    height: 100vh;
+}
+#tituloconsultarlivro{
+    width: 100vw;
+    background-color: orange;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+}
+#subtituloconsultarlivro{
+    color: black;
+    margin: 10px;
+}
+.compactador{
+    height: auto;
+    width: 100vw;
+    display: flex;
+    
+    flex-direction: row;
+}
+#filtrostb{
+    margin: 10px;
+    height: auto;
+    width: 20vw;
+    border: 3px solid rgb(107, 105, 105);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+}
+#modelotabela{
+    display: flex;
+    width: auto;
+    height: auto;
+    margin: 10px;
+}
+.selecao{
+    flex-direction: column;
+    display: flex;
+    margin: 10px;
+}
+#controladormodelotb{
+    margin: 10px;
+    border-left:1px solid darkgray;
+    display: flex;
+}
+.voltartelaconsult{
+    margin: 10px;
+}
+.black{
+    background-color: black;
+}
+.orange{
+    background-color: orange;
+}
+#branco{
+    color: white;
+}
+.ultimo{
+    height: 10vh;
+    flex-grow: 1;
+    align-items: flex-end;
+    display: flex;
+    justify-content: flex-end;
+}
+.preto{
+    color: white;
+    background-color: black;
+    flex-grow: 1;
+    height: 10vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;   
+    background-position: fixed;
+}

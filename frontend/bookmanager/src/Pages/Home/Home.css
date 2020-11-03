@@ -20,7 +20,7 @@
 }
 
 .container7{
-    background-color: rgb(245, 192, 192);
+    background-color:white;
     border-radius: 20px;
     border: 3px solid black;
     width: 350px;
@@ -35,7 +35,7 @@
 }
 
 .white{
-    background-image: url(https://i.pinimg.com/564x/ff/ca/82/ffca82def668a2a5dc221ddd321b0171.jpg);
+    background-image: url(https://cdn.discordapp.com/attachments/762826805324415022/773048233366519828/background_site.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     justify-content: center;

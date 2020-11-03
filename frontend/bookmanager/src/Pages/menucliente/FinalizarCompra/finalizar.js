@@ -9,10 +9,12 @@ import codigo from'./codigo.png'
 function FinalizarCompra(){
     return(
         <div className='nome'>
-            
+
+             <div className="titulofinalizar">
                 <div className='drag'>
                     <h1>Parabéns!Compra concluída!</h1>
                 </div>
+             </div>  
 
                 <div className='jg'>
                     <h3>Você deseja baixar o livro ?</h3>

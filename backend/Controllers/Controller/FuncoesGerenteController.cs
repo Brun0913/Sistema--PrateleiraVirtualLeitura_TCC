@@ -24,12 +24,12 @@ namespace backend.Controllers.Controller
             int Livros = livrosvendidostotal.Count();
 
             List<Models.TbCompra> lucromes = db.ProcurarcomprasMes();
-            List<decimal> listadevendas = new List<decimal>();
+            List<decimal?> listadevendas = new List<decimal?>();
             foreach(Models.TbCompra item in lucromes)
             {
                 listadevendas.Add(item.VlTotal);
             }
-            decimal lucrototal = listadevendas.Sum();
+            decimal? lucrototal = listadevendas.Sum();
             
             Models.Response.GerenteResponse.GerenciarFinancasResponse ctx = pegarinformacoes.convertgerenciarfinancas(funcionariostotal,Livros,lucrototal);
             return ctx;

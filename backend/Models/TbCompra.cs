@@ -19,7 +19,7 @@ namespace backend.Models
         [Column("dt_compra", TypeName = "date")]
         public DateTime DtCompra { get; set; }
         [Column("vl_total", TypeName = "decimal(15,2)")]
-        public decimal VlTotal { get; set; }
+        public decimal? VlTotal { get; set; }
         [Column("id_cliente")]
         public int? IdCliente { get; set; }
 

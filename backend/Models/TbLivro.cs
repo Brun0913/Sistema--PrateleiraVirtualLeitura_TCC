@@ -37,7 +37,9 @@ namespace backend.Models
         [Column("ds_genero", TypeName = "varchar(100)")]
         public string DsGenero { get; set; }
         [Column("vl_preco", TypeName = "decimal(15,2)")]
-        public decimal VlPreco { get; set; }
+        public decimal? VlPreco { get; set; }
+        [Column("img_imagem", TypeName = "varchar(100)")]
+        public string ImgImagem { get; set; }
 
         [InverseProperty("IdLivroNavigation")]
         public virtual ICollection<TbCompraLivro> TbCompraLivro { get; set; }

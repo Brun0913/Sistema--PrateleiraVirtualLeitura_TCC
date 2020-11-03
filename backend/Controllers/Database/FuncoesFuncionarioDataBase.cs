@@ -33,5 +33,12 @@ namespace backend.Controllers.Database
             db.SaveChanges();
             return atual;
         }
+        public Models.TbLivro inserir(Models.TbLivro req)
+        {
+            db.TbLivro.Add(req);
+            db.SaveChanges();
+
+            return req;
+        }
     }
 }

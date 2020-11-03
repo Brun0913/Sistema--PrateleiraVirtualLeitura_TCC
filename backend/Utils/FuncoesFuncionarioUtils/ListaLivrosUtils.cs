@@ -54,5 +54,22 @@ namespace backend.Utils.FuncoesFuncionarioUtils
 
             return response;
         }
+        public Models.TbLivro RequestTblivroparaTbLivro(Models.Request.RequestFuncionario.RequestLivro req){
+            
+            Models.TbLivro ctx = new Models.TbLivro();
+            ctx.NmAutor = req.autor;
+            ctx.NmEditora = req.editora;
+            ctx.NmLivro = req.livro;
+            ctx.NrPaginas = req.paginas;
+            ctx.NrSerie = req.numeroserie;
+            ctx.TpIdiomaOriginal = req.idiomaprimario;
+            ctx.VlPreco = req.preco;
+            ctx.DsGenero = req.genero;
+            ctx.DsEdicaoLivro = req.edicaolivro;
+            ctx.DsSinopse = req.sinopse;
+            ctx.DtPublicacao = req.publicacao;
+        
+            return ctx;
+        }
     }
 }

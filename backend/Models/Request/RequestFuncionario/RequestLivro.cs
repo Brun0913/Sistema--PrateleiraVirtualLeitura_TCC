@@ -1,5 +1,5 @@
 using System;
-
+using Microsoft.AspNetCore.Http;
 namespace backend.Models.Request.RequestFuncionario
 {
     public class RequestLivro
@@ -15,5 +15,6 @@ namespace backend.Models.Request.RequestFuncionario
         public string editora {get;set;}
         public string numeroserie {get;set;}
         public string edicaolivro {get;set;}
+        public IFormFile imagem {get;set;}
     }
 }

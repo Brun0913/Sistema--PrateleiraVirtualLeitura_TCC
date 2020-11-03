@@ -13,48 +13,59 @@
     height: 90vh;
     background-repeat: no-repeat;   
     background-size: 100% 100%;
-    background-image: linear-gradient(white,white);
+    margin-bottom: 20px;
 }
 
 
 .pai{
-    height: 50vh;
-    width: 15vw;
+    height: 90vh;
+    width: 40vw;
     margin: 10px;
-    margin-left: 150px;
+    margin-left: 140px;
     flex-direction: column;
     display: flex;
+    border-radius: 10%;
+    margin-bottom: 20px;
 }
+
 .pessoa{
     margin-bottom: 40px;
     margin-top: 20px;
+    margin-left: 20px;
 }
 .niver{
     margin-bottom: 40px;
+    margin-left: 20px;
 }
 
 .cpf{
     margin-bottom: 40px;
+    margin-left: 20px;
 }
 
 .rg{
     margin-bottom: 40px;
+    margin-left: 20px;
 }
 
 .cartao{
     margin-bottom: 40px;
+    margin-left: 20px;
 }
 
 .CDC{
     margin-bottom: 40px;
+    margin-left: 20px;
 }
 
 .vencimento{
     margin-bottom: 40px;
+    margin-left: 20px;
 }
 
 .rua{
     margin-bottom: 40px;
+    margin-left: 20px;
 }
 
 .perfi1{
@@ -68,5 +79,5 @@
     margin-top: 80px;
     margin-left: 1100px;
     margin-right: 10px;
-
+    background-color: whitesmoke;
 }

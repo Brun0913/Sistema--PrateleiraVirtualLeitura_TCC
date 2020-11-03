@@ -1,65 +1,65 @@
-import React, { useRef } from'react';
+import React, {useState} from'react';
 import './HistCompras.css';
-import { Search } from "react-bootstrap-icons";
-import LoadingBar from 'react-top-loading-bar'
-import {Link} from 'react-router-dom';
 
+import {Link} from "react-router-dom"
+import API from '../../Services/FuncoesCliente'
 
-function HistoricoCompras(){
+export default function HistoricoCompras(props){
 
-    const LoadingBar = useRef(null);
-    
+    const api = new API();
+    const [lista,setList] = useState([]);
 
+    const buscarhistorico = async() =>{
+        const x = await api.HistoricoCompras(props.location.state.id);
+        setList(x);
+    }
+ 
     return(
-    
-        
 
         <div className='Gaia'>
 
-            <div className='Zeus'> 
-
                 <div className='Titulo'>
-                    <h1>Histórico de Compras</h1>
+                    <h1 id="titulohist">Histórico de Compras</h1>
+                </div>
+                <div className="zeus">
+                    <div id="blocodecomandos">
+                        <div className="btn btn-primary minibloco" onClick={buscarhistorico}>Buscar Novamente</div>
+                        <Link to={{
+                            pathname:"/menucliente",
+                            state:props.location.state
+                        }} className="btn btn-secondary minibloco">Voltar</Link>
+                    </div>
+                    
+                    <div className="controlladordetable">
+                        <div className="table">
+                            <thead id="colunas">
+                                <tr>
+                                    <th>Nome do Livro</th>
+                                    <th>Autor do Livro</th>
+                                    <th>Genero</th>
+                                    <th>Data de Compra</th>
+                                    <th>Preco Livro</th>
+                                </tr>
+                            </thead>
+                            <tbody id="registros">
+                            {lista.map(e => (
+                                <tr key={e.id} id="cor">
+                                    <td>{e.livro}</td>
+                                    <td>{e.autor}</td>
+                                    <td>{e.serie}</td>
+                                    <td>{e.preco}</td>
+                                    <td>{e.datacompra}</td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="voltar">    
-                    <Link to="/menucliente">
-                        <button variant="gray" size="lg" block>
-                            Voltar
-                        </button>
-                    </Link>
-                </div>
-                <div className='tabela'>
-                
-                    <table class="table">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th><h3>Nome do Livro</h3></th>
-                                <th><h3>Autor do Livro</h3></th>
-                                <th><h3>Nº de Série</h3></th>
-                                <th><h3>Preço</h3></th>
-                                <th><h3>Data da Compra</h3></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><h3>Harry Potter</h3></td>
-                                <td><h3>J.K. Rowling</h3></td>
-                                <td><h3>274949892</h3></td>
-                                <td><h3>R$46,90</h3></td>
-                                <td><h3>25/09/2020</h3></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-
-            </div>
-  
         </div>
     
 
     )
 }
 
-export default HistoricoCompras;
+

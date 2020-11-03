@@ -7,7 +7,7 @@ namespace backend.Models.Response.ClienteResponse
 {
     public class FazerCompra
     {
-        public int id {get;set;}
+        public int idlivro {get;set;}
         public string livro {get;set;}
         public string autor {get;set;}
         public string serie {get;set;}

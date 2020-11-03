@@ -2,35 +2,52 @@ import React, { useEffect, useRef, useState } from "react";
 import './fazerCompra.css'
 
 import { Search } from "react-bootstrap-icons";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar';
 
 import api from '../../Services/FuncoesCliente';
 
-function FazerCompras(){
+function FazerCompras(props){
 
+  console.log(props.location.state);
+  const id = props.location.state.id;
+
+  const loadingBar = useRef(null);
   const funcoes = new api();
+
   const[lista,setLista] = useState([]);
+  const history = useHistory();
 
   const consultarlivros = async() =>{
+    loadingBar.current.complete();
     const x = await funcoes.ConsultarLivro();
-    return x;
-}
+    setLista(x);
+    loadingBar.current.continuousStart(); 
+  }
+  
 
     return(
         <body>
+          <LoadingBar
+            height={4}
+            color='#f11946'
+            ref={loadingBar}
+            />
           <div className="first">
               <div className="subcontainer">
                 <div id="titulo">
                     <h1>Livros Disponiveis:</h1>
                 </div>
 
-                <a id="botao" className="btn btn-secondary" href="/menucliente">
+                <Link id="botao" className="btn btn-secondary" to={{
+                  pathname:"/menucliente",
+                  state:props.location.state
+                }}>
                   Voltar
-                </a>
+                </Link>
               </div>
               <div className="subcontainer2">
-                <Search size={26} style={{ cursor: "pointer" }} id="acao"/>
+                <Search size={26} style={{ cursor: "pointer" }} id="acao" onClick={consultarlivros}/>
                 
                 <div id="posicaotabela">
                   <table className="table" id="tabela">
@@ -39,19 +56,29 @@ function FazerCompras(){
                           <th>Nome do Livro</th>  
                           <th>Autor do Livro</th>  
                           <th>N° de Série</th>  
-                          <th>Data Publicacao</th>  
-                          <th>preco</th>
-                          <th></th>  
+                          <th>Data Publicão</th>  
+                          <th>Preço</th>
+                          <th>Ação</th>  
                         </tr>  
                       </thead> 
                       <tbody id="registros">
 
                           {lista.map(e =>(
-                            <tr key={e.id}>
+                            <tr id="cor" key={e.id}>
                               <td>{e.livro}</td>
                               <td>{e.autor}</td>
                               <td>{e.serie}</td>
+                              <td>{e.publicacao}</td>
                               <td>{e.preco}</td>
+                              <td>
+                                <Link to={{
+                                  pathname:"/Compra",
+                                  state:props.location.state,
+                                  state:e
+                                }}>
+                                  Comprar
+                                </Link>
+                              </td>
                             </tr>
 
                           ))}

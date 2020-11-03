@@ -1,24 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, {useState} from "react";
 import './menucliente.css';
-import {Link} from 'react-router-dom';
+import {Link , useHistory} from 'react-router-dom';
 
 import perfilimage from './perfil-de-usuario.png'
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 340c7261cef78154604c5b35e4b714563d509949
-function MenuCliente(props){
-    return(
-    <div className="primaria">
-      <div className="main">
-        
-          <div className="titulo">
-              <h1>Menu do Cliente</h1>
-          </div>
+export default function MenuCliente(props){
+      const history = useHistory();
+      
+      console.log(props.location.state);
+      const historico = async() =>{
+        const item = props.location.state;
+        history.push({
+          pathname:"/HistCompras",
+          state:item
+        });
+      }
+      const perfil = () =>{
+        const retorno = props.location.state;
+        console.log(props.location.state);
+        history.push({
+          pathname:"/Perfil",
+          state:retorno
+        });
+      }
+      const compras = () =>{
+        const retorno = props.location.state;
+        history.push({
+          pathname:"/fazercompra",
+          state:retorno
+        })
+      }
+
+      return(
+      <body id="body123">
+        <div id="main">
 
           <div id="titulo">
-              <h2 id="color">Menu Cliente:</h2>
+              <h2 id="color">Seja Bem-Vindo</h2>
           </div>
           
           <div id="container">
@@ -26,19 +45,12 @@ function MenuCliente(props){
             <div id="subcontainer2">
               
               <div id="acoes">
-
-              <Link to='/FazerCompra'>
                 <div>
-                  <a href="" className="btn btn-light" id="acao">Fazer Compra</a>
+                  <div className="btn btn-light" id="acao" onClick={historico}>Historico de Compras</div>
                 </div>
-              </Link> 
-
-              <Link to='/HistCompras'> 
                 <div>
-                  <a href="" className="btn btn-light" id="acao">Histórico de Compra</a>
+                  <div className="btn btn-light" id="acao" onClick={compras}>Fazer Compra</div>
                 </div>
-              </Link>
-
                 <div>
                 <a href="/" className="btn btn-secondary" id="acao">Sair</a>
                 </div>
@@ -47,22 +59,15 @@ function MenuCliente(props){
             </div>
             <div id="subcontainer3">
               <h4 id="titulo2">Perfil:</h4>
-              <a href="/perfil" className="campoimg">
+              <div className="campoimg" onClick={perfil}>
                 <img src={perfilimage} id="img"></img>
-              </a>
+              </div>
             </div>
           </div>
-          <div id="rodape">
-            <h3 id="color">Direitos do site reservados</h3>
-          </div>
+            <div id="rodape">
+              <h3 id="color">Direitos do site reservados @CopyRight</h3>
+            </div>
         </div>
-      </div>
+      </body>
     )
 }
-
-export default MenuCliente;
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 340c7261cef78154604c5b35e4b714563d509949

@@ -23,26 +23,24 @@ export default function Home(){
             email:email,
             senha:senha
         });
-        
+        console.log(x.id);
         if (x.perfil === "cliente")
-            history.push({
-                pathname:"/menucliente",
-                state:x
-            });
-
+        history.push({
+            pathname: '/menucliente',
+            state:x
+          });
         else if(x.perfil === "funcionario")
-            history.push({
-                pathname:"/menufuncionario",
-                state:x
-            });
+        history.push({
+            pathname: '/menufuncionario',
+            state: x
+          });
         
         else if(x.perfil === "gerente")
-            history.push(
-                {
-                    pathname:"/menugerente",
-                    state:x
-                }
-            );
+        history.push({
+            pathname: '/menugerente',
+            state:x
+          });
+        
         }
         catch(ex)
         {
@@ -59,9 +57,6 @@ export default function Home(){
             <div className="telainicial">
 
                 <div className="container7">
-                    <div className="tituloinicial" >
-                        <h2>Book Manager: </h2>
-                    </div>
                     
                     <div className="input" >
                         <label>Email: </label>
