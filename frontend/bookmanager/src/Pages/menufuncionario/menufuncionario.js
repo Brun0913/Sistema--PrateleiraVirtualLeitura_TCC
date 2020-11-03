@@ -10,7 +10,6 @@ function menufuncionario(props){
 
                 <div className="titulofuncionario">
                     <h2>Olá seja bem-vindo</h2>
-                    <h1>Menu do Funcionário</h1>
                 </div>
 
                 <div id="container2menu">
