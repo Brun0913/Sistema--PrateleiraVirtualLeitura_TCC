@@ -45,4 +45,8 @@ function MenuGerente(props){
     )
 }
 
+<<<<<<< HEAD
 export default MenuGerente;
+=======
+export default MenuGerente;
+>>>>>>> abb956a0a25a03dc39c5027e324333df5edbc4b9

@@ -9,7 +9,13 @@ function menufuncionario(props){
             <div className="mainfuncionario">
 
                 <div className="titulofuncionario">
+<<<<<<< HEAD
                     <h2>Olá seja bem-vindo</h2>
+=======
+                    <h2>Olá seja bem-vindo</h2>
+                    <h2>Olá seja bem-vindo</h2>
+                    <h1>Menu do Funcionário</h1>
+>>>>>>> abb956a0a25a03dc39c5027e324333df5edbc4b9
                 </div>
 
                 <div id="container2menu">

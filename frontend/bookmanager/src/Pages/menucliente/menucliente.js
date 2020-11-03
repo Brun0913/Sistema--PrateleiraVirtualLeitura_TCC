@@ -4,6 +4,7 @@ import {Link , useHistory} from 'react-router-dom';
 
 import perfilimage from './perfil-de-usuario.png'
 
+<<<<<<< HEAD
 
 export default function MenuCliente(props){
       const history = useHistory();
@@ -35,6 +36,16 @@ export default function MenuCliente(props){
       return(
       <body id="body123">
         <div id="main">
+=======
+function MenuCliente(props){
+    return(
+    <div className="primaria">
+      <div className="main">
+        
+          <div className="titulo">
+              <h1>Menu do Cliente</h1>
+          </div>
+>>>>>>> abb956a0a25a03dc39c5027e324333df5edbc4b9
 
           <div id="titulo">
               <h2 id="color">Seja Bem-Vindo</h2>
@@ -71,3 +82,8 @@ export default function MenuCliente(props){
       </body>
     )
 }
+<<<<<<< HEAD
+=======
+
+export default MenuCliente;
+>>>>>>> abb956a0a25a03dc39c5027e324333df5edbc4b9
