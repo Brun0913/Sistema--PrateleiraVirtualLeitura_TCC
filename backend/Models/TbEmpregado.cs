@@ -14,7 +14,7 @@ namespace backend.Models
         [Column("nm_empregado", TypeName = "varchar(100)")]
         public string NmEmpregado { get; set; }
         [Column("dt_nascimento", TypeName = "date")]
-        public DateTime DtNascimento { get; set; }
+        public DateTime? DtNascimento { get; set; }
         [Column("ds_cpf", TypeName = "varchar(15)")]
         public string DsCpf { get; set; }
         [Column("ds_cep", TypeName = "varchar(15)")]

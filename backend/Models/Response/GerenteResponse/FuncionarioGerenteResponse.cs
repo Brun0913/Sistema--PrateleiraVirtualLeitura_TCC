@@ -6,7 +6,7 @@ namespace backend.Models.Response.GerenteResponse
     {
         public int idfuncionario {get;set;}
         public string nomefuncionario {get;set;}
-        public DateTime nascimentofuncionario {get;set;}
+        public DateTime? nascimentofuncionario {get;set;}
         public string cpf {get;set;}
         public string cep {get;set;}
         public string rg {get;set;}

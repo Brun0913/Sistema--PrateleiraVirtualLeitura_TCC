@@ -72,8 +72,6 @@ namespace backend.Utils.FuncoesClienteUtils
             ctx.cpf = req.DsCpf;
             ctx.rg = req.DsRg;
             ctx.cartaocredito = req.DsCartaoCredito;
-            ctx.codigoseguranca = req.NrCodigoSeguranca;
-            ctx.vencimentocartao = req.DtVencimentoCartao;
             ctx.endereco = req.DsEndereco;
 
             return ctx;

@@ -49,8 +49,6 @@ namespace backend.Utils
             ctx.DsCpf = req.InformacoesCliente.cpf;
             ctx.DsRg = req.InformacoesCliente.rg;
             ctx.DsCartaoCredito = req.InformacoesCliente.cartaocredito;
-            ctx.NrCodigoSeguranca = req.InformacoesCliente.codigoseguranca;
-            ctx.DtVencimentoCartao = req.InformacoesCliente.vencimentocartao;
             ctx.DsEndereco = req.InformacoesCliente.endereco;
             ctx.DsTelefone = req.InformacoesCliente.telefone;
             ctx.IdLogin = conta.IdLogin;
@@ -68,8 +66,6 @@ namespace backend.Utils
             ctx.cpf = tb.DsCpf;
             ctx.rg = tb.DsRg;
             ctx.cartaocredito = tb.DsCartaoCredito;
-            ctx.codigoseguranca = tb.NrCodigoSeguranca;
-            ctx.vencimentocartao = tb.DtVencimentoCartao;
             ctx.endereco = tb.DsEndereco;
             ctx.telefone = tb.DsTelefone;
             ctx.idlogin = tb.IdLogin;
@@ -86,8 +82,6 @@ namespace backend.Utils
             x.DsCpf = req.cpf;
             x.DsRg = req.rg;
             x.DsCartaoCredito = req.cartaocredito;
-            x.NrCodigoSeguranca = req.codigoseguranca;
-            x.DtVencimentoCartao = req.vencimentocartao;
             x.DsEndereco = req.endereco;
             x.DsTelefone = req.telefone;
             x.IdLogin = conta.IdLogin;

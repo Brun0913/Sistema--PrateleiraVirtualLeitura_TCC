@@ -26,10 +26,6 @@ namespace backend.Models
         public string DsRg { get; set; }
         [Column("ds_cartao_credito", TypeName = "varchar(100)")]
         public string DsCartaoCredito { get; set; }
-        [Column("nr_codigo_seguranca")]
-        public int? NrCodigoSeguranca { get; set; }
-        [Column("dt_vencimento_cartao", TypeName = "datetime")]
-        public DateTime? DtVencimentoCartao { get; set; }
         [Column("ds_endereco", TypeName = "varchar(50)")]
         public string DsEndereco { get; set; }
         [Column("ds_telefone", TypeName = "varchar(50)")]
