@@ -9,21 +9,22 @@ import api from '../../Services/FuncoesCliente';
 
 function FazerCompras(props){
 
-  console.log(props.location.state);
   const id = props.location.state.id;
 
   const loadingBar = useRef(null);
   const funcoes = new api();
-
   const[lista,setLista] = useState([]);
   const history = useHistory();
 
   const consultarlivros = async() =>{
-    loadingBar.current.complete();
-    const x = await funcoes.ConsultarLivro();
-    setLista(x);
     loadingBar.current.continuousStart(); 
+    const x = await funcoes.ConsultarLivro();
+    setLista([...x]);
+    loadingBar.current.complete();
   }
+  useEffect(() => {
+    consultarlivros();
+  }, []);
   
 
     return(
@@ -35,7 +36,7 @@ function FazerCompras(props){
             />
           <div className="first">
               <div className="subcontainer">
-                <div id="titulo">
+                <div id="compradelivros">
                     <h1>Livros Disponiveis:</h1>
                 </div>
 
@@ -47,7 +48,6 @@ function FazerCompras(props){
                 </Link>
               </div>
               <div className="subcontainer2">
-                <Search size={26} style={{ cursor: "pointer" }} id="acao" onClick={consultarlivros}/>
                 
                 <div id="posicaotabela">
                   <table className="table" id="tabela">
@@ -58,7 +58,7 @@ function FazerCompras(props){
                           <th>N° de Série</th>  
                           <th>Data Publicão</th>  
                           <th>Preço</th>
-                          <th>Ação</th>  
+                          <th></th>  
                         </tr>  
                       </thead> 
                       <tbody id="registros">
@@ -68,7 +68,7 @@ function FazerCompras(props){
                               <td>{e.livro}</td>
                               <td>{e.autor}</td>
                               <td>{e.serie}</td>
-                              <td>{e.publicacao}</td>
+                              <td>{new Date(e.publicacao).toLocaleDateString()}</td>
                               <td>{e.preco}</td>
                               <td>
                                 <Link to={{

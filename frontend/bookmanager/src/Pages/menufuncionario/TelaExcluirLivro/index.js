@@ -23,7 +23,7 @@ export default function ExcluirLivro(props){
 
                 <div className="container2">
                     <div className="divisor">
-                        <h2>Excluir Livro!</h2>
+                        <h2 className="red">Excluir Livro!</h2>
                     </div>
 
                     <div className="divisor2">

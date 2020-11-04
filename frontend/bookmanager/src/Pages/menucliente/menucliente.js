@@ -7,7 +7,6 @@ import perfilimage from './perfil-de-usuario.png'
 export default function MenuCliente(props){
       const history = useHistory();
       
-      console.log(props.location.state);
       const historico = async() =>{
         const item = props.location.state;
         history.push({
@@ -17,7 +16,6 @@ export default function MenuCliente(props){
       }
       const perfil = () =>{
         const retorno = props.location.state;
-        console.log(props.location.state);
         history.push({
           pathname:"/Perfil",
           state:retorno
@@ -33,11 +31,6 @@ export default function MenuCliente(props){
     return(
     <div className="primaria">
       <div className="main">
-        
-          <div className="titulo">
-              <h1>Menu do Cliente</h1>
-          </div>
-
           <div id="titulo">
               <h2 id="color">Seja Bem-Vindo</h2>
           </div>
@@ -66,10 +59,11 @@ export default function MenuCliente(props){
               </div>
             </div>
           </div>
-            <div id="rodape">
+        </div>
+        
+        <div id="rodape">
               <h3 id="color">Direitos do site reservados @CopyRight</h3>
             </div>
-        </div>
       </div>
     )
 }

@@ -42,40 +42,6 @@ export default function ConsultarLivroFunc(){
 
                 <div className="compactador">
                     <div id="filtrostb">
-                        <div className="selecao">
-                            <label>Genero: </label>
-                            <select>
-                                <option>Misterio</option>
-                                <option>Terror</option>
-                                <option>Aventura</option>
-                                <option>Comedia</option>
-                                <option>Acao</option>
-                                <option>Fabula</option>
-                            </select>
-                        </div>
-                        <div className="selecao">
-                            <label>Ano Publicação: </label>
-                            <select>
-                                <option>2010</option>
-                                <option>2011</option>
-                                <option>2012</option>
-                                <option>2013</option>
-                                <option>2014</option>
-                                <option>2015</option>
-                            </select></div>
-                        <div>
-                        <div className="selecao">
-                            <label>Letra Inicial Livro: </label>
-                                <select>
-                                    <option>A</option>
-                                    <option>B</option>
-                                    <option>C</option>
-                                    <option>D</option>
-                                    <option>E</option>
-                                    <option>F</option>
-                                </select>
-                            </div>
-                        </div>
                         <div className="voltartelaconsult">
                             <a href="/menufuncionario" className="btn btn-secondary">Voltar Ao Menu</a>
                         </div>

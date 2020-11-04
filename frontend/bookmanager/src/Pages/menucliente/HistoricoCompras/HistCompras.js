@@ -1,5 +1,6 @@
-import React, {useState} from'react';
+import React, {useState, useEffect, useRef} from'react';
 import './HistCompras.css';
+import LoadingBar from 'react-top-loading-bar'
 
 import {Link} from "react-router-dom"
 import API from '../../Services/FuncoesCliente'
@@ -8,15 +9,26 @@ export default function HistoricoCompras(props){
 
     const api = new API();
     const [lista,setList] = useState([]);
+    const loadingBar = useRef(null);
 
     const buscarhistorico = async() =>{
+        loadingBar.current.continuousStart();
         const x = await api.HistoricoCompras(props.location.state.id);
         setList(x);
+        loadingBar.current.complete();
     }
+    useEffect(() => {
+        buscarhistorico();
+      }, []);
  
     return(
 
         <div className='Gaia'>
+                <LoadingBar
+                height={4}
+                color='#f11946'
+                ref={loadingBar}
+                />
 
                 <div className='Titulo'>
                     <h1 id="titulohist">Histórico de Compras</h1>
@@ -47,8 +59,8 @@ export default function HistoricoCompras(props){
                                     <td>{e.livro}</td>
                                     <td>{e.autor}</td>
                                     <td>{e.serie}</td>
+                                    <td>{new Date(e.datacompra).toLocaleDateString()}</td>
                                     <td>{e.preco}</td>
-                                    <td>{e.datacompra}</td>
                                 </tr>
                             ))}
                             </tbody>

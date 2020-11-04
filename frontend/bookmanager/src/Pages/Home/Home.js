@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import { useState } from 'react';
 import './Home.css'
 import {useHistory} from 'react-router-dom'
-
+import LoadingBar from 'react-top-loading-bar'
 import Services from '../Services/SistemaPrateleira'
 
 import { ToastContainer, toast} from "react-toastify";
@@ -12,18 +12,20 @@ export default function Home(){
 
     const api = new Services();
     const history = useHistory();
-
+    const loadingBar = useRef(null);
     const [email,setEmail] = useState('');
     const [senha,setSenha] = useState('');
 
     const Logar = async() => {
 
         try{
+        loadingBar.current.continuousStart();
         const x = await api.Logar({
             email:email,
             senha:senha
         });
-        console.log(x.id);
+        
+        loadingBar.current.complete();
         if (x.perfil === "cliente")
         history.push({
             pathname: '/menucliente',
@@ -40,7 +42,6 @@ export default function Home(){
             pathname: '/menugerente',
             state:x
           });
-        
         }
         catch(ex)
         {
@@ -50,31 +51,33 @@ export default function Home(){
             toast.error("😔 Tente Novamente mais tarde")
         }
     }
+    const criarconta = () =>{
+        history.push({
+            pathname:"/criarconta"
+        })
+    }
 
     return (
         <body className="white">
-            
+            <LoadingBar
+                height={4}
+                color='#f11946'
+                ref={loadingBar}
+            />
+
             <div className="telainicial">
 
                 <div className="container7">
-                    
-                    <div className="input" >
-                        <label>Email: </label>
-                        <input type="text" onChange={(e) => setEmail(e.target.value)} required></input>
-
-                    </div>
-
-                    <div className="input2">
-                        <label>Senha: </label>
-                        <input type="password" onChange={(e) => setSenha(e.target.value)} required></input>
-                    </div>
+                        <h5>Entrar:</h5>
+                        <input type="text" onChange={(e) => setEmail(e.target.value)} required placeholder="Email"></input>
+                        
+                        <input type="password" onChange={(e) => setSenha(e.target.value)} required placeholder="Senha"></input>
 
                     <div className="acao">
-                        <button onClick={Logar} className="btn btn-outline-success">Logar</button>
+                        <button onClick={Logar}>Logar</button>
                     </div>
-
                     <div className="acao2">
-                        <a href="/criarconta" className="btn btn-dark" >Criar conta</a>
+                        <button onClick={criarconta}>Criar conta</button>
                     </div>
                 </div>
 

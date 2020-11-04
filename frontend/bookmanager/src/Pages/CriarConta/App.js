@@ -72,7 +72,7 @@ export default function CriarConta(){
 
                         <div className="page">
                             <label>Nova Senha:</label>
-                            <input type="text" placeholder="Insira aqui a sua Senha" onChange={(e) => setSenha(e.target.value)} />
+                            <input type="password" placeholder="Insira aqui a sua Senha" onChange={(e) => setSenha(e.target.value)} />
                         </div> 
 
                         <div className="page">
@@ -98,16 +98,6 @@ export default function CriarConta(){
                         <div className="page">
                             <label>Cartao de Crédito:</label>
                             <input type="text" placeholder="Insira aqui o numero do seu cartão de crédito" onChange={(e) => setCartao(e.target.value)} ></input>
-                        </div>
-
-                        <div className="page">
-                            <label>Codigo de Segurança:</label>
-                            <input type="int" placeholder="Insira aqui o codigo de seguranca do cartão" onChange={(e) => setCodigo(Number(e.target.value))} ></input>
-                        </div>
-
-                        <div className="page">
-                            <label>Vencimento do cartão:</label>
-                            <input type="date" placeholder="Insira aqui a data de vencimento do cartão" onChange={(e) => setVencimento(e.target.value)} ></input>
                         </div>
 
                         <div className="page">

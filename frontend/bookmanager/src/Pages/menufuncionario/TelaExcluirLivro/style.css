@@ -7,6 +7,9 @@
     justify-content: space-around;
     display: flex;
 }
+.red{
+    color: red;
+}
 
 .container{
     height: 100vh;
