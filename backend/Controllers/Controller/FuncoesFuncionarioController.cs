@@ -33,14 +33,14 @@ namespace backend.Controllers.Controller
         }
 
         [HttpGet("consultarlivros")]
-        public ActionResult<List<Models.Response.FuncionarioResponse.ModeloTbLivroResponse>> consultarlivro()
+        public ActionResult<List<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone>> consultarlivro()
         {
             try{
             Business.BusinessFuncionario.ProcurarResgistroLivrosBusiness buscar = new Business.BusinessFuncionario.ProcurarResgistroLivrosBusiness();
             Utils.FuncoesFuncionarioUtils.ListaLivrosUtils convertertblivro = new Utils.FuncoesFuncionarioUtils.ListaLivrosUtils();
 
             List<Models.TbLivro> ModeloTb = buscar.buscarlivros();
-            List<Models.Response.FuncionarioResponse.ModeloTbLivroResponse> ModeloPersonalizado = convertertblivro.ConverterlistaTbLivro(ModeloTb);
+            List<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone> ModeloPersonalizado = convertertblivro.ListaCliente(ModeloTb);
             return ModeloPersonalizado;
             }
             catch(System.Exception ex)

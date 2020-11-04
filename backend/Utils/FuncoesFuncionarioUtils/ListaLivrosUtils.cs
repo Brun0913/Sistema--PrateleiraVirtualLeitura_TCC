@@ -54,6 +54,14 @@ namespace backend.Utils.FuncoesFuncionarioUtils
 
             return response;
         }
+        public List<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone> ListaCliente(List<Models.TbLivro> req){
+            List<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone> xx = new List<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone>();
+
+            foreach(Models.TbLivro item in req)
+                xx.Add(TbLivroparaLivroResponseCompleto(item));
+
+            return xx;
+        }
         public Models.TbLivro RequestTblivroparaTbLivro(Models.Request.RequestFuncionario.RequestLivro req){
             
             Models.TbLivro ctx = new Models.TbLivro();
