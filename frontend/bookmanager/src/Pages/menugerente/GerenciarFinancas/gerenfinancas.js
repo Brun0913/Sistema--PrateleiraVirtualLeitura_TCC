@@ -9,32 +9,39 @@ function GerenciarFinancas(){
             <div className="gerenciamento">
                 <h1> Gerenciamento de Finanças </h1>
             </div>
-               
-                <div className='onda'>   
-                    <div className='irmao'>
+               <div className='joy'>
+                    <div className='onda'>   
+                        <div className='irmao'>
 
-                    <div className="Lucro">
-                       <h3> lucro do mês </h3>
+                            <div className="Lucro">
+                               <h3> lucro do mês </h3>
+                            </div>
+
+                            <div className="qtdLivros">
+                               <h3> Quantidade de livros vendidos mês </h3>
+                            </div>
+
+                            <div className="Nmfuncionarios">
+                                <h3> Número de funcionários ativos </h3>
+                            </div>
+
+                            <div className="Avoltar">
+                                <Link to="/menugerente">
+                                    <button variant="gray" size="lg" block>
+                                        Voltar
+                                    </button> 
+                                </Link>
+                            </div>
+                            
+                        </div>
+
                     </div>
 
-                    <div className="qtdLivros">
-                       <h3> Quantidade de livros vendidos mês </h3>
+                    <div className='abaixo'>
+                        <h3 className="color">Direitos do site reservados @CopyRight</h3>
                     </div>
 
-                    <div className="Nmfuncionarios">
-                        <h3> Número de funcionários ativos </h3>
-                    </div>
-
-                    <div className="voltar">
-                        <Link to="/menugerente">
-                            <button variant="gray" size="lg" block>
-                                Voltar
-                            </button> 
-                        </Link>
-                  </div>
-                  </div>
                 </div>
-
         </div>
     )
 }
