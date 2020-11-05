@@ -6,7 +6,7 @@ import codigo from'./codigo.png'
 
 
 
-function FinalizarCompra(){
+function FinalizarCompra(props){
     return(
         <div className='nome'>
 
@@ -27,21 +27,27 @@ function FinalizarCompra(){
             <div className='escolha'>
                 
                 <div className="sim">
-                    <button variant="gray" size="lg" block>
+                    <button variant="gray" size="lg" block className="btn btn-danger">
                         <h4>Sim</h4>  
                     </button>
                 </div>
                 
                 <div className="não">
-                    <button variant="gray" size="lg" block>
-                        <h4>Não</h4>
-                    </button>
+                    <Link to={{
+                        pathname:"/menucliente",
+                        state:props.location.state
+                    }} className="btn btn-dark">
+                        Não
+                    </Link>
                 </div>
             </div>
 
                 <div className="voltar">
                     <button variant="gray" size="lg" block>
-                        <a href='/menucliente'> Voltar </a>
+                        <Link to={{
+                            pathname:"/menucliente",
+                            state:props.location.state
+                        }}> Voltar </Link>
                     </button>
                 </div>
         </div>

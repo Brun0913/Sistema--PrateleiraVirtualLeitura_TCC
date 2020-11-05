@@ -1,102 +1,83 @@
 .um{
     margin-top: 0%;
     padding: 0%;
-    height: 10vh;
+    height: 15vh;
     background-repeat: no-repeat;   
     background-size: 100% 100%;
-    background-color: orange;
+    background-image: linear-gradient(orange,purple);
 }
  
 .dois{
     margin-top: 0%;
     padding: 0%;
-    height: 83vh;
+    height: 90vh;
     background-repeat: no-repeat;   
     background-size: 100% 100%;
+    margin-bottom: 20px;
 }
 
 
 .pai{
-    height: 68vh;
-    width: 43vw;
+    height: 90vh;
+    width: 40vw;
+    margin: 10px;
+    margin-left: 140px;
     flex-direction: column;
-    justify-content: center;
     display: flex;
-    font-family: sans-serif;
-    margin-top: 3%;
-    margin-left: 28%;
-    background-image: linear-gradient(orange,purple);
-    border-right: 2px solid black;
-    border-left: 2px solid black;
-    border-bottom: 2px solid black;
-
-
+    border-radius: 10%;
+    margin-bottom: 20px;
 }
 
 .pessoa{
-    margin-bottom: 0px;
-    margin-left: 10px;
-    color: white;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 .niver{
-    margin-bottom: 0px;
-    margin-left: 10px;
-    color: white;
+    margin-bottom: 40px;
+    margin-left: 20px;
 }
 
 .cpf{
-    margin-bottom: 0px;
-    margin-left: 10px;
-    color: white;
+    margin-bottom: 40px;
+    margin-left: 20px;
 }
 
 .rg{
-    margin-bottom: 0px;
-    margin-left: 10px;
-    color: white;
+    margin-bottom: 40px;
+    margin-left: 20px;
 }
 
 .cartao{
-    margin-bottom: 0px;
-    margin-left: 10px;
-    color: white;
+    margin-bottom: 40px;
+    margin-left: 20px;
+}
+
+.CDC{
+    margin-bottom: 40px;
+    margin-left: 20px;
+}
+
+.vencimento{
+    margin-bottom: 40px;
+    margin-left: 20px;
 }
 
 .rua{
-    margin-bottom: 0px;
-    margin-left: 10px;
-    color: white;
+    margin-bottom: 40px;
+    margin-left: 20px;
 }
 
 .perfi1{
-    margin-top: 0%;
+    height: 10vh;
     margin-left: 600px;
     margin-right: 10px;
 }
 
-.voltar button{
-    border:0;
-    height: 30px;
-    width: 110px;
-    margin-bottom: 11px;
-    background: none;
-    display: block;
-    text-align: center;
-    border: 2px solid black;
-    outline: none;
-    color: black;
-    border-radius: 24px;
-    cursor: pointer;
-    margin-left: 80%;
-}
-
-.baixo{
-    height: 9vh;
-    background-color: purple;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-}
-.color{
-    color: white;
+.voltar{
+    height: 10vh;
+    margin-top: 80px;
+    margin-left: 1100px;
+    margin-right: 10px;
+    background-color: whitesmoke;
 }

@@ -23,7 +23,7 @@ function MeuPerfil(props){
 
 
     return(
-        <div className='um'>
+    <div className='um'>
             <LoadingBar
             height={4}
             color='#f11946'
@@ -33,50 +33,56 @@ function MeuPerfil(props){
                 <h1>Meu Perfil</h1>
             </div>
 
-            <div className='dois'>
+        <div className='dois'>
 
-                <div className='pai'>
+            <div className='pai'>
 
-                    <div className='pessoa'>
-                        <h4>Nome: {informacoes.cliente}</h4>
-                    </div>
 
-                    <div className='niver'>
-                        <h4>Data de nascimento: {informacoes.nascimento}</h4>
-                    </div>
+                <div className='pessoa'>
+                    <h4>Nome: {informacoes.cliente}</h4>
+                </div>
 
-                    <div className='cpf'>
-                        <h4>CPF:{informacoes.cpf}</h4>
-                    </div>
+                <div className='niver'>
+                    <h4>Data de nascimento: {informacoes.nascimento}</h4>
+                </div>
 
-                    <div className='rg'>
-                        <h4>R.G.: {informacoes.rg} </h4>
-                    </div>
+                <div className='cpf'>
+                    <h4>CPF:{informacoes.cpf}</h4>
+                </div>
 
-                    <div className='cartao'>
-                        <h4>Número do cartão: {informacoes.cartaocredito} </h4>
-                    </div>
+                <div className='rg'>
+                    <h4>R.G.: {informacoes.rg} </h4>
+                </div>
 
-                    <div className='rua'>
-                        <h4>Endereço: {informacoes.endereco} </h4>
-                    </div>
-            </div>
+                <div className='cartao'>
+                    <h4>Número do cartão: {informacoes.cartaocredito} </h4>
+                </div>
 
-                    <div className="voltar">
-                        <Link to={{
-                            pathname:"/menucliente",
-                            state:props.location.state
-                        }}>
-                           <button variant="secondary" size="lg" block>
-                                Voltar
-                           </button> 
-                        </Link>
-                    </div>
+                <div className='CDC'>
+                    <h4>Código de segurança (cartão): {informacoes.codigoseguranca} </h4>
+                </div>
 
-                        <div className='baixo'>
-                        <h3 className="color">Direitos do site reservados @CopyRight</h3>
-                        </div>
+                <div className='vencimento'>
+                    <h4>Data de vencimento do cartão: {informacoes.vencimentocartao} </h4>
+                </div>
 
+                <div className='rua'>
+                    <h4>Endereço: {informacoes.endereco} </h4>
+                </div>
+
+
+                </div>
+
+                <div className="voltar">
+                    <Link to={{
+                        pathname:"/menucliente",
+                        state:props.location.state
+                    }}>
+                       <button variant="secondary" size="lg" block>
+                            Voltar
+                       </button> 
+                    </Link>
+                </div>
             </div>  
         </div>
     )

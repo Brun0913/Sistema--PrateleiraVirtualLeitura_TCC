@@ -9,8 +9,8 @@ import api from '../../Services/FuncoesCliente';
 
 function FazerCompras(props){
 
-  const id = props.location.state.id;
-
+  const informacoescliente = props.location.state;
+  
   const loadingBar = useRef(null);
   const funcoes = new api();
   const[lista,setLista] = useState([]);
@@ -73,8 +73,7 @@ function FazerCompras(props){
                               <td>
                                 <Link to={{
                                   pathname:"/Compra",
-                                  state:props.location.state,
-                                  state:e
+                                  state:{cliente:{informacoescliente},livro:{e}}
                                 }}>
                                   Comprar
                                 </Link>

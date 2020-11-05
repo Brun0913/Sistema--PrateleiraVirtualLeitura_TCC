@@ -1,50 +1,71 @@
-import React from 'react';
+import React, { useState } from 'react';
 import'./compra.css';
-import {Link} from 'react-router-dom';
-import img from './livro-um.png'
+import {Link, useHistory} from 'react-router-dom';
+import img from './sem-imagem.jpg'
+import { ToastContainer, toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 import API from '../../Services/FuncoesCliente'
 
-function compra(props){
-    console.log(props.location.state);
-    console.log(props.location.state.id);
+function Compra(props){
 
+    const [codigo,setCodigo] = useState();
     const api = new API();
-    const idlivro = props.location.state.id;
-    const idcliente = props.location.state.id;
+    const history = useHistory();
 
-    const fazercompra = async()=>{
-        const x = await api.FazerCompra(idlivro,idcliente);
-        return x;
+    const infocliente = props.location.state.cliente.informacoescliente;
+    const infolivro = props.location.state.livro.e;
+
+    const fazercompra = async() =>{
+        
+        if(codigo.length < 3)
+            toast.error("😵 Código do Cartao Inválido");
+        
+        else if(codigo.length > 3)
+            toast.error("😵 Código do Cartão Inválido");
+        
+        else{
+        const x = await api.FazerCompra(infolivro.idlivro,infocliente.id);
+        toast.success("🚀 Comprado!")
+        history.push({
+            pathname:"/finalizar",
+            state:infocliente
+        })
+        }
     }
 
     return(
         <body id="corpotelacompra">
             <div id="mae">
+
                 <div name="titulolivro" id="titulocompralivro">
-                    <h2>{props.location.state.livro}</h2>
+                    <h2>{infolivro.livro}</h2>
                 </div>
                 <div name="containerimglivro" id="containerimglivro">
                     <div name="imagem" id="imagemcapalivro">
-                        <img className="capadolivrocompra"></img>
+                        <img className="capadolivrocompra" src={img}></img>
                     </div>
+                    
                     <div name="informacoescruciais" id="informacoesrelevante">
-                        <div name="preco" id="valorlivrocompra">
-                            <h5>Valor Do Livro:</h5>
-                            <div>
-                                {props.location.state.preco}
+                        <div id="outrocontainer">
+                            <div name="preco" id="valorlivrocompra">
+                                <h4>Valor Do Livro:</h4>
+                                <div>
+                                    {infolivro.preco}
+                                </div>
                             </div>
+                            <div name="acaocompra" id="acaodecompra">
+                                <button className="btn btn-primary" onClick={fazercompra}>Comprar</button>
+                            </div>
+                            <input type="number" placeholder="Codigo de Segurança do cartão" onChange={(e) => setCodigo(e.target.value)}></input>
                         </div>
-                        <div name="acaocompra" id="acaodecompra">
-                            <a className="btn btn-primary" href="/finalizar">Comprar</a>
+                        <div id="maisumcontainer">
+                            <textarea block>
+                                {infolivro.sinopse}
+                            </textarea>
                         </div>
-                        <div name="sinopse" id="sinopsegrande">
-                            <p>
-                                {props.location.state.sinopse}
-                            </p>
                         </div>
                     </div>
-                </div>
                 <div name="caracteristicas" id="caracteristicasimportantes">
                     <h2 id="minititulo">Caracteristicas:</h2>
                 </div>
@@ -53,47 +74,49 @@ function compra(props){
                         <div name="numeropaginas" id="espaconasinformacoes">
                             <h5>Numero de Paginas: </h5>
                             <div>
-                                {props.location.state.paginas}
+                                {infolivro.paginas}
                             </div>
                         </div>
                         <div name="autor" id="espaconasinformacoes">
                             <h5>Nome do Autor: </h5>
                             <div>
-                                {props.location.state.autor}
+                                {infolivro.autor}
                             </div>
                         </div>
                         <div name="editora" id="espaconasinformacoes">
                             <h5>Editora: </h5>
                             <div>                          
-                                {props.location.state.editora}
+                                {infolivro.editora}
                             </div>
                         </div>
                         <div name="publicacaolivro" id="espaconasinformacoes">
                             <h5>Data de Publicação:</h5>
-                            <div>{props.location.state.publicacao}</div>
+                            <div>{infolivro.publicacao}</div>
                         </div>
                     </div>
                     <div name="informacoesparte2" id="infocontainer2">
                         <div name="numeroserie" id="espaconasinformacoes">
                             <h5>Numero de Serie:</h5>
-                            <div>{props.location.state.serie}</div>
+                            <div>{infolivro.serie}</div>
                         </div>
                         <div name="genero" id="espaconasinformacoes">
                             <h5>Genero: </h5>
-                            <div>{props.location.state.genero}</div>
+                            <div>{infolivro.genero}</div>
                         </div>
                         <div name="acaovoltar" id="espaconasinformacoes">
                             <Link to={{
                                 pathname:"/menucliente",
-                                state:props.location.state
+                                state:infocliente
                             }} className="btn btn-secondary">Voltar</Link>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <ToastContainer />
         </body>
     )
 }
 
 
-export default compra;
+export default Compra;

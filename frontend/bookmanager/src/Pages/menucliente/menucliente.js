@@ -53,9 +53,9 @@ export default function MenuCliente(props){
 
             </div>
             <div id="subcontainer3">
-              <h4 id="titulo2">Perfil:</h4>
               <div className="campoimg" onClick={perfil}>
-                <img src={perfilimage} id="img"></img>
+                  <img src={perfilimage} id="img" alt="pefil"
+                  ></img>
               </div>
             </div>
           </div>

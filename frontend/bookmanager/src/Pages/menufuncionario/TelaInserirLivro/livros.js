@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './style.css'
-
 import api from '../../Services/FuncoesFuncionario'
 
 export default function InserirLivro(){
@@ -36,7 +35,6 @@ export default function InserirLivro(){
             edicaolivro:edicaolivro,
             imagem:imagem
         });
-        console.log(x);
         return x;
     }
 

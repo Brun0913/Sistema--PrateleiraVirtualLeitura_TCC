@@ -1,45 +1,58 @@
 .body{
-    padding: 0px;
-    margin: 0px;
-    background-repeat: no-repeat;
-    background-image: url(https://i.pinimg.com/564x/a7/ca/e6/a7cae60821b78266bc007e6422e1e1c4.jpg);
-    background-size: 100% 100%;
-}
-
-.chefe{
-    height: auto;
-    width: auto;
+    background-image: linear-gradient(orange,purple);
     align-items: center;
+    flex-direction: column;
     display: flex;
-    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
 }
-.rodape{
-    color: royalblue;
+#segblococriarconta{
+    flex-direction: column;
+    display: flex;
+    margin: 15px;
+    padding: 5px;;
+    justify-content: space-between;
+}
+#segblococriarconta input{
     margin: 10px;
+    outline: none;
+    border: 1px solid red;
+    background-color: #191919;
+    color: whitesmoke;
+    border-radius: 24px;
+    text-align: center;
 }
 
-.monstro{
+.rodape h3{
+    color: black;
+    margin: 10px;
+    padding: 10px;
+}
+
+#formcriarconta{
     height: auto;
-    width: auto;
-    background-color: darkgrey;
-    border: 3px solid black;
-    border-radius: 20px;
+    flex-direction: row;
+    display: flex;
+    background-color: #191919;
+    padding: 5px;
 }
-
-.page{
-    margin: 20px;
+#priblococriarconta{
+    margin: 15px;
     flex-direction: column;
+    padding: 5px;
     display: flex;
     justify-content: space-between;
+}
+#priblococriarconta label{
+    margin: 10px;
+    color: whitesmoke;
 }
 
 .eventos{
     height: auto;
     width:auto;
-    border-radius: 20px;
-    border: 3px solid black;
     margin: 10px;
-    background-color: darkgrey;
+    background-color: #191919;
 }
 
 .acoes{
@@ -56,4 +69,5 @@
 .termos{
     margin: 5px;
     text-transform: capitalize;
+    color: white;
 }

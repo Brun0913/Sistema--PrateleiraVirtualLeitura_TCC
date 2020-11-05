@@ -4,21 +4,15 @@
     height: 20vh;
     background-repeat: no-repeat;   
     background-size: 100% 100%;
-    background-color: orange;
+    background-image: linear-gradient(orange,purple);
 }
 .irmao{
-    height: 50vh;
-    width: 43vw;
-    flex-direction: column;
-    justify-content: center;
-    display: flex;
-    font-family: sans-serif;
-    margin-top: 0%;
-    margin-left: 70%;
-    background-image: linear-gradient(orange,purple);
-    border-right: 2px solid black;
-    border-left: 2px solid black;
-    border-bottom: 2px solid black;
+    margin-top: 0px;
+    padding: 0%;
+    height: 80vh;
+    background-repeat: no-repeat;   
+    background-size: 100% 100%;
+    background-image: linear-gradient(white,white);
 }
 .gerenciamento{
     flex-direction: column;
@@ -26,70 +20,36 @@
     text-align: center;
     flex-direction: column;
     display: flex;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .Lucro{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     left: 100px;
-    margin-top: 75px;
-    margin-left: 80px;
+    margin-top: 87px;
+    margin-left: 75px;
     text-align: left;
-    margin-bottom: 25px;
-    color: white;
+    margin-bottom: 50px;
 }
 
 .qtdLivros{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     left: 100px;
-    margin-left: 80px;
+    margin-left: 75px;
     text-align: left;
-    margin-bottom: 25px;
-    color: white;
+    margin-bottom: 50px;
 }
 
 .Nmfuncionarios{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     left: 100px;
-    margin-left: 80px;
+    margin-left: 75px;
     text-align: left;
-    margin-bottom: 0px;
-    color: white;
+    margin-bottom: 50px;
 }
-.Avoltar button{
-    border:0;
-    width: 150px;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid black;
-    padding: 14px 40px;
-    outline: none;
-    color: black;
-    border-radius: 24px;
-    cursor: pointer;
-    margin-left: 110%;
-}
-
-.onda{
-    height: 75vh;
-    width: 40vw;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    font-family: sans-serif;
-    margin-left: 15%;
-}
-.joy{
-    background-color: white;
-}
-.abaixo{
-    height: 12vh;
-background-color: purple;
-align-items: center;
-justify-content: center;
-display: flex;
+.voltar{
+    margin: 1px;
+    padding: 0%;
+    margin-left: 80%;
 }

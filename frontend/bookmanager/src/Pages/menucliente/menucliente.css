@@ -88,7 +88,16 @@
     color: white;
 }
 .campoimg{
-    height: 50px;
-    width: 50px;
-    margin: 20px;
+    height: 80px;
+    width: 80px;
+    margin: 30px;
+    border-radius: 50px;
+    border: 2px solid black;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.campoimg button{
+    border: 1px solid black;
+    border-radius: 34px;
 }
