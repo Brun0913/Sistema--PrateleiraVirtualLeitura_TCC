@@ -20,5 +20,27 @@ export default class{
         const x = await api.get('consultarlivros');
         return x.data;
     }
+    async SalvarLivro(parametro){
+        console.log(parametro);
+        let formdata = new FormData();
+
+        formdata.append('nome', parametro.nome);
+        formdata.append('autor', parametro.autor);
+        formdata.append('genero', parametro.genero);
+        formdata.append('preco', parametro.preco);
+        formdata.append('paginas', parametro.paginas);
+        formdata.append('idiomaprimario', parametro.idiomaprimario);
+        formdata.append('sinopse', parametro.sinopse);
+        formdata.append('publicacao', parametro.publicacao);
+        formdata.append('editora', parametro.editora);
+        formdata.append('numeroserie', parametro.numeroserie);
+        formdata.append('edicaolivro', parametro.edicaolivro);
+        formdata.append('imagem', parametro.imagem);
+        
+        const x = await api.post("NovoLivro", formdata,{
+            headers:{ 'contenty-type' : 'multipart/form-data' }
+        });
+        return x;
+    }
 
 }

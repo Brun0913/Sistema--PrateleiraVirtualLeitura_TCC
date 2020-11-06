@@ -1,25 +1,26 @@
 .titulopaginserir{
-    color: royalblue;
+    color: #191919;
+    margin: 5px;
+}
+#red{
+    color: red;
     margin: 10px;
 }
 .containertelainserir{
     align-items: center;
     display: flex;
     flex-direction: column;
-    background-image: url(https://i.pinimg.com/564x/a3/10/9a/a3109a6144a0b4d710703f0c96cd679e.jpg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-image: linear-gradient(orange,purple);
     height: 100vh;
 }
 .formularioinserirlivro{
-    border: 4px solid black;
-    border-radius: 25px;
+    border-radius: 24px;
     height: auto;
     width: auto;
     flex-direction: row;
     display: flex;
     justify-content: space-between;
-    background-color: whitesmoke;
+    background-color: #191919;
 }
 .entradadedados{
     margin: 10px;
@@ -27,21 +28,53 @@
     flex-direction: column;
 }
 .container2inserirlivro{
-    background-color: burlywood;
+    background-color: rgba(95, 95, 95, 0.781);
     flex-direction: column;
     height: auto;
     width: auto;
     margin: 20px;
-    border: 2px solid black;
+    border-radius: 20px;
+    border: 1px solid #191919;
 }
+.container2inserirlivro label{
+    color: white;
+}
+.container2inserirlivro input{
+    border: 1px solid black;
+    border-radius: 20px;
+    outline: none;
+    text-align: center;
+}
+
 .container3inserirlivro{
-    background-color: aquamarine;   
+    border-radius: 20px;
+    background-color: rgba(95, 95, 95, 0.781);
     flex-direction: column;
     height: auto;
     width: auto;
     margin: 20px;
-    border: 2px solid black;
+    border: 1px solid #191919;
 }
+.container3inserirlivro input[type="text"], input[type="date"]{
+    border: 1px solid black;
+    border-radius: 20px;
+    outline: none;
+    text-align: center;
+}
+.container3inserirlivro textarea{
+    border: 1px solid black;
+    border-radius: 10px;
+    outline: none;
+}
+.container3inserirlivro input[type="file"]{
+    color:white;
+    outline: none;
+}
+
+.container3inserirlivro label{
+    color: white;
+}
+
 .eventostelainserir{
     margin: 17.5px;
     width: 20vw;

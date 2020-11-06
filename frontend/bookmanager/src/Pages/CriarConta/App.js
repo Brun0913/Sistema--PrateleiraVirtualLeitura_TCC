@@ -67,6 +67,7 @@ export default function CriarConta(){
                         <label>Rg</label>
                         <label>Numero do Cartão de crédito</label>
                         <label>Numero de Telefone:</label>
+                        <label>Endereço</label>
                     </div>
                     <div id="segblococriarconta">
                         <input type="text" onChange={(e) => setEmail(e.target.value)}></input>
@@ -74,9 +75,10 @@ export default function CriarConta(){
                         <input type="text" onChange={(e) => setNome(e.target.value)}></input>
                         <input type="date" onChange={(e) => setNascimento(e.target.value)}></input>
                         <input type="text" onChange={(e) => setCpf(e.target.value)}></input>
-                        <input type="text" onChange={(e) => setRg(e.targetl.value)}></input>
+                        <input type="text" onChange={(e) => setRg(e.target.value)}></input>
                         <input type="text" onChange={(e) => setCartao(e.target.value)}></input>
                         <input type="text" onChange={(e) => setTelefone(e.target.value)}></input>
+                        <input type="text" onChange={(e) => setEndereco(e.target.value)}></input>
                     </div>
                 </div>
 

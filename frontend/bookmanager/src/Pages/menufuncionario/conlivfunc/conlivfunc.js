@@ -66,7 +66,7 @@ export default function ConsultarLivroFunc(){
                                             <td>{e.livro}</td>
                                             <td>{e.autor}</td>
                                             <td>{e.genero}</td>
-                                            <td>{e.publicacao}</td>
+                                            <td>{new Date(e.publicacao).toLocaleDateString()}</td>
                                             <td>{e.preco}</td>
                                             <td>
                                             <Link to={{
