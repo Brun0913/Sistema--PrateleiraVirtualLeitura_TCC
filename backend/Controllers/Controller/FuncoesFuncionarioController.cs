@@ -105,5 +105,15 @@ namespace backend.Controllers.Controller
             return File(x,xx);
         }
         
+        [HttpDelete("deletarFunc")]
+        public void DeletarFunc(Models.TbEmpregado funcionario)
+        {
+            Models.TccContext contexto = new Models.TccContext();
+
+            Models.TbEmpregado funcToDelete = contexto.First(funcionarios => funcionarios.IdEmpregado == funcionario.IdEmpregado);
+
+            contexto.TbEmpregado.Delete(funcToDelete);
+            ctx.SaveChanges();
+        }
     }
 }
