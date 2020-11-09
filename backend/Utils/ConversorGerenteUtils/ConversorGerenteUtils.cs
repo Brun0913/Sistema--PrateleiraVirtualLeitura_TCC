@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace backend.Utils.ConversorGerenteUtils
 {
     public class ConversorGerenteUtils
-    {  
+    {
         public Models.TbEmpregado ConvertReqparaTbEmpregado(Models.Request.RequestGerente.RequestGerente req, Models.TbLogin req2)
         {
             Models.TbEmpregado ctx = new Models.TbEmpregado();

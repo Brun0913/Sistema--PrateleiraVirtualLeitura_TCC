@@ -27,18 +27,6 @@ namespace backend.Controllers.Business
             throw new ArgumentException ("Para criar a conta necessitamos do numero do seu cartão de crédito");
         }
 
-        public void CampoCodigoSeguranca(Models.Request.InformacoesClienteRequest req)
-        {
-            if(req.codigoseguranca <= 0)
-            throw new ArgumentException ("Voce precisa inserir o codigo de segurança do cartão");
-        }
-    
-        public void CampoVencimentoCartao(Models.Request.InformacoesClienteRequest req)
-        {
-            if(req.vencimentocartao == null)
-            throw new ArgumentException ("Necessario colocar a data de validade do cartão de crédito");
-        }
-
         public void CampoTelefone(Models.Request.InformacoesClienteRequest req)
         {
             if(string.IsNullOrEmpty(req.telefone))

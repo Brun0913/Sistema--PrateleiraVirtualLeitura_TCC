@@ -20,7 +20,7 @@ function Gercadfunc(){
     const [salario,setSalario] = useState();
 
     const InserirFuncionario = async() =>{
-        const x = await api.InserirFuncionario({
+        const x = await api.CadastrarNovoFuncionario({
             nomefuncionario:nomefunc,
             nascimentofuncionario:nascimentofunc,
             cpf:cpf,

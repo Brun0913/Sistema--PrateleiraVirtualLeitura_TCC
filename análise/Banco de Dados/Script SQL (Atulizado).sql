@@ -16,8 +16,6 @@ dt_nascimento date,
 ds_cpf varchar (15),
 ds_rg varchar(15),
 ds_cartao_credito varchar(100),
-nr_codigo_seguranca int,
-dt_vencimento_cartao datetime,
 ds_endereco varchar(50),
 ds_telefone varchar(50),
 
@@ -53,7 +51,8 @@ dt_publicacao date,
 tp_idioma_original varchar(100),
 ds_edicao_livro varchar(100),
 ds_genero varchar(100),
-vl_preco decimal (15,2)
+vl_preco decimal (15,2),
+img_imagem varchar(100) default 'sem-imagem.jpg'
 );
 
 create table tb_compra(
@@ -91,8 +90,8 @@ insert into tb_login (ds_email, ds_senha,ds_perfil)
 values("funcionario@gmail.com","123456","funcionario");
 
 
-insert into tb_cliente(nm_cliente,dt_nascimento,ds_cpf,ds_rg,id_login, ds_cartao_credito,nr_codigo_seguranca,dt_vencimento_cartao,ds_endereco,ds_telefone)
-value("Bruno Gomes",'2002-11-22',"123.132.122-22","23443.23",2,"1244 2345 1345 4545",913,'2021-09-11',"rua bofim n°31","(11) 92345-2345");
+insert into tb_cliente(nm_cliente,dt_nascimento,ds_cpf,ds_rg,id_login, ds_cartao_credito,ds_endereco,ds_telefone)
+value("Bruno Gomes",'2002-11-22',"123.132.122-22","23443.23",2,"1244 2345 1345 4545","rua bofim n°31","(11) 92345-2345");
 
 
 insert into tb_empregado(nm_empregado,dt_nascimento,ds_cpf,ds_cep,ds_rg,ds_carteira_trabalho,ds_cargo,ds_carga_horaria_semanal,vl_salario,id_login)

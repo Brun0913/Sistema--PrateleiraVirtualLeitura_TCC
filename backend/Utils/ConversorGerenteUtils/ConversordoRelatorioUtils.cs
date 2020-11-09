@@ -12,6 +12,7 @@ namespace backend.Utils.ConversorGerenteUtils
             Models.Response.GerenteResponse.VendasdoDiaResponse ctx = new Models.Response.GerenteResponse.VendasdoDiaResponse();
             ctx.cliente = req.IdClienteNavigation.NmCliente;
             ctx.dia = req.DtCompra.Day;
+            ctx.cliente = "teste";
             ctx.valortotal = req.VlTotal;
 
             return ctx;

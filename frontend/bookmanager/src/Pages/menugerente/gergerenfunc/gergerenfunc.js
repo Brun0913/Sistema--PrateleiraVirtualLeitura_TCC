@@ -2,29 +2,34 @@ import React from 'react';
 import './gergerenfunc.css';
 
 import { Search } from "react-bootstrap-icons";
+import {Link} from 'react-router-dom';
 
 function gergerenfunc(){
     return(
         <div className="prigerenfunc">
 
             <div className="titulo">
-                <h1>Gerenciamento de Funcionário</h1>
+                <h1 id="titulogergeren">Gerenciamento de Funcionário</h1>
             </div>
 
             <div className="maingergerenfunc">
+              <div className="divagergeren">
                <h4>Buscar </h4>
                
                <Search size={16} style={{ cursor: "pointer" }} />
-
-            </div>
-
+               
             <div className="bvoltargerenfunc">
-               <button variant="gray" size="lg" block>
+              <Link to='/menugerente'>
+               <button id="buttonger" variant="gray" size="lg" block>
                   Voltar
                </button>
+              </Link> 
             </div>
+           </div> 
+           </div>
 
-          <div className="table">
+        <div className="controladordetable2">
+          <div id="tableger" className="table">
             <thead>
               <tr>
 
@@ -40,6 +45,8 @@ function gergerenfunc(){
             </thead>
             
           </div>
+          </div>
+
         </div>
 
     )

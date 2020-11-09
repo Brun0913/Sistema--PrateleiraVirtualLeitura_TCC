@@ -12,7 +12,7 @@ namespace backend.Controllers.Controller
     public class FuncoesGerenteController
     {
         [HttpGet("vendasdodia")]
-        public List<Models.Response.GerenteResponse.VendasdoDiaResponse> VendasDoDia()
+        public List<Models.Response.GerenteResponse.VendasdoDiaResponse> VendasDoDia(Models.Request.RequestGerente.VendasdoDiaRequest req)
         {
             Utils.ConversorGerenteUtils.ConversordoRelatorioUtils relatorio = new Utils.ConversorGerenteUtils.ConversordoRelatorioUtils();
             Models.TccContext db = new Models.TccContext();

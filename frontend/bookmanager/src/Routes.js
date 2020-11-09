@@ -20,6 +20,7 @@ import Compra from'./Pages/menucliente/Compra/compra'
 import FinalizarCompra from'./Pages/menucliente/FinalizarCompra/finalizar'
 import ExcluirLivro from './Pages/menufuncionario/TelaExcluirLivro'
 import InserirLivro from './Pages/menufuncionario/TelaInserirLivro/livros'
+import excluirfunc from './Pages/menugerente/excluirfunc/excluirfunc'
 
 export default function Routes(){
 
@@ -44,6 +45,7 @@ export default function Routes(){
                 <Route path="/finalizar" component={FinalizarCompra}/>
                 <Route path="/excluirlivro" component={ExcluirLivro}/>
                 <Route path="/inserirlivro" component={InserirLivro}/>
+                <Route path="/excluirfunc" component={excluirfunc}/>
             </Switch>
         </BrowserRouter>
     )

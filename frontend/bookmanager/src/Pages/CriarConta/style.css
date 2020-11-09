@@ -1,15 +1,12 @@
 body{
     padding: 0px;
     margin: 0px;
-    background-color:whitesmoke;
-    background-color:Whitesmoke;
+    background-color: whitesmoke;
     background-size: 100% 100%;
 }
 
 .corpo{
-    flex-direction: column;
-    height: auto;
-    width: auto;
+    height: 0px;
 }
 
 .container{
@@ -24,7 +21,7 @@ body{
     border-radius: 23px;
     border: 5px solid black;
     align-items: center;
-    background-color: lightblue;
+    background-color: white;
 }
 
 .termo1,.termo2,.termo3,.termo4,.termo5{
@@ -32,9 +29,14 @@ body{
 }
 
 .evento3{
-    width: 30vw;
+    width: vw;
     margin-top: 5px;
     margin-bottom: 10px;
     justify-content: center;
     display: flex;
+}
+
+.master{
+    background-image: linear-gradient(orange,purple);
+    height: 800px;
 }
