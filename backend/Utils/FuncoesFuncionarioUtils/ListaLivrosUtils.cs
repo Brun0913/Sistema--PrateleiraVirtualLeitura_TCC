@@ -51,6 +51,7 @@ namespace backend.Utils.FuncoesFuncionarioUtils
             response.genero = request.DsGenero;
             response.sinopse = request.DsSinopse;
             response.publicacao = request.DtPublicacao;
+            response.nomeimagem = request.ImgImagem;
 
             return response;
         }
@@ -61,6 +62,26 @@ namespace backend.Utils.FuncoesFuncionarioUtils
                 xx.Add(TbLivroparaLivroResponseCompleto(item));
 
             return xx;
+        }
+        public List<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone> filtrador(List<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone> request,Models.Request.RequestFuncionario.Modeloparafiltrar req)
+        {
+            List<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone> ctx = new List<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone>();
+
+            
+
+            if(req.genero == "" && req.publicacao != 0)
+                ctx = request.Where(x => x.publicacao.Year == req.publicacao).ToList();
+            
+            else if(req.genero != "" && req.publicacao == 0)
+                ctx = request.Where(x => x.genero == req.genero).ToList();
+            
+            else if(req.genero != "" && req.publicacao != 0)
+                ctx = request.Where(x => x.genero == req.genero && x.publicacao.Year == req.publicacao).ToList();
+            
+            else
+                ctx = request;
+
+            return ctx;
         }
         public Models.TbLivro RequestTblivroparaTbLivro(Models.Request.RequestFuncionario.RequestLivro req){
             

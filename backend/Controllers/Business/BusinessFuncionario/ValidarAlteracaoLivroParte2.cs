@@ -8,7 +8,7 @@ namespace backend.Controllers.Business.BusinessFuncionario
         BusinessFuncionario.VerificarParamentrosBusiness requisitos = new VerificarParamentrosBusiness();
         Database.FuncoesFuncionarioDataBase salvaralteracao = new Database.FuncoesFuncionarioDataBase();
 
-        public Models.TbLivro UltimaParteParaAlterar(Models.Request.RequestFuncionario.RequestLivro req, int id)
+        public Models.TbLivro UltimaParteParaAlterar(Models.Request.RequestFuncionario.RequestLivroAlterar req, int id)
         {
             requisitos.ValidarAlteracaoautor(req);
             requisitos.ValidarAlteracaoedicaolivro(req);

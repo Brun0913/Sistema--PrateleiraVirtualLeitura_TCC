@@ -5,17 +5,7 @@ using System.Collections.Generic;
 namespace backend.Utils.ConversorGerenteUtils
 {
     public class ConversorGerenteUtils
-    {
-        public Models.Response.GerenteResponse.GerenciarFinancasResponse convertgerenciarfinancas(int a,int b, decimal? c)
-        {
-            Models.Response.GerenteResponse.GerenciarFinancasResponse ctx = new Models.Response.GerenteResponse.GerenciarFinancasResponse();
-
-            ctx.funcionariosativos = a;
-            ctx.totallivrosvendidos = b;
-            ctx.lucromes = c;
-
-            return ctx;
-        }
+    {  
         public Models.TbEmpregado ConvertReqparaTbEmpregado(Models.Request.RequestGerente.RequestGerente req, Models.TbLogin req2)
         {
             Models.TbEmpregado ctx = new Models.TbEmpregado();

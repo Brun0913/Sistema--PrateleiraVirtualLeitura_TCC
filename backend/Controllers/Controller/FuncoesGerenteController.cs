@@ -11,29 +11,44 @@ namespace backend.Controllers.Controller
     [Route("[controller]")]
     public class FuncoesGerenteController
     {
-        [HttpGet("gerenciarfinancas")]
-        public Models.Response.GerenteResponse.GerenciarFinancasResponse GerenciarFinancas()
+        [HttpGet("vendasdodia")]
+        public List<Models.Response.GerenteResponse.VendasdoDiaResponse> VendasDoDia()
         {
-            Utils.ConversorGerenteUtils.ConversorGerenteUtils pegarinformacoes = new Utils.ConversorGerenteUtils.ConversorGerenteUtils();
-            Database.ListagemTbDatabase db = new Database.ListagemTbDatabase();
+            Utils.ConversorGerenteUtils.ConversordoRelatorioUtils relatorio = new Utils.ConversorGerenteUtils.ConversordoRelatorioUtils();
+            Models.TccContext db = new Models.TccContext();
 
-            List<Models.TbEmpregado> funcionarios = db.ProcurarFuncionarios();
-            int funcionariostotal = funcionarios.Count();
+            DateTime dia = DateTime.Now;
+            List<Models.TbCompra> x = db.TbCompra.ToList();
+            List<Models.Response.GerenteResponse.VendasdoDiaResponse> retorno = relatorio.ListaVendasdiaUtils(x);
 
-            List<Models.TbCompraLivro> livrosvendidostotal = db.Procurarcompralivro();
-            int Livros = livrosvendidostotal.Count();
+            List<Models.Response.GerenteResponse.VendasdoDiaResponse> result = retorno.Where(x => x.dia == dia.Day).ToList();
+            return result;
+        }
+        [HttpGet("topclientes")]
+        public List<Models.Response.GerenteResponse.topMelhoresClienteResponse> TopMelhoresClientes()
+        {
+            Utils.ConversorGerenteUtils.ConversordoRelatorioUtils buscarclientes = new Utils.ConversorGerenteUtils.ConversordoRelatorioUtils();
 
-            List<Models.TbCompra> lucromes = db.ProcurarcomprasMes();
-            List<decimal?> listadevendas = new List<decimal?>();
-            foreach(Models.TbCompra item in lucromes)
+            List<Models.Response.GerenteResponse.topMelhoresClienteResponse> list = buscarclientes.melhoresCliente();
+            List<Models.Response.GerenteResponse.topMelhoresClienteResponse> xx = list.OrderByDescending(x => x.qtdpedidos).ToList();
+
+            List<Models.Response.GerenteResponse.topMelhoresClienteResponse> retoron = new List<Models.Response.GerenteResponse.topMelhoresClienteResponse>();
+            for(int item = 0;item <= 10; item++)
             {
-                listadevendas.Add(item.VlTotal);
+                retoron.Add(xx[item]);
             }
-            decimal? lucrototal = listadevendas.Sum();
-            
-            Models.Response.GerenteResponse.GerenciarFinancasResponse ctx = pegarinformacoes.convertgerenciarfinancas(funcionariostotal,Livros,lucrototal);
-            return ctx;
-        }  
+            return retoron;
+        }
+
+        [HttpGet("vendasdomes")]
+        public List<Models.Response.GerenteResponse.VendasdoMesResponse> VendasdoMes()
+        {
+            Utils.ConversorGerenteUtils.ConversordoRelatorioUtils buscar = new Utils.ConversorGerenteUtils.ConversordoRelatorioUtils();
+            List<Models.Response.GerenteResponse.VendasdoMesResponse> retorno = buscar.convertvendasmes();
+
+            return retorno;
+        }
+
         [HttpPost("cadastrarfuncionario")]
         public Models.Response.GerenteResponse.FuncionarioGerenteResponse cadastrarfunc(Models.Request.RequestGerente.RequestGerente req)
         {

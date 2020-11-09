@@ -12,28 +12,8 @@ namespace backend.Controllers.Controller
     public class FuncoesFuncionarioController : ControllerBase
     {
 
-        [HttpDelete("apagarlivro/{id}")]
-        public ActionResult<Models.Response.ResponsedoFuncionario.RegistroLivroResponse> excluirlivro (int id)
-        {
-            try{
-            Business.FuncoesFuncionario.ResgitroExistente verificarregistro = new Business.FuncoesFuncionario.ResgitroExistente();
-            Utils.FuncoesFuncionarioUtils.RegistroLivroUtils converter = new Utils.FuncoesFuncionarioUtils.RegistroLivroUtils();
-
-            Models.TbLivro resultado = verificarregistro.VerificarRegistro(id);
-
-            Models.Response.ResponsedoFuncionario.RegistroLivroResponse x  = converter.registrolivroapagado(resultado);
-            return x;
-            }
-            catch(System.Exception ex)
-            {
-                return new BadRequestObjectResult(
-                    new Models.Response.ErroResponse(ex,404)
-                );
-            }
-        }
-
         [HttpGet("consultarlivros")]
-        public ActionResult<List<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone>> consultarlivro()
+        public ActionResult<List<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone>> consultarlivro(Models.Request.RequestFuncionario.Modeloparafiltrar req)
         {
             try{
             Business.BusinessFuncionario.ProcurarResgistroLivrosBusiness buscar = new Business.BusinessFuncionario.ProcurarResgistroLivrosBusiness();
@@ -41,7 +21,8 @@ namespace backend.Controllers.Controller
 
             List<Models.TbLivro> ModeloTb = buscar.buscarlivros();
             List<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone> ModeloPersonalizado = convertertblivro.ListaCliente(ModeloTb);
-            return ModeloPersonalizado;
+            List<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone> ModeloFiltrado = convertertblivro.filtrador(ModeloPersonalizado,req);
+            return ModeloFiltrado;
             }
             catch(System.Exception ex)
             {
@@ -52,7 +33,7 @@ namespace backend.Controllers.Controller
         }
 
         [HttpPut("alterarlivro/{id}")]
-        public ActionResult<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone> AlterarLivro (int id,Models.Request.RequestFuncionario.RequestLivro novasinformacoes )
+        public ActionResult<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone> AlterarLivro (int id,Models.Request.RequestFuncionario.RequestLivroAlterar novasinformacoes )
         {   
             try{
             Utils.FuncoesFuncionarioUtils.ListaLivrosUtils AlterarModelo = new Utils.FuncoesFuncionarioUtils.ListaLivrosUtils();
@@ -105,15 +86,6 @@ namespace backend.Controllers.Controller
             return File(x,xx);
         }
         
-        [HttpDelete("deletarFunc")]
-        public void DeletarFunc(Models.TbEmpregado funcionario)
-        {
-            Models.TccContext contexto = new Models.TccContext();
-
-            Models.TbEmpregado funcToDelete = contexto.First(funcionarios => funcionarios.IdEmpregado == funcionario.IdEmpregado);
-
-            contexto.TbEmpregado.Delete(funcToDelete);
-            ctx.SaveChanges();
-        }
+        
     }
 }
