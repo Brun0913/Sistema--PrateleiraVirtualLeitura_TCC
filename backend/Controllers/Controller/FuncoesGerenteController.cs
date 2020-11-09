@@ -11,29 +11,19 @@ namespace backend.Controllers.Controller
     [Route("[controller]")]
     public class FuncoesGerenteController
     {
-        [HttpGet("gerenciarfinancas")]
-        public Models.Response.GerenteResponse.GerenciarFinancasResponse GerenciarFinancas()
+        [HttpGet("vendasdodia")]
+        public List<Models.Response.GerenteResponse.VendasdoDiaResponse> VendasDoDia(Models.Request.RequestGerente.VendasdoDiaRequest req)
         {
-            Utils.ConversorGerenteUtils.ConversorGerenteUtils pegarinformacoes = new Utils.ConversorGerenteUtils.ConversorGerenteUtils();
-            Database.ListagemTbDatabase db = new Database.ListagemTbDatabase();
+            Utils.ConversorGerenteUtils.ConversordoRelatorioUtils relatorio = new Utils.ConversorGerenteUtils.ConversordoRelatorioUtils();
+            Models.TccContext db = new Models.TccContext();
 
-            List<Models.TbEmpregado> funcionarios = db.ProcurarFuncionarios();
-            int funcionariostotal = funcionarios.Count();
+            List<Models.TbCompra> x = db.TbCompra.ToList();
+            List<Models.Response.GerenteResponse.VendasdoDiaResponse> retorno = relatorio.ListaVendasdiaUtils(x);
 
-            List<Models.TbCompraLivro> livrosvendidostotal = db.Procurarcompralivro();
-            int Livros = livrosvendidostotal.Count();
+            List<Models.Response.GerenteResponse.VendasdoDiaResponse> result = retorno.Where(x => x.dia.Day == req.dia.Day).ToList();
+            return result;
+        }
 
-            List<Models.TbCompra> lucromes = db.ProcurarcomprasMes();
-            List<decimal?> listadevendas = new List<decimal?>();
-            foreach(Models.TbCompra item in lucromes)
-            {
-                listadevendas.Add(item.VlTotal);
-            }
-            decimal? lucrototal = listadevendas.Sum();
-            
-            Models.Response.GerenteResponse.GerenciarFinancasResponse ctx = pegarinformacoes.convertgerenciarfinancas(funcionariostotal,Livros,lucrototal);
-            return ctx;
-        }  
         [HttpPost("cadastrarfuncionario")]
         public Models.Response.GerenteResponse.FuncionarioGerenteResponse cadastrarfunc(Models.Request.RequestGerente.RequestGerente req)
         {
@@ -53,6 +43,5 @@ namespace backend.Controllers.Controller
             return result;
 
         }
-
     }
 }

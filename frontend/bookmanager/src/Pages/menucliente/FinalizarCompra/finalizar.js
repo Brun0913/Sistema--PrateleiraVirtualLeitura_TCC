@@ -36,9 +36,7 @@ function FinalizarCompra(props){
                     <Link to={{
                         pathname:"/menucliente",
                         state:props.location.state
-                    }} className="btn btn-dark">
-                        Não
-                    </Link>
+                    }}>Não</Link>
                 </div>
             </div>
 

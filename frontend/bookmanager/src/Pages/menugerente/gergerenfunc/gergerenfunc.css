@@ -1,22 +1,41 @@
 .maingergerenfunc{
     flex-direction: row;
     display: flex;
-    margin: 10px;
     align-items: center;
-    margin-left: 100px;
-
 }
 
 .prigerenfunc{
-    align-items: center;
+    margin-top: 0%;
+    padding: 0%;
+    height: 100vh;
+    flex-direction: column;
+    background-image: linear-gradient(orange,purple);
 }
 
 .bvoltargerenfunc{
     flex-direction: row;
-    align-items: flex-end;
-    margin-left: 1000px;
+    margin-left: 110px;
 }
 
 .titulo{
+    width: 100vw;
+    height: auto;
+    text-align: center;
+    background-color: purple;
+    background-position: fixed;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#tableger{
+    margin-left: 600px;
+    height: 10px;
+}
+
+.controladordetable2{
+    width: 600px;
+}
+.divagergeren{
+    align-items: center;
+    flex-direction: column;
+
 }

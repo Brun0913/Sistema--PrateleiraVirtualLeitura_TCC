@@ -35,10 +35,5 @@ namespace backend.Controllers.Business
                 throw new ArgumentException("Quantidades de caracteres do cartão inválida, tente novamente");
         }
 
-        public void CaracteresMinimosCodigoSeguranca(Models.Request.InformacoesClienteRequest req)
-        {
-            if(req.codigoseguranca < 3)
-                throw new ArgumentException ("Codigo de segurança do cartão inválida");
-        }
     }
 }
