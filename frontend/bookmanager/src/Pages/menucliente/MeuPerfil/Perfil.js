@@ -9,7 +9,7 @@ import API from "../../Services/FuncoesCliente"
 function MeuPerfil(props){
     const loadingBar = useRef(null);
     const api = new API();
-    const [informacoes,setInfo] = useState();
+    const [informacoes,setInfo] = useState([]);
 
     const perfilcliente = async()=>{
         loadingBar.current.continuousStart(); 
