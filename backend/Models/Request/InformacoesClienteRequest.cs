@@ -11,8 +11,6 @@ namespace backend.Models.Request
         public string cpf {get;set;}
         public string rg {get;set;}
         public string cartaocredito {get;set;}
-        public int codigoseguranca {get;set;}
-        public DateTime vencimentocartao {get;set;}
         public string endereco {get;set;}
         public string telefone {get;set;}
     
