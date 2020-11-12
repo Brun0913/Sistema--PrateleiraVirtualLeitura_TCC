@@ -69,5 +69,21 @@ namespace backend.Controllers.Controller
 
         }
 
+        [HttpDelete]
+        public void DeletarFuncionario(Models.Request.RequestGerente.DeletarFuncRequest funcionario)
+        {
+            Models.TccContext context = new Models.TccContext();
+
+            Models.TbEmpregado paraDeletar = context.TbEmpregado.First(emp => emp.IdEmpregado == funcionario.IdFunc);
+            context.Remove(paraDeletar);
+            
+            Models.TbLogin paraDeletarOnLogin = context.TbLogin.First(lgn => lgn.IdLogin == funcionario.IdLogin);
+            context.Remove(paraDeletarOnLogin);
+
+            context.SaveChanges();
+               
+        }
+
+
     }
 }
