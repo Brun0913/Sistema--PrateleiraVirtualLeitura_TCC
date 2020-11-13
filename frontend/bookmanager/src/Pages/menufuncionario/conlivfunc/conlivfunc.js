@@ -57,7 +57,6 @@ export default function ConsultarLivroFunc(){
                                         <th>Data de Publicação</th>
                                         <th>Preco</th>
                                         <th></th>
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody className="black">
@@ -76,14 +75,6 @@ export default function ConsultarLivroFunc(){
                                                 Alterar
                                             </Link>
                                             </td>
-                                            <td>
-                                            <Link to={{
-                                                pathname:"/excluirlivro",
-                                                state:e
-                                            }}>
-                                                Excluir
-                                            </Link>
-                                            </td>
                                         </tr>
                                     ))}
                                 </tbody>
@@ -92,7 +83,7 @@ export default function ConsultarLivroFunc(){
                     </div>
                 </div>
                 <div className="ultimo">
-                    <h3 className="preto">Altere ou Exclua livros por aqui</h3>
+                    <h3 className="preto">Consulte e Altere livros por aqui</h3>
                 </div>
             </div>
 

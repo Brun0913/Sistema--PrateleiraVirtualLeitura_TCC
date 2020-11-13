@@ -4,6 +4,7 @@ import LoadingBar from 'react-top-loading-bar'
 
 import {Link} from "react-router-dom"
 import API from '../../Services/FuncoesCliente'
+import { toast, ToastContainer } from 'react-toastify';
 
 export default function HistoricoCompras(props){
 
@@ -11,14 +12,22 @@ export default function HistoricoCompras(props){
     const [lista,setList] = useState([]);
     const loadingBar = useRef(null);
 
-    const buscarhistorico = async() =>{
+    const BuscarHistorico = async() =>{
+        try{
         loadingBar.current.continuousStart();
         const x = await api.HistoricoCompras(props.location.state.id);
         setList(x);
         loadingBar.current.complete();
+        }
+        catch(ex)
+        {
+            if(ex.response.data.motivo)
+            toast.error("😵 " + ex.response.data.motivo);
+            else
+            toast.error("😔 Tente Novamente");}
     }
     useEffect(() => {
-        buscarhistorico();
+        BuscarHistorico();
       }, []);
  
     return(
@@ -35,7 +44,7 @@ export default function HistoricoCompras(props){
                 </div>
                 <div className="zeus">
                     <div id="blocodecomandos">
-                        <div className="btn btn-primary minibloco" onClick={buscarhistorico}>Buscar Novamente</div>
+                        <div className="btn btn-primary minibloco" onClick={BuscarHistorico}>Buscar Novamente</div>
                         <Link to={{
                             pathname:"/menucliente",
                             state:props.location.state
@@ -55,7 +64,7 @@ export default function HistoricoCompras(props){
                             </thead>
                             <tbody id="registros">
                             {lista.map(e => (
-                                <tr key={e.id} id="cor">
+                                <tr key={e.idlivro} id="cor">
                                     <td>{e.livro}</td>
                                     <td>{e.autor}</td>
                                     <td>{e.serie}</td>
@@ -67,11 +76,7 @@ export default function HistoricoCompras(props){
                         </div>
                     </div>
                 </div>
-
+            <ToastContainer />
         </div>
-    
-
     )
 }
-
-

@@ -10,15 +10,16 @@ function MeuPerfil(props){
     const loadingBar = useRef(null);
     const api = new API();
     const [informacoes,setInfo] = useState([]);
+    const id = props.location.state.id;
 
-    const perfilcliente = async()=>{
+    const Perfilcliente = async()=>{
         loadingBar.current.continuousStart(); 
-        const x = await api.Perfil(props.location.state.id);
+        const x = await api.Perfil(id);
         setInfo(x);
         loadingBar.current.complete();
     }
     useEffect(() => {
-        perfilcliente();
+        Perfilcliente();
       }, []);
 
 

@@ -4,7 +4,8 @@ namespace backend.Models.Response.ClienteResponse
 {
     public class ModeloHistóricoCompra
     {
-        public int id {get;set;}
+        public int? idcliente {get;set;}
+        public int? idlivro {get;set;}
         public string livro {get;set;}
         public string autor {get;set;}
         public string serie {get;set;}

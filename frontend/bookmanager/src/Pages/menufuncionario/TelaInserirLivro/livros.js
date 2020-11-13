@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './style.css'
 import api from '../../Services/FuncoesFuncionario'
+import { ToastContainer, toast} from "react-toastify";
+
 
 export default function InserirLivro(){
     
@@ -20,23 +22,30 @@ export default function InserirLivro(){
     const [imagem,setImagem] = useState();
 
     const SalvarLivro = async() =>{
-        
-        const x = await API.SalvarLivro({
-            livro:livro,
-            autor:autor,
-            genero:genero,
-            preco:preco,
-            paginas:paginas,
-            idiomaprimario:idiomaprimario,
-            sinopse:sinopse,
-            publicacao:publicacao,
-            editora:editora,
-            numeroserie:numeroserie,
-            edicaolivro:edicaolivro,
-            imagem:imagem
-        });
-        console.log(x);
-        return x;
+        try{
+            await API.SalvarLivro({
+                livro,
+                autor,
+                genero,
+                preco,
+                paginas,
+                idiomaprimario,
+                sinopse,
+                publicacao,
+                editora,
+                numeroserie,
+                edicaolivro,
+                imagem
+            });
+        toast("Cadastrado com sucesso");
+        }
+        catch(ex)
+        {
+            if(ex.response.data.motivo)
+            toast.error("😵 " + ex.response.data.motivo);
+            else
+            toast.error("😔 Tente Novamente");    
+        }
     }
 
     return(
@@ -106,6 +115,7 @@ export default function InserirLivro(){
                 <a href="/menufuncionario" className="btn btn-dark acc">Voltar</a>
                 <button className="btn btn-success acc" onClick={SalvarLivro}>Salvar</button>
             </div>
+            <ToastContainer/>
         </div>
     )
 }

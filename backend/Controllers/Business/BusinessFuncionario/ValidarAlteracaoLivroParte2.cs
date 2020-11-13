@@ -8,7 +8,7 @@ namespace backend.Controllers.Business.BusinessFuncionario
         BusinessFuncionario.VerificarParamentrosBusiness requisitos = new VerificarParamentrosBusiness();
         Database.FuncoesFuncionarioDataBase salvaralteracao = new Database.FuncoesFuncionarioDataBase();
 
-        public Models.TbLivro UltimaParteParaAlterar(Models.Request.RequestFuncionario.RequestLivroAlterar req, int id)
+        public Models.TbLivro UltimaParteParaAlterar(Models.Request.RequestFuncionario.RequestLivroAlterar req)
         {
             requisitos.ValidarAlteracaoautor(req);
             requisitos.ValidarAlteracaoedicaolivro(req);
@@ -22,7 +22,7 @@ namespace backend.Controllers.Business.BusinessFuncionario
             requisitos.ValidarAlteracaopublicacaolivro(req);
             requisitos.ValidarAlteracaosinopse(req);
 
-            Models.TbLivro x = salvaralteracao.alterarlivro(req,id);
+            Models.TbLivro x = salvaralteracao.alterarlivro(req);
             return x;
         }
     }

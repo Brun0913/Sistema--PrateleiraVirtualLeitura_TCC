@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 import './menucliente.css';
-import {Link , useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 import perfilimage from './perfil-de-usuario.png'
 
@@ -53,10 +53,10 @@ export default function MenuCliente(props){
 
             </div>
             <div id="subcontainer3">
-              <div className="campoimg" onClick={perfil}>
+              <button className="campoimg" onClick={perfil}>
                   <img src={perfilimage} id="img" alt="pefil"
                   ></img>
-              </div>
+              </button>
             </div>
           </div>
         </div>

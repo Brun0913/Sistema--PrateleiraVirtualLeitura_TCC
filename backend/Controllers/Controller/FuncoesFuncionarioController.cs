@@ -13,7 +13,7 @@ namespace backend.Controllers.Controller
     {
 
         [HttpGet("consultarlivros")]
-        public ActionResult<List<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone>> consultarlivro(Models.Request.RequestFuncionario.Modeloparafiltrar req)
+        public ActionResult<List<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone>> consultarlivro()
         {
             try{
             Business.BusinessFuncionario.ProcurarResgistroLivrosBusiness buscar = new Business.BusinessFuncionario.ProcurarResgistroLivrosBusiness();
@@ -21,8 +21,7 @@ namespace backend.Controllers.Controller
 
             List<Models.TbLivro> ModeloTb = buscar.buscarlivros();
             List<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone> ModeloPersonalizado = convertertblivro.ListaCliente(ModeloTb);
-            List<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone> ModeloFiltrado = convertertblivro.filtrador(ModeloPersonalizado,req);
-            return ModeloFiltrado;
+            return ModeloPersonalizado;
             }
             catch(System.Exception ex)
             {
@@ -32,14 +31,14 @@ namespace backend.Controllers.Controller
             }
         }
 
-        [HttpPut("alterarlivro/{id}")]
-        public ActionResult<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone> AlterarLivro (int id,Models.Request.RequestFuncionario.RequestLivroAlterar novasinformacoes )
+        [HttpPut("alterarlivro")]
+        public ActionResult<Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone> AlterarLivro (Models.Request.RequestFuncionario.RequestLivroAlterar novasinformacoes )
         {   
             try{
             Utils.FuncoesFuncionarioUtils.ListaLivrosUtils AlterarModelo = new Utils.FuncoesFuncionarioUtils.ListaLivrosUtils();
             Business.BusinessFuncionario.ValidarAlteracaoLivroParte2 validacao = new Business.BusinessFuncionario.ValidarAlteracaoLivroParte2();
 
-            Models.TbLivro atual =  validacao.UltimaParteParaAlterar(novasinformacoes, id);
+            Models.TbLivro atual =  validacao.UltimaParteParaAlterar(novasinformacoes);
 
             Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone AlteradoComSucesso = AlterarModelo.TbLivroparaLivroResponseCompleto(atual);
             return AlteradoComSucesso;
@@ -85,7 +84,5 @@ namespace backend.Controllers.Controller
             string xx = gerenciarfoto.GerarContnttype(foto);
             return File(x,xx);
         }
-        
-        
     }
 }

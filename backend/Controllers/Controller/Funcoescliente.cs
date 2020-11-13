@@ -10,23 +10,33 @@ namespace backend.Controllers.Controller
 {
     [ApiController]
     [Route("[controller]")]
-        public class Funcoescliente
+        public class Funcoescliente : ControllerBase
     {
 
         [HttpGet("historicodecompra/{id}")]
-        public List<Models.Response.ClienteResponse.ModeloHistóricoCompra> historicodecompra(int id)
+        public ActionResult<List<Models.Response.ClienteResponse.ModeloHistóricoCompra>> historicodecompra(int id)
         {
+            try{
             Models.TccContext db = new Models.TccContext();
             Utils.FuncoesClienteUtils.HistoricoCompraUtils converterhistorico = new Utils.FuncoesClienteUtils.HistoricoCompraUtils();
-            
-            Models.TbCliente cliente = db.TbCliente.First(x => x.IdLogin == id);
+            Business.ClienteBusiness validarhistorico = new Business.ClienteBusiness();
+
+            Models.TbCliente cliente =validarhistorico.VerificarConta(id);
             List<Models.TbCompraLivro> retorno = db.TbCompraLivro.Include(x => x.IdCompraNavigation)
                                                                  .Include(x => x.IdLivroNavigation)
+                                                                 .Include(x => x.IdCompraNavigation)
                                                                  .ToList();
 
             List<Models.Response.ClienteResponse.ModeloHistóricoCompra> x = converterhistorico.returntcompra(retorno);
-            List<Models.Response.ClienteResponse.ModeloHistóricoCompra> zz = x.Where(x =>x.id == cliente.IdCliente).ToList();
+            List<Models.Response.ClienteResponse.ModeloHistóricoCompra> zz = validarhistorico.VerificarExistencia(x,cliente);
             return zz;
+            }
+            catch(System.Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErroResponse(ex,400)
+                );
+            }
         }
         
 
@@ -47,8 +57,10 @@ namespace backend.Controllers.Controller
         public void fazercompra2 (int idlivro,int idcliente)
         {
             Models.TccContext db = new Models.TccContext();
+
             Utils.FuncoesClienteUtils.HistoricoCompraUtils convert = new Utils.FuncoesClienteUtils.HistoricoCompraUtils();
             Models.Request.RequestCliente.FazerCompraRequest compra = new Models.Request.RequestCliente.FazerCompraRequest();
+            Business.ClienteBusiness verficarcompra = new Business.ClienteBusiness();
 
             Models.TbLivro parte1 = db.TbLivro.First(x => x.IdLivro == idlivro);
             DateTime agr = DateTime.Now;
@@ -74,6 +86,16 @@ namespace backend.Controllers.Controller
             Models.Response.ClienteResponse.PerfilResponse retorno = convert.convertperfil(cliente);
 
             return retorno;
+        }
+        
+        [HttpGet("buscarimagem/{foto}")]
+        public ActionResult buscarfoto(string foto)
+        {
+            Business.GerenciadordeImagens.GerenciadordeImagensBusiness gerenciarfoto = new Business.GerenciadordeImagens.GerenciadordeImagensBusiness();
+
+            byte[] x = gerenciarfoto.Lerfoto(foto);
+            string xx = gerenciarfoto.GerarContnttype(foto);
+            return File(x,xx);
         }
 
     }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers.Controller
 {
@@ -12,13 +13,13 @@ namespace backend.Controllers.Controller
     public class FuncoesGerenteController
     {
         [HttpGet("vendasdodia")]
-        public List<Models.Response.GerenteResponse.VendasdoDiaResponse> VendasDoDia(Models.Request.RequestGerente.VendasdoDiaRequest req)
+        public List<Models.Response.GerenteResponse.VendasdoDiaResponse> VendasDoDia()
         {
             Utils.ConversorGerenteUtils.ConversordoRelatorioUtils relatorio = new Utils.ConversorGerenteUtils.ConversordoRelatorioUtils();
             Models.TccContext db = new Models.TccContext();
 
             DateTime dia = DateTime.Now;
-            List<Models.TbCompra> x = db.TbCompra.ToList();
+            List<Models.TbCompra> x = db.TbCompra.Include(x => x.IdClienteNavigation).ToList();
             List<Models.Response.GerenteResponse.VendasdoDiaResponse> retorno = relatorio.ListaVendasdiaUtils(x);
 
             List<Models.Response.GerenteResponse.VendasdoDiaResponse> result = retorno.Where(x => x.dia == dia.Day).ToList();
@@ -66,7 +67,6 @@ namespace backend.Controllers.Controller
 
             Models.Response.GerenteResponse.FuncionarioGerenteResponse result = modelotb.ConverttbparaResponse(novofunc);
             return result;
-
         }
 
     }

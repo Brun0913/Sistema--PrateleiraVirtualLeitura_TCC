@@ -43,14 +43,15 @@ export default function Home(){
             state:x
           });
         }
-        catch(ex)
+        catch(error)
         {
-            if(ex.response.data.codigo)
-            toast.dark("😵 " + ex.response.data.motivo);
+            if(error.response.data.motivo)
+            toast.error("😵 " + error.response.data.motivo);
             else
             toast.error("😔 Tente Novamente mais tarde")
         }
     }
+
     const criarconta = () =>{
         history.push({
             pathname:"/criarconta"
@@ -59,6 +60,7 @@ export default function Home(){
 
     return (
         <body className="white">
+            
             <LoadingBar
                 height={4}
                 color='#f11946'

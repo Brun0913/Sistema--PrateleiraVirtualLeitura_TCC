@@ -97,7 +97,7 @@
     display: flex;
     justify-content: center;
 }
-.campoimg button{
-    border: 1px solid black;
-    border-radius: 34px;
+#subcontainer3 button{
+    outline: none;
+    display: flex;
 }

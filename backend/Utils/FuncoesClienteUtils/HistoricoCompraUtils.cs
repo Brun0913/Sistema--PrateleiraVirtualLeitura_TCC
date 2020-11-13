@@ -11,7 +11,8 @@ namespace backend.Utils.FuncoesClienteUtils
         {
             Models.Response.ClienteResponse.ModeloHistóricoCompra ctx = new Models.Response.ClienteResponse.ModeloHistóricoCompra();
 
-            ctx.id = tb.IdCompraLivro;
+            ctx.idcliente = tb.IdCompraNavigation.IdCliente;
+            ctx.idlivro = tb.IdLivroNavigation.IdLivro;
             ctx.livro = tb.IdLivroNavigation.NmLivro;
             ctx.autor = tb.IdLivroNavigation.NmAutor;
             ctx.serie = tb.IdLivroNavigation.NrSerie;
@@ -29,8 +30,10 @@ namespace backend.Utils.FuncoesClienteUtils
             {
                 ctx.Add(converterhistorico(item));
             }
+            
             return ctx;
-        }        
+        }      
+
         public Models.Response.ClienteResponse.FazerCompra convertcompra(Models.TbLivro req)
         {
             Models.Response.ClienteResponse.FazerCompra ctx = new Models.Response.ClienteResponse.FazerCompra();
@@ -47,6 +50,7 @@ namespace backend.Utils.FuncoesClienteUtils
             ctx.sinopse = req.DsSinopse;
             ctx.editora = req.NmEditora;
             ctx.genero = req.DsGenero;
+            ctx.nomeimg = req.ImgImagem;
             
             return ctx;
         }

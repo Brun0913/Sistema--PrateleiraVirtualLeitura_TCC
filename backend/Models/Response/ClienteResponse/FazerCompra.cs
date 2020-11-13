@@ -19,6 +19,6 @@ namespace backend.Models.Response.ClienteResponse
         public string edicaolivro {get;set;}
         public string genero {get;set;}
         public decimal? preco {get;set;}
-
+        public string nomeimg {get;set;}
     }
 }

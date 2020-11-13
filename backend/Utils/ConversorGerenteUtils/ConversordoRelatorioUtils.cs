@@ -1,7 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Utils.ConversorGerenteUtils
 {
@@ -10,9 +11,9 @@ namespace backend.Utils.ConversorGerenteUtils
         public Models.Response.GerenteResponse.VendasdoDiaResponse vendasdodiautils(Models.TbCompra req)
         {
             Models.Response.GerenteResponse.VendasdoDiaResponse ctx = new Models.Response.GerenteResponse.VendasdoDiaResponse();
+            
             ctx.cliente = req.IdClienteNavigation.NmCliente;
             ctx.dia = req.DtCompra.Day;
-            ctx.cliente = "teste";
             ctx.valortotal = req.VlTotal;
 
             return ctx;
@@ -53,7 +54,7 @@ namespace backend.Utils.ConversorGerenteUtils
         {
             List<Models.Response.GerenteResponse.VendasdoMesResponse> result = new List<Models.Response.GerenteResponse.VendasdoMesResponse>();
 
-            for(int meses = 0;meses <= 12; meses++)
+            for(int meses = 1;meses <= 12; meses++)
             {
                 result.Add(ConvertVendasdoMes(meses));
             }
@@ -65,13 +66,12 @@ namespace backend.Utils.ConversorGerenteUtils
             List<Models.Response.GerenteResponse.topMelhoresClienteResponse> result = new List<Models.Response.GerenteResponse.topMelhoresClienteResponse>();
             Models.TccContext db = new Models.TccContext();
 
-            List<Models.TbCompra> compras = db.TbCompra.ToList();
-            List<Models.TbCliente> cliente = db.TbCliente.ToList();
+            List<Models.TbCompra> compras = db.TbCompra.Include(x => x.IdClienteNavigation).ToList();
+            List<Models.TbCliente> cliente = db.TbCliente.Include(x => x.IdLoginNavigation).ToList();
             List<Models.TbLogin> logins = db.TbLogin.Where(x => x.DsPerfil == "cliente").ToList();
             
-            for(int idclientes = 0;idclientes <= cliente.Count(); idclientes++)
+            foreach(Models.TbCliente info in cliente)
             {
-                Models.TbCliente info = cliente.First(x => x.IdCliente == idclientes);
                 List<Models.TbCompra> comprasdocliente = compras.Where(x => x.IdCliente == info.IdCliente).ToList();
                 List<Decimal?> valores = new List<decimal?>();
 
