@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
 const api = Axios.create({
-    baseURL:"http://localhost:5000/Funcoescliente"
+    baseURL:"http://3.82.146.171:5000/Funcoescliente"
 })
 
 export default class FuncoesCliente{
