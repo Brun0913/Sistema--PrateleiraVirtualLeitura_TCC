@@ -49,6 +49,16 @@ namespace backend.Controllers.Controller
 
             return retorno;
         }
+        [HttpGet("melhoresprodutos")]
+        public void MelhoresProdutos()
+        {
+            Models.TccContext db = new Models.TccContext();
+
+            List<Models.TbCompraLivro> compra = db.TbCompraLivro.Include(x => x.IdCompraNavigation)
+                                                                .Include(x => x.IdLivroNavigation).ToList();
+
+            
+        }
 
         [HttpPost("cadastrarfuncionario")]
         public Models.Response.GerenteResponse.FuncionarioGerenteResponse cadastrarfunc(Models.Request.RequestGerente.RequestGerente req)
