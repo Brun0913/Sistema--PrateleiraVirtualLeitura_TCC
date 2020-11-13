@@ -61,6 +61,9 @@ function MeuPerfil(props){
                     <div className='rua'>
                         <h4>Endereço: {informacoes.endereco} </h4>
                     </div>
+                    <div className="rua">
+                        <h4>Telefone: {informacoes.telefone}</h4>
+                    </div>
             </div>
 
                     <div className="voltar">

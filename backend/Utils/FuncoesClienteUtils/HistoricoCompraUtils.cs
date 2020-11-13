@@ -77,6 +77,7 @@ namespace backend.Utils.FuncoesClienteUtils
             ctx.rg = req.DsRg;
             ctx.cartaocredito = req.DsCartaoCredito;
             ctx.endereco = req.DsEndereco;
+            ctx.telefone = req.DsTelefone;
 
             return ctx;
             
