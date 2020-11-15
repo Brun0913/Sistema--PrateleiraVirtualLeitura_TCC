@@ -12,7 +12,7 @@ namespace backend.Models
 
         public int IdCompra { get; set; }
         public DateTime DtCompra { get; set; }
-        public decimal? VlTotal { get; set; }
+        public decimal VlTotal { get; set; }
         public int? IdCliente { get; set; }
 
         public virtual TbCliente IdClienteNavigation { get; set; }

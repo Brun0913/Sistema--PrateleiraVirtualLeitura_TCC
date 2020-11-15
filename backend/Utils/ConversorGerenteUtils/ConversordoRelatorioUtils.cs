@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -60,35 +61,49 @@ namespace backend.Utils.ConversorGerenteUtils
             }
             return result;
         }
-        public List<Models.Response.GerenteResponse.topMelhoresClienteResponse> melhoresCliente()
+        public Models.Response.GerenteResponse.topMelhoresClienteResponse melhoresCliente(Models.TbCompra req)
         {
-            Models.Response.GerenteResponse.topMelhoresClienteResponse x = new Models.Response.GerenteResponse.topMelhoresClienteResponse();
-            List<Models.Response.GerenteResponse.topMelhoresClienteResponse> result = new List<Models.Response.GerenteResponse.topMelhoresClienteResponse>();
             Models.TccContext db = new Models.TccContext();
+            List<Models.TbCliente> clientes = db.TbCliente.Include(x => x.IdLoginNavigation).ToList();
 
-            List<Models.TbCompra> compras = db.TbCompra.Include(x => x.IdClienteNavigation).ToList();
-            List<Models.TbCliente> cliente = db.TbCliente.Include(x => x.IdLoginNavigation).ToList();
-            List<Models.TbLogin> logins = db.TbLogin.Where(x => x.DsPerfil == "cliente").ToList();
+            Models.TbCliente infocliente = clientes.First(x => x.IdCliente == req.IdCliente);
+            List<Models.TbCompra> infocompras = db.TbCompra.Where(x => x.IdCliente == infocliente.IdCliente).ToList();
+            List<decimal> valortotal = new List<decimal>();
+
+            Models.Response.GerenteResponse.topMelhoresClienteResponse response = new Models.Response.GerenteResponse.topMelhoresClienteResponse();
+
+            response.email = infocliente.IdLoginNavigation.DsEmail;
+            response.nome = infocliente.NmCliente;
+            response.telefone = infocliente.DsTelefone;
+            response.qtdpedidos = infocompras.Count();
+
+            foreach(Models.TbCompra ii in infocompras)
+                valortotal.Add(ii.VlTotal);
+
+            response.totaldegastos = valortotal.Sum();
+            return response;
+        }
+        public Models.Response.GerenteResponse.TopMelhoresProdutosResponse adicionarprodutos(Models.TbCompraLivro req)
+        {
+            Models.TccContext db = new Models.TccContext();
+            Models.Response.GerenteResponse.TopMelhoresProdutosResponse item = new Models.Response.GerenteResponse.TopMelhoresProdutosResponse();
             
-            foreach(Models.TbCliente info in cliente)
+            List<Models.TbCompraLivro> compraslivros = db.TbCompraLivro.Where(x => x.IdLivro == req.IdLivro).Include(x => x.IdCompraNavigation).ToList();
+
+            decimal a = 0;
+            foreach(Models.TbCompraLivro produto in compraslivros)
             {
-                List<Models.TbCompra> comprasdocliente = compras.Where(x => x.IdCliente == info.IdCliente).ToList();
-                List<Decimal?> valores = new List<decimal?>();
+                List<decimal> valores = new List<decimal>();
+                valores.Add(produto.IdCompraNavigation.VlTotal);
 
-                foreach(Models.TbCompra item in comprasdocliente)
-                    valores.Add(item.VlTotal);
-
-                decimal? totalgasto = valores.Sum();
-
-                x.email = info.IdLoginNavigation.DsEmail;
-                x.nome = info.NmCliente;
-                x.telefone = info.DsTelefone;
-                x.qtdpedidos = comprasdocliente.Count();
-                x.totaldegastos = totalgasto;
-
-                result.Add(x);
+                a = valores.Sum();
             }
-            return result;
+
+            item.nomeproduto = req.IdLivroNavigation.NmLivro;
+            item.qtdvendidos = compraslivros.Count();
+            item.lucrogeral = a;
+
+            return item;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace backend.Models
         public string TpIdiomaOriginal { get; set; }
         public string DsEdicaoLivro { get; set; }
         public string DsGenero { get; set; }
-        public decimal? VlPreco { get; set; }
+        public decimal VlPreco { get; set; }
         public string ImgImagem { get; set; }
 
         public virtual ICollection<TbCompraLivro> TbCompraLivro { get; set; }
