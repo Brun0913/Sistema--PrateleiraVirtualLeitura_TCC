@@ -36,8 +36,15 @@ namespace backend.Controllers.Business.BusinessFuncionario
         
             if(string.IsNullOrEmpty(req.DsGenero))
                 throw new ArgumentException("Voce precisa definir o genero do livro");
+
             if(string.IsNullOrEmpty(req.ImgImagem))
                 throw new ArgumentException("imagem nao encontrada");
+
+            if(string.IsNullOrEmpty(req.DsEdicaoLivro))
+                throw new ArgumentException("Voce precisa Inserir a Edição do livro");
+
+            if(string.IsNullOrEmpty(req.NrSerie))
+                throw new ArgumentException("Voce Precisa colocar o numéro de serie do livro");
         }
     }
 
