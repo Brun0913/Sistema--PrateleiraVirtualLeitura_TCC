@@ -73,6 +73,29 @@ namespace backend.Controllers.Controller
             return produtos.OrderByDescending(x => x.lucrogeral).Take(10).ToList();
         }
 
+        [HttpGet("melhoreslivros")]
+        public List<Models.Response.GerenteResponse.LIstamelhoresGenerosReponse> melhoreslivros()
+        {
+            Models.TccContext db = new Models.TccContext();
+            Utils.ConversorGerenteUtils.ConversordoRelatorioUtils convertgrafico = new Utils.ConversorGerenteUtils.ConversordoRelatorioUtils();
+            
+            List<Models.Response.GerenteResponse.LIstamelhoresGenerosReponse> itens = new List<Models.Response.GerenteResponse.LIstamelhoresGenerosReponse>();
+            List<Models.TbCompraLivro> livroscompras = db.TbCompraLivro.Include(x => x.IdCompraNavigation)
+                                                                       .Include(x => x.IdLivroNavigation)
+                                                                       .ToList();
+
+            foreach(Models.TbCompraLivro item in livroscompras)
+            {
+                Models.Response.GerenteResponse.LIstamelhoresGenerosReponse info = convertgrafico.pegarmelhroes(item);
+                Models.Response.GerenteResponse.LIstamelhoresGenerosReponse existe = itens.FirstOrDefault(x => x.nomelivro == info.nomelivro);
+                if(existe == null)
+                    itens.Add(info);
+                else 
+                    continue;
+            }
+            return itens.OrderBy(x => x.qtdvendas).Take(5).ToList();
+        }
+
         [HttpPost("cadastrarfuncionario")]
         public Models.Response.GerenteResponse.FuncionarioGerenteResponse cadastrarfunc(Models.Request.RequestGerente.RequestGerente req)
         {
@@ -106,7 +129,5 @@ namespace backend.Controllers.Controller
             context.SaveChanges();
                
         }
-
-
     }
 }

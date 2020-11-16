@@ -105,5 +105,30 @@ namespace backend.Utils.ConversorGerenteUtils
 
             return item;
         }
+        public Models.Response.GerenteResponse.LIstamelhoresGenerosReponse pegarmelhroes(Models.TbCompraLivro req)
+        {
+            Models.TccContext db = new Models.TccContext();
+            List<Models.TbCompraLivro> compras = db.TbCompraLivro.ToList();
+            Models.Response.GerenteResponse.LIstamelhoresGenerosReponse ctx = new Models.Response.GerenteResponse.LIstamelhoresGenerosReponse();
+
+            Models.TbLivro livro = db.TbLivro.First(x => x.IdLivro == req.IdLivro);
+            
+            string nmlivro = livro.NmLivro;
+            string gen = livro.DsGenero;
+            int vendas = 0;
+
+            foreach(Models.TbCompraLivro i in compras)
+            {
+                if(i.IdLivro == livro.IdLivro)
+                    vendas++;
+                else
+                    continue;
+            }
+            ctx.nomelivro = nmlivro;
+            ctx.genero = gen;
+            ctx.qtdvendas = vendas;
+            return ctx;
+        }
+
     }
 }
