@@ -13,8 +13,4 @@ export default class{
         return x.data;
 
     }
-    async GerenciarFinancas(){
-        const x = await api.get("gerenciarfinancas");
-        return x.data;
-    }
 }

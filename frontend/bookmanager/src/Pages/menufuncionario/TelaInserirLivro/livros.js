@@ -8,22 +8,22 @@ export default function InserirLivro(){
     
     const API = new api();
 
-    const [livro,setLivro] = useState("");
-    const [autor,setAutor] = useState("");
-    const [genero,setGenero] = useState("");
-    const [preco,setPreco] = useState("");
-    const [paginas,setPaginas] = useState("");
-    const [idiomaprimario,setIdioma] = useState("");
-    const [sinopse,setSinopse] = useState("");
-    const [publicacao,setPublicacao] = useState("");
-    const [editora,setEditora] = useState("");
-    const [numeroserie,setNumeroserie] = useState("");
-    const [edicaolivro,setEdicaolivro] = useState("");
-    const [imagem,setImagem] = useState([]);
+    const [livro,setLivro] = useState();
+    const [autor,setAutor] = useState();
+    const [genero,setGenero] = useState();
+    const [preco,setPreco] = useState();
+    const [paginas,setPaginas] = useState();
+    const [idiomaprimario,setIdioma] = useState();
+    const [sinopse,setSinopse] = useState();
+    const [publicacao,setPublicacao] = useState(new Date().toLocaleDateString());
+    const [editora,setEditora] = useState();
+    const [numeroserie,setNumeroserie] = useState();
+    const [edicaolivro,setEdicaolivro] = useState();
+    const [imagem,setImagem] = useState();
 
     const SalvarLivro = async() =>{
         try{
-            const modelo = API.SalvarLivro({
+            const modelo = await API.SalvarLivro({
                 livro,
                 autor,
                 genero,
@@ -36,13 +36,14 @@ export default function InserirLivro(){
                 numeroserie,
                 edicaolivro,
                 imagem
-            })
-            
-        toast("Cadastrado com sucesso");
+            });
+            toast("Cadastrado com sucesso");
         }
-        catch(ex)
-        {
-            toast.error("😵 " + ex.response.data.motivo);  
+        catch(erros) {
+            if(erros.response.data.motivo)
+            toast.error(erros.response.data.motivo);
+            else
+            toast.error(erros.response.data.motivo);
         }
     }
 
@@ -89,7 +90,7 @@ export default function InserirLivro(){
                     </div>
                     <div className="entradadedados">
                         <label>Publicacao</label>
-                        <input type="date" onChange={(e) => setPublicacao(e.target.value)}></input>
+                        <input type="date" value={publicacao} onChange={(e) => setPublicacao(e.target.value)}></input>
                     </div>
                     <div className="entradadedados">
                         <label>Editora</label>

@@ -43,7 +43,7 @@ function Compra(props){
                 </div>
                 <div name="containerimglivro" id="containerimglivro">
                     <div name="imagem" id="imagemcapalivro">
-                        <img className="capadolivrocompra" src={"http://3.82.146.171:5000/Funcoescliente/buscarimagem/" + infolivro.nomeimg} height="230"/>
+                        <img className="capadolivrocompra" src={"http://localhost:5000/Funcoescliente/buscarimagem/" + infolivro.nomeimg} height="230"/>
                     </div>
                     
                     <div name="informacoescruciais" id="informacoesrelevante">

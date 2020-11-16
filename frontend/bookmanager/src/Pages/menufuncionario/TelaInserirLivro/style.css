@@ -9,6 +9,7 @@
 .containertelainserir{
     align-items: center;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     background-image: linear-gradient(orange,purple);
     height: 100vh;

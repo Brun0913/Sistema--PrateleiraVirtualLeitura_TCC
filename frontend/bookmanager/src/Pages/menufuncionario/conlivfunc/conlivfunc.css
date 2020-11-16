@@ -2,7 +2,7 @@
     flex-direction: column;
     display: flex;
     height: 100vh;
-    justify-content: space-between;
+    justify-content: space-around;
     display: flex;
 }
 .corpo{
@@ -10,11 +10,14 @@
     padding: 0px;
     width: 100vw;
     height: 100vh;
+    justify-content: space-evenly;
+    display: flex;
 }
 #tituloconsultarlivro{
     width: 100vw;
     background-color: orange;
     height: 10vh;
+    position: static;
     display: flex;
     align-items: center;
 }
@@ -32,7 +35,7 @@
 #filtrostb{
     margin: 10px;
     height: auto;
-    width: 20vw;
+    width: 10vw;
     border-radius: 25px;
     display: flex;
     flex-direction: column;
@@ -49,12 +52,12 @@
     margin: 10px;
 }
 #controladormodelotb{
-    margin: 10px;
-    border-left:1px solid darkgray;
     display: flex;
 }
 .voltartelaconsult{
-    margin: 10px;
+    margin: 5px;
+    position: static;
+    
 }
 .black{
     background-color: black;
@@ -70,15 +73,15 @@
     flex-grow: 1;
     align-items: flex-end;
     display: flex;
-    justify-content: flex-end;
+
 }
 .preto{
     color: white;
     background-color: black;
-    flex-grow: 1;
     height: 10vh;
+    width: 100vw;
     align-items: center;
     display: flex;
     justify-content: center;   
-    background-position: fixed;
+    position: static;
 }
