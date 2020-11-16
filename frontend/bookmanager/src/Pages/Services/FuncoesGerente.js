@@ -7,10 +7,12 @@ const api = Axios.create({
 export default class{
 
     async CadastrarNovoFuncionario(parametros){
+        console.log(parametros);
         const x = await api.post("cadastrarfuncionario", parametros);
+        console.log(x.data);
         return x.data;
-    }
 
+    }
     async GerenciarFinancas(){
         const x = await api.get("gerenciarfinancas");
         return x.data;

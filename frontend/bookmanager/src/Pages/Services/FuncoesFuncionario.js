@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
 const api = Axios.create({
-    baseURL:"http://3.82.146.171:5000/FuncoesFuncionario/"
+    baseURL:"http://localhost:5000/FuncoesFuncionario/"
 })
 
 export default class{
@@ -17,8 +17,9 @@ export default class{
         return x.data;
     }
     async SalvarLivro(parametro){
+        console.log(parametro);
         let formdata = new FormData();
-
+        
         formdata.append('livro', parametro.livro);
         formdata.append('autor', parametro.autor);
         formdata.append('genero', parametro.genero);
@@ -32,7 +33,7 @@ export default class{
         formdata.append('edicaolivro', parametro.edicaolivro);
         formdata.append('imagem', parametro.imagem);
         
-        const x = await api.post("novolivro", formdata,{
+        const x = await api.post("NovoLivro", formdata,{
             headers:{ "content-type": "multipart/form-data" }
         });
         return x.data;

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './gercadfunc.css'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import funcoes from '../../Services/FuncoesGerente'
 import { useHistory } from 'react-router-dom';
@@ -30,7 +32,7 @@ function Gercadfunc(){
             cargahorariasemanal:cargahoraria,
             salario:salario
         });
-        return x;
+        toast("🚀 Funcionario inserido com Sucesso");
     }
     const voltargerente = ()=>{
         history.push({
@@ -107,6 +109,7 @@ function Gercadfunc(){
                     </div>        
                 </div>
             </div>
+            <ToastContainer />
         </div>
     )
 }

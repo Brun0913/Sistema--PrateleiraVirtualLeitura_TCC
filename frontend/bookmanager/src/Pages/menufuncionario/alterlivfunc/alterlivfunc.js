@@ -15,11 +15,12 @@ export default function AlterarLivroFunc(props){
   const [paginas,setPaginas] = useState(props.location.state.paginas);
   const [idioma,setIdiomaprimario] = useState(props.location.state.idiomaprimario);
   const [sinopse,setSinopse] = useState(props.location.state.sinopse);
-  const [publicacao,setPublicacao] = useState("0001-01-01");
+  const [publicacao,setPublicacao] = useState(new Date(props.location.state.publicacao).toLocaleDateString());
   const [editora,setEditora] = useState(props.location.state.editora);
   const [numeroserie,setNumeroserie] = useState(props.location.state.numeroserie);
   const [edicaolivro,setEdicaolivro] = useState(props.location.state.edicaolivro);
 
+  console.log(publicacao);
   const AtualizarRegistros = async() =>{
     try{
       const x = await funcoesfuncionario.AlterarLivro({

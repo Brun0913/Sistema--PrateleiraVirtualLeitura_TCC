@@ -8,35 +8,38 @@ export default function InserirLivro(){
     
     const API = new api();
 
-    const [livro,setLivro] = useState();
-    const [autor,setAutor] = useState();
-    const [genero,setGenero] = useState();
-    const [preco,setPreco] = useState();
-    const [paginas,setPaginas] = useState();
-    const [idiomaprimario,setIdioma] = useState();
-    const [sinopse,setSinopse] = useState();
-    const [publicacao,setPublicacao] = useState();
-    const [editora,setEditora] = useState();
-    const [numeroserie,setNumeroserie] = useState();
-    const [edicaolivro,setEdicaolivro] = useState();
+    const [livro,setLivro] = useState("");
+    const [autor,setAutor] = useState("");
+    const [genero,setGenero] = useState("");
+    const [preco,setPreco] = useState("");
+    const [paginas,setPaginas] = useState("");
+    const [idiomaprimario,setIdioma] = useState("");
+    const [sinopse,setSinopse] = useState("");
+    const [publicacao,setPublicacao] = useState("");
+    const [editora,setEditora] = useState("");
+    const [numeroserie,setNumeroserie] = useState("");
+    const [edicaolivro,setEdicaolivro] = useState("");
     const [imagem,setImagem] = useState();
 
     const SalvarLivro = async() =>{
         try{
-            await API.SalvarLivro({
-                livro,
-                autor,
-                genero,
-                preco,
-                paginas,
-                idiomaprimario,
-                sinopse,
-                publicacao,
-                editora,
-                numeroserie,
-                edicaolivro,
-                imagem
-            });
+            const modelo = {
+                Livro: livro,
+                Autor: autor,
+                Genero: genero,
+                Preco: preco,
+                Paginas: paginas,
+                Idiomaprimario: idiomaprimario,
+                Sinopse: sinopse,
+                Publicacao: publicacao,
+                Editora: editora,
+                Numeroserie: numeroserie,
+                Edicaolivro: edicaolivro,
+                Imagem : imagem
+            }
+            console.log(modelo);
+            
+            await API.SalvarLivro(modelo);
         toast("Cadastrado com sucesso");
         }
         catch(ex)
@@ -61,53 +64,53 @@ export default function InserirLivro(){
                 <div className="container2inserirlivro">
                     <div className="entradadedados">
                         <label>Nome do Livro</label>
-                        <input type="text" onchange={(e) => setLivro(e.target.value)}></input>
+                        <input type="text" onChange={(e) => setLivro(e.target.value)}></input>
                     </div>
                     <div className="entradadedados">
                         <label>Nome do Autor</label>
-                        <input type="text" onchange={(e) => setAutor(e.target.value)}></input>
+                        <input type="text" onChange={(e) => setAutor(e.target.value)}></input>
                     </div>
                     <div className="entradadedados">
                         <label>Genero</label>
-                        <input type="text" onchange={(e) => setGenero(e.target.value)}></input>
+                        <input type="text" onChange={(e) => setGenero(e.target.value)}></input>
                     </div>
                     <div className="entradadedados">
                         <label>Preco</label>
-                        <input type="number" onchange={(e) => setPreco(e.target.value)}></input>
+                        <input type="number" onChange={(e) => setPreco(e.target.value)}></input>
                     </div>
                     <div className="entradadedados">
                         <label>Numero de Paginas</label>
-                        <input type="number" onchange={(e) => setPaginas(e.target.value)}></input>
+                        <input type="number" onChange={(e) => setPaginas(e.target.value)}></input>
                     </div>
                     <div className="entradadedados">
                         <label>Idioma</label>
-                        <input type="text" onchange={(e) => setIdioma(e.target.value)}></input>
+                        <input type="text" onChange={(e) => setIdioma(e.target.value)}></input>
                     </div>
                 </div>
                 <div className="container3inserirlivro">
                     <div className="entradadedados">
                         <label>Sinopse</label>
-                        <textarea onchange={(e) => setSinopse(e.target.value)}></textarea>
+                        <textarea onChange={(e) => setSinopse(e.target.value)}></textarea>
                     </div>
                     <div className="entradadedados">
                         <label>Publicacao</label>
-                        <input type="date" onchange={(e) => setPublicacao(e.target.value)}></input>
+                        <input type="date" onChange={(e) => setPublicacao(e.target.value)}></input>
                     </div>
                     <div className="entradadedados">
                         <label>Editora</label>
-                        <input type="text" onchange={(e) => setEditora(e.target.value)}></input>
+                        <input type="text" onChange={(e) => setEditora(e.target.value)}></input>
                     </div>
                     <div className="entradadedados">
                         <label>Numero de Serie</label>
-                        <input type="text" onchange={(e) => setNumeroserie(e.target.value)}></input>
+                        <input type="text" onChange={(e) => setNumeroserie(e.target.value)}></input>
                     </div>
                     <div className="entradadedados">
                         <label>Edição do Livro</label>
-                        <input type="text" onchange={(e) => setEdicaolivro(e.target.value)}></input>
+                        <input type="text" onChange={(e) => setEdicaolivro(e.target.value)}></input>
                     </div>
                     <div className="entradadedados">
                         <label>Imagem do Livro</label>
-                        <input type="file" onchange={(e) => setImagem(e.target.files[0])} ></input>
+                        <input type="file" onChange={(e) => setImagem(e.target.files[0])} ></input>
                     </div>
                 </div>
             </div>
