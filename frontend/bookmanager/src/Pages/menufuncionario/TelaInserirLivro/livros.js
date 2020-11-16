@@ -19,35 +19,30 @@ export default function InserirLivro(){
     const [editora,setEditora] = useState("");
     const [numeroserie,setNumeroserie] = useState("");
     const [edicaolivro,setEdicaolivro] = useState("");
-    const [imagem,setImagem] = useState();
+    const [imagem,setImagem] = useState([]);
 
     const SalvarLivro = async() =>{
         try{
-            const modelo = {
-                Livro: livro,
-                Autor: autor,
-                Genero: genero,
-                Preco: preco,
-                Paginas: paginas,
-                Idiomaprimario: idiomaprimario,
-                Sinopse: sinopse,
-                Publicacao: publicacao,
-                Editora: editora,
-                Numeroserie: numeroserie,
-                Edicaolivro: edicaolivro,
-                Imagem : imagem
-            }
-            console.log(modelo);
+            const modelo = API.SalvarLivro({
+                livro,
+                autor,
+                genero,
+                preco,
+                paginas,
+                idiomaprimario,
+                sinopse,
+                publicacao,
+                editora,
+                numeroserie,
+                edicaolivro,
+                imagem
+            })
             
-            await API.SalvarLivro(modelo);
         toast("Cadastrado com sucesso");
         }
         catch(ex)
         {
-            if(ex.response.data.motivo)
-            toast.error("😵 " + ex.response.data.motivo);
-            else
-            toast.error("😔 Tente Novamente");    
+            toast.error("😵 " + ex.response.data.motivo);  
         }
     }
 

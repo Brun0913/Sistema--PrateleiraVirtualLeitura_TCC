@@ -14,6 +14,8 @@ function Compra(props){
     const infocliente = props.location.state.cliente.informacoescliente;
     const infolivro = props.location.state.livro.e;
 
+    console.log(infocliente);
+    console.log(infolivro);
     const fazercompra = async() =>{
         
         if(codigo.length < 6 )

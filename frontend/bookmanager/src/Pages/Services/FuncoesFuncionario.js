@@ -17,9 +17,9 @@ export default class{
         return x.data;
     }
     async SalvarLivro(parametro){
+        const formdata = new FormData();
         console.log(parametro);
-        let formdata = new FormData();
-        
+
         formdata.append('livro', parametro.livro);
         formdata.append('autor', parametro.autor);
         formdata.append('genero', parametro.genero);
@@ -32,10 +32,11 @@ export default class{
         formdata.append('numeroserie', parametro.numeroserie);
         formdata.append('edicaolivro', parametro.edicaolivro);
         formdata.append('imagem', parametro.imagem);
-        
+        console.log(formdata);
         const x = await api.post("NovoLivro", formdata,{
             headers:{ "content-type": "multipart/form-data" }
         });
+        console.log(x.data);
         return x.data;
     }
 

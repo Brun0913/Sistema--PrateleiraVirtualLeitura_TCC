@@ -62,11 +62,13 @@ namespace backend.Controllers.Controller
             Models.Request.RequestCliente.FazerCompraRequest compra = new Models.Request.RequestCliente.FazerCompraRequest();
             Business.ClienteBusiness verficarcompra = new Business.ClienteBusiness();
 
+            Models.TbCliente primeiro = db.TbCliente.First(x => x.IdLogin == idcliente);
+
             Models.TbLivro parte1 = db.TbLivro.First(x => x.IdLivro == idlivro);
             DateTime agr = DateTime.Now;
             Decimal preco = parte1.VlPreco;
 
-            Models.Request.RequestCliente.FazerCompraRequest ctx = convert.convertfazercompra(idcliente,preco,agr);
+            Models.Request.RequestCliente.FazerCompraRequest ctx = convert.convertfazercompra(primeiro.IdCliente,preco,agr);
             Models.TbCompra z = convert.convertfazercompratb(ctx);
             db.TbCompra.Add(z);
             db.SaveChanges();
