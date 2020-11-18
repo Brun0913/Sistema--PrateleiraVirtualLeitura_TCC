@@ -21,6 +21,12 @@ import FinalizarCompra from'./Pages/menucliente/FinalizarCompra/finalizar'
 import ExcluirLivro from './Pages/menufuncionario/TelaExcluirLivro'
 import InserirLivro from './Pages/menufuncionario/TelaInserirLivro/livros'
 import excluirfunc from './Pages/menugerente/excluirfunc/excluirfunc'
+//relatórios
+import vendaspormes from './Pages/menugerente/relatórios/vendaspormes/vendaspormes'
+import vendaspordia from './Pages/menugerente/relatórios/vendaspordia/vendaspordia'
+import topprodutos from './Pages/menugerente/relatórios/topprodutos/topprodutos'
+import topclientes from './Pages/menugerente/relatórios/topclientes/topclientes'
+import grafico from './Pages/menugerente/relatórios/grafico/grafico'
 
 export default function Routes(){
 
@@ -46,6 +52,11 @@ export default function Routes(){
                 <Route path="/excluirlivro" component={ExcluirLivro}/>
                 <Route path="/inserirlivro" component={InserirLivro}/>
                 <Route path="/excluirfunc" component={excluirfunc}/>
+                <Route path="/vendaspormes" component={vendaspormes}/>
+                <Route path="/vendaspordia" component={vendaspordia}/>
+                <Route path="/topprodutos" component={topprodutos}/>
+                <Route path="/topclientes" component={topclientes}/>
+                <Route path="/grafico" component={grafico}/>
             </Switch>
         </BrowserRouter>
     )

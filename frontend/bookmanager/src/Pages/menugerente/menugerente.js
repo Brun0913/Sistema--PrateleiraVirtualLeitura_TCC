@@ -21,7 +21,7 @@ function MenuGerente(props){
                 <div id="container2">
                   <div id="sub-container2">
                     <div id="gerenciarfinancas">
-                      <a href="/gerenciarfinancas" className="btn btn-light" id="sub-botao">Gerenciar Finanças</a>
+                      <a href="/gerenciarfinancas" className="btn btn-light" id="sub-botao">Gerenciamento do Sistema</a>
                     </div>
                     <div id="cadastrarfuncionario">
                       <a href="/gercadfunc" className="btn btn-light" id="sub-botao">Cadastrar Funcionario</a>

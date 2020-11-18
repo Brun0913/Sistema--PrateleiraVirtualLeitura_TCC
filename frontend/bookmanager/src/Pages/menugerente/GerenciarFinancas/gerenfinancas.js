@@ -10,20 +10,31 @@ function GerenciarFinancas(){
                 <h1> Gerenciamento de Finanças </h1>
             </div>
                <div className='joy'>
-                    <div className='onda'>   
+                    <div className='onda'>  
+
                         <div className='irmao'>
 
-                            <div className="Lucro">
-                               <h3> lucro do mês </h3>
-                            </div>
+                          <div id="relatorio">
+                            <a href="/grafico" className="btn btn-light" id="sub-botao">Gráfico</a>
+                          </div>
 
-                            <div className="qtdLivros">
-                               <h3> Quantidade de livros vendidos mês </h3>
-                            </div>
+                          <div id="relatorio">
+                            <a href="/topclientes" className="btn btn-light" id="sub-botao">Top Clientes do Sistema</a>
+                          </div>
 
-                            <div className="Nmfuncionarios">
-                                <h3> Número de funcionários ativos </h3>
-                            </div>
+                          <div id="relatorio">
+                            <a href="/topprodutos" className="btn btn-light" id="sub-botao">Top produtos Mais Vendidos</a>
+                          </div>
+
+                          <div id="relatorio">
+                            <a href="/vendaspordia" className="btn btn-light" id="sub-botao">Vendas por Dia</a>
+                          </div>
+
+                          <div id="relatorio">
+                            <a href="/vendaspormes" className="btn btn-light" id="sub-botao">Vendas por Mês</a>
+                          </div>
+
+                        </div>
 
                             <div className="Avoltar">
                                 
@@ -35,7 +46,7 @@ function GerenciarFinancas(){
 
                             </div>
                             
-                        </div>
+                       
 
                     </div>
 

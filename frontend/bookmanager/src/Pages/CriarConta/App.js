@@ -49,7 +49,6 @@ export default function CriarConta(){
 
     }
 
-
     return(
         <body className="body">
 
@@ -71,10 +70,10 @@ export default function CriarConta(){
                     </div>
                     <div id="segblococriarconta">
                         <input type="text" onChange={(e) => setEmail(e.target.value)}></input>
-                        <input type="text" onChange={(e) => setSenha(e.target.value)}></input>
+                        <input type="password" onChange={(e) => setSenha(e.target.value)}></input>
                         <input type="text" onChange={(e) => setNome(e.target.value)}></input>
                         <input type="date" onChange={(e) => setNascimento(e.target.value)}></input>
-                        <input type="text" onChange={(e) => setCpf(e.target.value)}></input>
+                        <input type="text" name="cpf" onBlur="ValidarCPF(form1.cpf);" onKeyPress="MarcaraCPF(form1.cpf);" maxLength="14'" onChange={(e) => setCpf(e.target.value)}></input>
                         <input type="text" onChange={(e) => setRg(e.target.value)}></input>
                         <input type="text" onChange={(e) => setCartao(e.target.value)}></input>
                         <input type="text" onChange={(e) => setTelefone(e.target.value)}></input>
@@ -96,7 +95,7 @@ export default function CriarConta(){
                     </div>
                 </div>
                 
-                <ToastContainer />
+                <ToastContainer/>
         </body>
     )
 }

@@ -56,7 +56,7 @@ function FazerCompras(props){
                           <th>Nome do Livro</th>  
                           <th>Autor do Livro</th>  
                           <th>N° de Série</th>  
-                          <th>Data Publicão</th>  
+                          <th>Data Publicação</th>  
                           <th>Preço</th>
                           <th></th>  
                         </tr>  
