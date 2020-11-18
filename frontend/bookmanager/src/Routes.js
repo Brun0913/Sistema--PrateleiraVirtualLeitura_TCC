@@ -18,7 +18,6 @@ import HistoricoCompras from'./Pages/menucliente/HistoricoCompras/HistCompras'
 import FazerCompra from './Pages/menucliente/FazerCompra/fazerCompra'
 import Compra from'./Pages/menucliente/Compra/compra'
 import FinalizarCompra from'./Pages/menucliente/FinalizarCompra/finalizar'
-import ExcluirLivro from './Pages/menufuncionario/TelaExcluirLivro'
 import InserirLivro from './Pages/menufuncionario/TelaInserirLivro/livros'
 import excluirfunc from './Pages/menugerente/excluirfunc/excluirfunc'
 //relatórios
@@ -49,7 +48,6 @@ export default function Routes(){
                 <Route path="/FazerCompra" component={FazerCompra} />
                 <Route path="/Compra" component={Compra}/>
                 <Route path="/finalizar" component={FinalizarCompra}/>
-                <Route path="/excluirlivro" component={ExcluirLivro}/>
                 <Route path="/inserirlivro" component={InserirLivro}/>
                 <Route path="/excluirfunc" component={excluirfunc}/>
                 <Route path="/vendaspormes" component={vendaspormes}/>

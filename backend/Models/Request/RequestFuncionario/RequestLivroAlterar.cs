@@ -4,6 +4,7 @@ namespace backend.Models.Request.RequestFuncionario
 {
     public class RequestLivroAlterar
     {
+        public int idlivro {get;set;}
         public string livro {get;set;}
         public string autor {get;set;}
         public string genero {get;set;}

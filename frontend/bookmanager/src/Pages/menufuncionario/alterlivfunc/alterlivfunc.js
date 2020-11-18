@@ -2,12 +2,12 @@ import React from 'react'
 import { useState } from 'react';
 import './alterlivfunc.css';
 
+import { ToastContainer, toast} from "react-toastify";
 import api from '../../Services/FuncoesFuncionario'
 
 export default function AlterarLivroFunc(props){
 
   const funcoesfuncionario = new api();
-  const id = useState(props.location.state.id);
   const [livro,setLivro] = useState(props.location.state.livro);
   const [autor,setAutor] = useState(props.location.state.autor);
   const [genero,setGenero] = useState(props.location.state.genero);
@@ -15,30 +15,41 @@ export default function AlterarLivroFunc(props){
   const [paginas,setPaginas] = useState(props.location.state.paginas);
   const [idioma,setIdiomaprimario] = useState(props.location.state.idiomaprimario);
   const [sinopse,setSinopse] = useState(props.location.state.sinopse);
-  const [publicacao,setPublicacao] = useState(props.location.state.publicacao);
+  const [publicacao,setPublicacao] = useState(new Date(props.location.state.publicacao).toLocaleDateString());
   const [editora,setEditora] = useState(props.location.state.editora);
   const [numeroserie,setNumeroserie] = useState(props.location.state.numeroserie);
   const [edicaolivro,setEdicaolivro] = useState(props.location.state.edicaolivro);
 
-  const atualizarRegistros = async() =>{
-    console.log(props.location.state.id);
-    const x = await funcoesfuncionario.AlterarLivro(id, {
-      livro:livro,
-      autor:autor,
-      genero:genero, 
-      preco:preco,
-      paginas:paginas,
-      idiomaprimario:idioma,
-      sinopse:sinopse,
-      publicacao:publicacao,
-      editora:editora,
-      numeroserie:numeroserie,
-      edicaolivro:edicaolivro
-    });
-    return x;
+  console.log(publicacao);
+  const AtualizarRegistros = async() =>{
+    try{
+      const x = await funcoesfuncionario.AlterarLivro({
+        idlivro:props.location.state.id,
+        livro:livro,
+        autor:autor,
+        genero:genero, 
+        preco:preco,
+        paginas:paginas,
+        idiomaprimario:idioma,
+        sinopse:sinopse,
+        publicacao:publicacao,
+        editora:editora,
+        numeroserie:numeroserie,
+        edicaolivro:edicaolivro
+      });
+      toast.success("🚀 Alterado com sucesso!");
+    }
+    catch(ex)
+    {
+        if(ex.response.data.motivo)
+        toast.error("😵 " + ex.response.data.motivo);
+        else
+        toast.error("😔 Tente Novamente");
+    }
+
   }
 
-    return(
+    return( 
       
     <body className="telaalterar">
         <div className="manager">
@@ -93,10 +104,11 @@ export default function AlterarLivroFunc(props){
           </div>
 
           <div className="botoesalterar">
-            <button className="btn btn-primary" onClick={atualizarRegistros}>Salvar Alterações</button>
+            <button className="btn btn-primary" onClick={AtualizarRegistros}>Salvar Alterações</button>
             <a href="/conlivfunc" className="btn btn-dark">Voltar</a>
           </div>
         </div>
+        <ToastContainer/>
     </body>
     )
 } 

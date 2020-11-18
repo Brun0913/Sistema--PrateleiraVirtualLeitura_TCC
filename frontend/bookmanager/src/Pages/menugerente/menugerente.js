@@ -1,8 +1,6 @@
 import React from "react";
 import './menugerente.css';
 
-import { Link } from "react-router-dom";
-
 function MenuGerente(props){
 
     return(

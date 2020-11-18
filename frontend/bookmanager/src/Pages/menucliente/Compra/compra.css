@@ -24,10 +24,7 @@
     display: flex;
 }
 .capadolivrocompra{
-    background-image: url(https://books.google.com.br/books/content?id=qDYQCwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE71Qn81ooyGqAepvRrhdJbOj1MYbFSe5zi34pLx7-XUJqsYav4WG_SYAclFROon7fh_1ErFt-4URG1rftLTrHWF4EWXug9TgZwhWKsFp98o0Rfzmy0-wJcI9HVO2Or-XAzsddwbY);
     height: 200px;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
     width: 200px;
 }
 #imagemcapalivro{
@@ -55,14 +52,14 @@
     width: 400px;
     margin: 5px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 #maisumcontainer textarea{
     width: 300px;
 }
 
 #informacoesrelevante input{
-    width: 250px;
+    width: auto;
     margin: 5px;
 }
 

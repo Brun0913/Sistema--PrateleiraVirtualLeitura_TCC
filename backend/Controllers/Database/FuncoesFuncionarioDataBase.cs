@@ -15,9 +15,9 @@ namespace backend.Controllers.Database
             return RegistroLivro;
         }
 
-        public Models.TbLivro alterarlivro(Models.Request.RequestFuncionario.RequestLivroAlterar req, int id)
+        public Models.TbLivro alterarlivro(Models.Request.RequestFuncionario.RequestLivroAlterar req)
         {
-            Models.TbLivro atual = db.TbLivro.First(x => x.IdLivro == id);
+            Models.TbLivro atual = db.TbLivro.First(x => x.IdLivro == req.idlivro);
             atual.NmAutor = req.autor;
             atual.NmEditora = req.editora;
             atual.NmLivro = req.livro;

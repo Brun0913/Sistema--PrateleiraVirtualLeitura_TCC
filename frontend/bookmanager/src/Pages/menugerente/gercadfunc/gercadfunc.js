@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import './gercadfunc.css'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import funcoes from '../../Services/FuncoesGerente'
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function Gercadfunc(){
 
@@ -30,7 +32,7 @@ function Gercadfunc(){
             cargahorariasemanal:cargahoraria,
             salario:salario
         });
-        return x;
+        toast("🚀 Funcionario inserido com Sucesso");
     }
     const voltargerente = ()=>{
         history.push({
@@ -76,7 +78,7 @@ function Gercadfunc(){
                             <input type="text" onChange={(e) => setNomefunc(e.target.value)}></input>
                         </div>
                         <div name="infonasc">
-                            <input type="date" onChange={(e) => setNascimento(e.target.value)}></input>
+                            <input type="date" on onChange={(e) => setNascimento(e.target.value)}></input>
                         </div>
                         <div name="infocpf">
                             <input type="text" onChange={(e) => setCpf(e.target.value)}></input>
@@ -107,6 +109,7 @@ function Gercadfunc(){
                     </div>        
                 </div>
             </div>
+            <ToastContainer />
         </div>
     )
 }

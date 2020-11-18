@@ -1,7 +1,6 @@
 import React from "react";
 import './menufuncionario.css';
 
-import { Link } from "react-router-dom";
 
 function menufuncionario(props){
     return(

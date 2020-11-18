@@ -36,9 +36,13 @@ namespace backend.Models
         public string DsEdicaoLivro { get; set; }
         [Column("ds_genero", TypeName = "varchar(100)")]
         public string DsGenero { get; set; }
+<<<<<<< HEAD
         [Column("vl_preco", TypeName = "decimal(15,2)")]
         public decimal? VlPreco { get; set; }
         [Column("img_imagem", TypeName = "varchar(100)")]
+=======
+        public decimal VlPreco { get; set; }
+>>>>>>> a1993ea7bea383b5ada5a1ddcd02e7d2f4364ad4
         public string ImgImagem { get; set; }
 
         [InverseProperty("IdLivroNavigation")]

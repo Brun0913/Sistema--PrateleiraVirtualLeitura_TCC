@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './style.css'
 import api from '../../Services/FuncoesFuncionario'
+import { ToastContainer, toast} from "react-toastify";
+
 
 export default function InserirLivro(){
     
@@ -13,30 +15,36 @@ export default function InserirLivro(){
     const [paginas,setPaginas] = useState();
     const [idiomaprimario,setIdioma] = useState();
     const [sinopse,setSinopse] = useState();
-    const [publicacao,setPublicacao] = useState();
+    const [publicacao,setPublicacao] = useState(new Date().toLocaleDateString());
     const [editora,setEditora] = useState();
     const [numeroserie,setNumeroserie] = useState();
     const [edicaolivro,setEdicaolivro] = useState();
     const [imagem,setImagem] = useState();
 
     const SalvarLivro = async() =>{
-        
-        const x = await API.SalvarLivro({
-            livro:livro,
-            autor:autor,
-            genero:genero,
-            preco:preco,
-            paginas:paginas,
-            idiomaprimario:idiomaprimario,
-            sinopse:sinopse,
-            publicacao:publicacao,
-            editora:editora,
-            numeroserie:numeroserie,
-            edicaolivro:edicaolivro,
-            imagem:imagem
-        });
-        console.log(x);
-        return x;
+        try{
+            const modelo = await API.SalvarLivro({
+                livro,
+                autor,
+                genero,
+                preco,
+                paginas,
+                idiomaprimario,
+                sinopse,
+                publicacao,
+                editora,
+                numeroserie,
+                edicaolivro,
+                imagem
+            });
+            toast("Cadastrado com sucesso");
+        }
+        catch(erros) {
+            if(erros.response.data.motivo)
+            toast.error(erros.response.data.motivo);
+            else
+            toast.error(erros.response.data.motivo);
+        }
     }
 
     return(
@@ -52,53 +60,53 @@ export default function InserirLivro(){
                 <div className="container2inserirlivro">
                     <div className="entradadedados">
                         <label>Nome do Livro</label>
-                        <input type="text" onchange={(e) => setLivro(e.target.value)}></input>
+                        <input type="text" onChange={(e) => setLivro(e.target.value)}></input>
                     </div>
                     <div className="entradadedados">
                         <label>Nome do Autor</label>
-                        <input type="text" onchange={(e) => setAutor(e.target.value)}></input>
+                        <input type="text" onChange={(e) => setAutor(e.target.value)}></input>
                     </div>
                     <div className="entradadedados">
                         <label>Genero</label>
-                        <input type="text" onchange={(e) => setGenero(e.target.value)}></input>
+                        <input type="text" onChange={(e) => setGenero(e.target.value)}></input>
                     </div>
                     <div className="entradadedados">
                         <label>Preco</label>
-                        <input type="number" onchange={(e) => setPreco(e.target.value)}></input>
+                        <input type="number" onChange={(e) => setPreco(e.target.value)}></input>
                     </div>
                     <div className="entradadedados">
                         <label>Numero de Paginas</label>
-                        <input type="number" onchange={(e) => setPaginas(e.target.value)}></input>
+                        <input type="number" onChange={(e) => setPaginas(e.target.value)}></input>
                     </div>
                     <div className="entradadedados">
                         <label>Idioma</label>
-                        <input type="text" onchange={(e) => setIdioma(e.target.value)}></input>
+                        <input type="text" onChange={(e) => setIdioma(e.target.value)}></input>
                     </div>
                 </div>
                 <div className="container3inserirlivro">
                     <div className="entradadedados">
                         <label>Sinopse</label>
-                        <textarea onchange={(e) => setSinopse(e.target.value)}></textarea>
+                        <textarea onChange={(e) => setSinopse(e.target.value)}></textarea>
                     </div>
                     <div className="entradadedados">
                         <label>Publicacao</label>
-                        <input type="date" onchange={(e) => setPublicacao(e.target.value)}></input>
+                        <input type="date" value={publicacao} onChange={(e) => setPublicacao(e.target.value)}></input>
                     </div>
                     <div className="entradadedados">
                         <label>Editora</label>
-                        <input type="text" onchange={(e) => setEditora(e.target.value)}></input>
+                        <input type="text" onChange={(e) => setEditora(e.target.value)}></input>
                     </div>
                     <div className="entradadedados">
                         <label>Numero de Serie</label>
-                        <input type="text" onchange={(e) => setNumeroserie(e.target.value)}></input>
+                        <input type="text" onChange={(e) => setNumeroserie(e.target.value)}></input>
                     </div>
                     <div className="entradadedados">
                         <label>Edição do Livro</label>
-                        <input type="text" onchange={(e) => setEdicaolivro(e.target.value)}></input>
+                        <input type="text" onChange={(e) => setEdicaolivro(e.target.value)}></input>
                     </div>
                     <div className="entradadedados">
                         <label>Imagem do Livro</label>
-                        <input type="file" onchange={(e) => setImagem(e.target.files[0])} ></input>
+                        <input type="file" onChange={(e) => setImagem(e.target.files[0])} ></input>
                     </div>
                 </div>
             </div>
@@ -106,6 +114,7 @@ export default function InserirLivro(){
                 <a href="/menufuncionario" className="btn btn-dark acc">Voltar</a>
                 <button className="btn btn-success acc" onClick={SalvarLivro}>Salvar</button>
             </div>
+            <ToastContainer/>
         </div>
     )
 }

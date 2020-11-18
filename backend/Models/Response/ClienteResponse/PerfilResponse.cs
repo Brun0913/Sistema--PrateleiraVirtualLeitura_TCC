@@ -12,6 +12,7 @@ namespace backend.Models.Response.ClienteResponse
         public int? codigoseguranca {get;set;}
         public DateTime? vencimentocartao {get;set;}
         public string endereco {get;set;}
+        public string telefone {get;set;}
 
     }
 }

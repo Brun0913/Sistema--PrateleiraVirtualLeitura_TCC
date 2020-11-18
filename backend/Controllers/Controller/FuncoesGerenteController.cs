@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers.Controller
 {
@@ -12,13 +13,13 @@ namespace backend.Controllers.Controller
     public class FuncoesGerenteController
     {
         [HttpGet("vendasdodia")]
-        public List<Models.Response.GerenteResponse.VendasdoDiaResponse> VendasDoDia(Models.Request.RequestGerente.VendasdoDiaRequest req)
+        public List<Models.Response.GerenteResponse.VendasdoDiaResponse> VendasDoDia()
         {
             Utils.ConversorGerenteUtils.ConversordoRelatorioUtils relatorio = new Utils.ConversorGerenteUtils.ConversordoRelatorioUtils();
             Models.TccContext db = new Models.TccContext();
 
             DateTime dia = DateTime.Now;
-            List<Models.TbCompra> x = db.TbCompra.ToList();
+            List<Models.TbCompra> x = db.TbCompra.Include(x => x.IdClienteNavigation).ToList();
             List<Models.Response.GerenteResponse.VendasdoDiaResponse> retorno = relatorio.ListaVendasdiaUtils(x);
 
             List<Models.Response.GerenteResponse.VendasdoDiaResponse> result = retorno.Where(x => x.dia == dia.Day).ToList();
@@ -27,17 +28,21 @@ namespace backend.Controllers.Controller
         [HttpGet("topclientes")]
         public List<Models.Response.GerenteResponse.topMelhoresClienteResponse> TopMelhoresClientes()
         {
+            Models.TccContext db = new Models.TccContext();
             Utils.ConversorGerenteUtils.ConversordoRelatorioUtils buscarclientes = new Utils.ConversorGerenteUtils.ConversordoRelatorioUtils();
+            List<Models.Response.GerenteResponse.topMelhoresClienteResponse> ctx = new List<Models.Response.GerenteResponse.topMelhoresClienteResponse>();
 
-            List<Models.Response.GerenteResponse.topMelhoresClienteResponse> list = buscarclientes.melhoresCliente();
-            List<Models.Response.GerenteResponse.topMelhoresClienteResponse> xx = list.OrderByDescending(x => x.qtdpedidos).ToList();
-
-            List<Models.Response.GerenteResponse.topMelhoresClienteResponse> retoron = new List<Models.Response.GerenteResponse.topMelhoresClienteResponse>();
-            for(int item = 0;item <= 10; item++)
+            List<Models.TbCompra> compras = db.TbCompra.Include(x => x.IdClienteNavigation).ToList();
+            foreach(Models.TbCompra item in compras)
             {
-                retoron.Add(xx[item]);
+                Models.Response.GerenteResponse.topMelhoresClienteResponse osmelhores = buscarclientes.melhoresCliente(item);
+                Models.Response.GerenteResponse.topMelhoresClienteResponse existente = ctx.FirstOrDefault(x => x.telefone == osmelhores.telefone);
+                if(existente == null)
+                    ctx.Add(osmelhores);
+                else
+                    continue;
             }
-            return retoron;
+            return ctx.OrderByDescending(x => x.totaldegastos).Take(10).ToList();
         }
 
         [HttpGet("vendasdomes")]
@@ -47,6 +52,48 @@ namespace backend.Controllers.Controller
             List<Models.Response.GerenteResponse.VendasdoMesResponse> retorno = buscar.convertvendasmes();
 
             return retorno;
+        }
+        [HttpGet("melhoresprodutos")]
+        public List<Models.Response.GerenteResponse.TopMelhoresProdutosResponse> MelhoresProdutos()
+        {
+            Models.TccContext db = new Models.TccContext();
+            Utils.ConversorGerenteUtils.ConversordoRelatorioUtils convert = new Utils.ConversorGerenteUtils.ConversordoRelatorioUtils();
+
+            List<Models.Response.GerenteResponse.TopMelhoresProdutosResponse> produtos = new List<Models.Response.GerenteResponse.TopMelhoresProdutosResponse>();
+            List<Models.TbCompraLivro> compra = db.TbCompraLivro.Include(x => x.IdCompraNavigation)
+                                                                .Include(x => x.IdLivroNavigation).ToList();
+
+            foreach(Models.TbCompraLivro item in compra)
+            {
+                Models.Response.GerenteResponse.TopMelhoresProdutosResponse x = convert.adicionarprodutos(item);
+
+                produtos.Add(x);
+            }
+
+            return produtos.OrderByDescending(x => x.lucrogeral).Take(10).ToList();
+        }
+
+        [HttpGet("melhoreslivros")]
+        public List<Models.Response.GerenteResponse.LIstamelhoresGenerosReponse> melhoreslivros()
+        {
+            Models.TccContext db = new Models.TccContext();
+            Utils.ConversorGerenteUtils.ConversordoRelatorioUtils convertgrafico = new Utils.ConversorGerenteUtils.ConversordoRelatorioUtils();
+            
+            List<Models.Response.GerenteResponse.LIstamelhoresGenerosReponse> itens = new List<Models.Response.GerenteResponse.LIstamelhoresGenerosReponse>();
+            List<Models.TbCompraLivro> livroscompras = db.TbCompraLivro.Include(x => x.IdCompraNavigation)
+                                                                       .Include(x => x.IdLivroNavigation)
+                                                                       .ToList();
+
+            foreach(Models.TbCompraLivro item in livroscompras)
+            {
+                Models.Response.GerenteResponse.LIstamelhoresGenerosReponse info = convertgrafico.pegarmelhroes(item);
+                Models.Response.GerenteResponse.LIstamelhoresGenerosReponse existe = itens.FirstOrDefault(x => x.nomelivro == info.nomelivro);
+                if(existe == null)
+                    itens.Add(info);
+                else 
+                    continue;
+            }
+            return itens.OrderBy(x => x.qtdvendas).Take(5).ToList();
         }
 
         [HttpPost("cadastrarfuncionario")]
@@ -66,8 +113,21 @@ namespace backend.Controllers.Controller
 
             Models.Response.GerenteResponse.FuncionarioGerenteResponse result = modelotb.ConverttbparaResponse(novofunc);
             return result;
-
         }
 
+        [HttpDelete]
+        public void DeletarFuncionario(Models.Request.RequestGerente.DeletarFuncRequest funcionario)
+        {
+            Models.TccContext context = new Models.TccContext();
+
+            Models.TbEmpregado paraDeletar = context.TbEmpregado.First(emp => emp.IdEmpregado == funcionario.IdFunc);
+            context.Remove(paraDeletar);
+            
+            Models.TbLogin paraDeletarOnLogin = context.TbLogin.First(lgn => lgn.IdLogin == funcionario.IdLogin);
+            context.Remove(paraDeletarOnLogin);
+
+            context.SaveChanges();
+               
+        }
     }
 }

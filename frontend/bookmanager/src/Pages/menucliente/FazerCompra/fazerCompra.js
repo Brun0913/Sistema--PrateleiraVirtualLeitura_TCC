@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import './fazerCompra.css'
 
-import { Search } from "react-bootstrap-icons";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar';
 
 import api from '../../Services/FuncoesCliente';
@@ -14,16 +13,15 @@ function FazerCompras(props){
   const loadingBar = useRef(null);
   const funcoes = new api();
   const[lista,setLista] = useState([]);
-  const history = useHistory();
 
-  const consultarlivros = async() =>{
+  const Consultarlivros = async() =>{
     loadingBar.current.continuousStart(); 
     const x = await funcoes.ConsultarLivro();
     setLista([...x]);
     loadingBar.current.complete();
   }
   useEffect(() => {
-    consultarlivros();
+    Consultarlivros();
   }, []);
   
 
@@ -64,7 +62,7 @@ function FazerCompras(props){
                       <tbody id="registros">
 
                           {lista.map(e =>(
-                            <tr id="cor" key={e.id}>
+                            <tr key={e.idlivro} id="cor">
                               <td>{e.livro}</td>
                               <td>{e.autor}</td>
                               <td>{e.serie}</td>

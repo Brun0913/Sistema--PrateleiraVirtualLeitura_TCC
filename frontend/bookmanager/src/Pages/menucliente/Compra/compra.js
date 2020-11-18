@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import'./compra.css';
 import {Link, useHistory} from 'react-router-dom';
-import img from './sem-imagem.jpg'
 import { ToastContainer, toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -12,20 +11,21 @@ function Compra(props){
     const [codigo,setCodigo] = useState();
     const api = new API();
     const history = useHistory();
-
     const infocliente = props.location.state.cliente.informacoescliente;
     const infolivro = props.location.state.livro.e;
 
+    console.log(infocliente);
+    console.log(infolivro);
     const fazercompra = async() =>{
         
-        if(codigo.length < 3)
-            toast.error("😵 Código do Cartao Inválido");
+        if(codigo.length < 6 )
+            toast.error("😵 Senha do Cartao Inválido");
         
-        else if(codigo.length > 3)
-            toast.error("😵 Código do Cartão Inválido");
+        else if(codigo.length > 6)
+            toast.error("😵 Senha do Cartão Inválido");
         
         else{
-        const x = await api.FazerCompra(infolivro.idlivro,infocliente.id);
+        await api.FazerCompra(infolivro.idlivro,infocliente.id);
         toast.success("🚀 Comprado!")
         history.push({
             pathname:"/finalizar",
@@ -43,7 +43,7 @@ function Compra(props){
                 </div>
                 <div name="containerimglivro" id="containerimglivro">
                     <div name="imagem" id="imagemcapalivro">
-                        <img className="capadolivrocompra" src={img}></img>
+                        <img className="capadolivrocompra" src={"http://localhost:5000/Funcoescliente/buscarimagem/" + infolivro.nomeimg} height="230"/>
                     </div>
                     
                     <div name="informacoescruciais" id="informacoesrelevante">
@@ -57,12 +57,10 @@ function Compra(props){
                             <div name="acaocompra" id="acaodecompra">
                                 <button className="btn btn-primary" onClick={fazercompra}>Comprar</button>
                             </div>
-                            <input type="number" placeholder="Codigo de Segurança do cartão" onChange={(e) => setCodigo(e.target.value)}></input>
+                            <input type="number" placeholder="Senha do cartão de crédito" onChange={(e) => setCodigo(e.target.value)}></input>
                         </div>
                         <div id="maisumcontainer">
-                            <textarea block>
-                                {infolivro.sinopse}
-                            </textarea>
+                            {infolivro.sinopse}
                         </div>
                         </div>
                     </div>

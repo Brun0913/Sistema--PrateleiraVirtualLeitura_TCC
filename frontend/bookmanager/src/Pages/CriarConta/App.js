@@ -22,7 +22,7 @@ export default function CriarConta(){
     
     const CriarConta = async() =>{
         try{
-        const retorno = await API.CriarConta({
+        await API.CriarConta({
             InformacoesCliente:{
                 nome:nome,
                 nascimento:nascimento,
@@ -42,7 +42,7 @@ export default function CriarConta(){
         catch(ex)
         {
             if(ex.response.data.motivo)
-            toast.dark("😵 " + ex.response.data.motivo);
+            toast.error("😵 " + ex.response.data.motivo);
             else
             toast.error("😔 Tente Novamente");
         }

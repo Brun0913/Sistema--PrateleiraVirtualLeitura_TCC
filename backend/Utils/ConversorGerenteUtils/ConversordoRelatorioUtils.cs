@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+using Microsoft.EntityFrameworkCore;
+
 namespace backend.Utils.ConversorGerenteUtils
 {
     public class ConversordoRelatorioUtils
@@ -10,9 +12,9 @@ namespace backend.Utils.ConversorGerenteUtils
         public Models.Response.GerenteResponse.VendasdoDiaResponse vendasdodiautils(Models.TbCompra req)
         {
             Models.Response.GerenteResponse.VendasdoDiaResponse ctx = new Models.Response.GerenteResponse.VendasdoDiaResponse();
+            
             ctx.cliente = req.IdClienteNavigation.NmCliente;
             ctx.dia = req.DtCompra.Day;
-            ctx.cliente = "teste";
             ctx.valortotal = req.VlTotal;
 
             return ctx;
@@ -53,42 +55,80 @@ namespace backend.Utils.ConversorGerenteUtils
         {
             List<Models.Response.GerenteResponse.VendasdoMesResponse> result = new List<Models.Response.GerenteResponse.VendasdoMesResponse>();
 
-            for(int meses = 0;meses <= 12; meses++)
+            for(int meses = 1;meses <= 12; meses++)
             {
                 result.Add(ConvertVendasdoMes(meses));
             }
             return result;
         }
-        public List<Models.Response.GerenteResponse.topMelhoresClienteResponse> melhoresCliente()
+        public Models.Response.GerenteResponse.topMelhoresClienteResponse melhoresCliente(Models.TbCompra req)
         {
-            Models.Response.GerenteResponse.topMelhoresClienteResponse x = new Models.Response.GerenteResponse.topMelhoresClienteResponse();
-            List<Models.Response.GerenteResponse.topMelhoresClienteResponse> result = new List<Models.Response.GerenteResponse.topMelhoresClienteResponse>();
             Models.TccContext db = new Models.TccContext();
+            List<Models.TbCliente> clientes = db.TbCliente.Include(x => x.IdLoginNavigation).ToList();
 
-            List<Models.TbCompra> compras = db.TbCompra.ToList();
-            List<Models.TbCliente> cliente = db.TbCliente.ToList();
-            List<Models.TbLogin> logins = db.TbLogin.Where(x => x.DsPerfil == "cliente").ToList();
-            
-            for(int idclientes = 0;idclientes <= cliente.Count(); idclientes++)
-            {
-                Models.TbCliente info = cliente.First(x => x.IdCliente == idclientes);
-                List<Models.TbCompra> comprasdocliente = compras.Where(x => x.IdCliente == info.IdCliente).ToList();
-                List<Decimal?> valores = new List<decimal?>();
+            Models.TbCliente infocliente = clientes.First(x => x.IdCliente == req.IdCliente);
+            List<Models.TbCompra> infocompras = db.TbCompra.Where(x => x.IdCliente == infocliente.IdCliente).ToList();
+            List<decimal> valortotal = new List<decimal>();
 
-                foreach(Models.TbCompra item in comprasdocliente)
-                    valores.Add(item.VlTotal);
+            Models.Response.GerenteResponse.topMelhoresClienteResponse response = new Models.Response.GerenteResponse.topMelhoresClienteResponse();
 
-                decimal? totalgasto = valores.Sum();
+            response.email = infocliente.IdLoginNavigation.DsEmail;
+            response.nome = infocliente.NmCliente;
+            response.telefone = infocliente.DsTelefone;
+            response.qtdpedidos = infocompras.Count();
 
-                x.email = info.IdLoginNavigation.DsEmail;
-                x.nome = info.NmCliente;
-                x.telefone = info.DsTelefone;
-                x.qtdpedidos = comprasdocliente.Count();
-                x.totaldegastos = totalgasto;
+            foreach(Models.TbCompra ii in infocompras)
+                valortotal.Add(ii.VlTotal);
 
-                result.Add(x);
-            }
-            return result;
+            response.totaldegastos = valortotal.Sum();
+            return response;
         }
+        public Models.Response.GerenteResponse.TopMelhoresProdutosResponse adicionarprodutos(Models.TbCompraLivro req)
+        {
+            Models.TccContext db = new Models.TccContext();
+            Models.Response.GerenteResponse.TopMelhoresProdutosResponse item = new Models.Response.GerenteResponse.TopMelhoresProdutosResponse();
+            
+            List<Models.TbCompraLivro> compraslivros = db.TbCompraLivro.Where(x => x.IdLivro == req.IdLivro).Include(x => x.IdCompraNavigation).ToList();
+
+            decimal a = 0;
+            foreach(Models.TbCompraLivro produto in compraslivros)
+            {
+                List<decimal> valores = new List<decimal>();
+                valores.Add(produto.IdCompraNavigation.VlTotal);
+
+                a = valores.Sum();
+            }
+
+            item.nomeproduto = req.IdLivroNavigation.NmLivro;
+            item.qtdvendidos = compraslivros.Count();
+            item.lucrogeral = a;
+
+            return item;
+        }
+        public Models.Response.GerenteResponse.LIstamelhoresGenerosReponse pegarmelhroes(Models.TbCompraLivro req)
+        {
+            Models.TccContext db = new Models.TccContext();
+            List<Models.TbCompraLivro> compras = db.TbCompraLivro.ToList();
+            Models.Response.GerenteResponse.LIstamelhoresGenerosReponse ctx = new Models.Response.GerenteResponse.LIstamelhoresGenerosReponse();
+
+            Models.TbLivro livro = db.TbLivro.First(x => x.IdLivro == req.IdLivro);
+            
+            string nmlivro = livro.NmLivro;
+            string gen = livro.DsGenero;
+            int vendas = 0;
+
+            foreach(Models.TbCompraLivro i in compras)
+            {
+                if(i.IdLivro == livro.IdLivro)
+                    vendas++;
+                else
+                    continue;
+            }
+            ctx.nomelivro = nmlivro;
+            ctx.genero = gen;
+            ctx.qtdvendas = vendas;
+            return ctx;
+        }
+
     }
 }
