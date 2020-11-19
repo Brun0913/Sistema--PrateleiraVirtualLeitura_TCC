@@ -1,43 +1,56 @@
-import React from 'react';
-import { Form } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
 import './vendaspormes.css';
 
 import {Link} from 'react-router-dom';
+import funcoes from '../../../Services/FuncoesGerente'
 
-function vendaspormes(){
+export default function VendasPormes(){
+
+    const api = new funcoes();
+    const [vendasmes,setVendasmes] = useState([]);
+
+    const BuscarVendasMensais = async() =>{
+        const x = await api.VendasporMes();
+        setVendasmes([...x]);
+    }
+
+    useEffect(() => {
+        BuscarVendasMensais();
+    }, []);
+
     return(
-        <div className="prigerente">
+        <div className="pri">
 
-            <div className="maingerente">
-                <div id="secgerente">
-                    <h1>Relatório de Vendas por Mês</h1>
+                <h1 className="secvendasmes">Relatório de Vendas por Mês</h1>
+
+                <div className="tabelavendasmes">
+                    <table className="table">
+                        <thead className="orange">
+                            <tr>
+                                <th>Mes</th>
+                                <th>Quantidade de Vendas</th>
+                                <th>Lucro Mensal</th>
+                            </tr>
+                        </thead>
+                        <tbody className="black">
+                            {vendasmes.map((item) => (
+                                <tr className="colorwhite">
+                                    <td>{item.mes}</td>
+                                    <td>{item.qtdvendas}</td>
+                                    <td>{item.lucromensal}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                    <div className="botaozin">
+                        <a href="gerenciarfinancas" className="btn btn-primary">Voltar</a>
+                    </div>
                 </div>
-            </div>
-
-            <div id="grandecontainer">
-                <div id="container1"></div>
-
-                <div id="container2">
-
-                </div>
-
-                <div id="container3"></div>
-
-                <div id="Avoltar">
-                     <Link to="/gerenciarfinancas">
-                         <button variant="gray" size="lg" block>
-                             Voltar
-                         </button>
-                     </Link>
-               </div>
-            </div>
-
-            <div id="thirdgerente">
+                
+            <div id="parterocha">
                   <h2>Direitos do site reservados @Copyright</h2>
             </div>
 
         </div>
     )
 }
-
-export default vendaspormes;

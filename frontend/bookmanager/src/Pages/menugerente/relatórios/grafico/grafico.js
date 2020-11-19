@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './grafico.css';
 
-import {Link} from 'react-router-dom';
 import { Chart } from "react-google-charts";
+import funcoes from "../../../Services/FuncoesGerente"
 
-function grafico(){
+export default function Grafico(){
+
+    const api = new funcoes();
+    const [grafico,setGrafico] = useState([]);
+
+    const BuscarGrafico = async() =>{
+        const x = await api.MelhoresLivrosGrafico();
+        setGrafico([...x]);
+        console.log(x);
+    }
+
+    useEffect(() =>{
+        BuscarGrafico();
+    }, [])
+
     return(
-        <div className="prigerente">
+        <div className="telagrafico">
             
             <div className="maingerente">
                 <div id="secgerente">
@@ -14,40 +28,27 @@ function grafico(){
                 </div>
             </div>
 
-            <div id="grandecontainer">
-                <div id="container1"></div>
+            <div id="containerdografico">
 
                 <div id="conteudorelatorio">
 
                 <Chart
-                  width={'500px'}
-                  height={'300px'}
-                  chartType="PieChart"
-                  loader={<div>Loading Chart</div>}
-                  data={[
-                  ['Task', 'Hours per Day'],
-                  ['Work', 11],
-                  ['Eat', 2],
-                  ['Commute', 2],
-                  ['Watch TV', 2],
-                  ['Sleep', 7],
-                  ]}
-                  options={{
-                  title: 'My Daily Activities',
-                  }}
-                  rootProps={{ 'data-testid': '1' }}
+                    width={'1200px'}
+                    height={'400px'}
+                    chartType="Bar"
+                    loader={<div>Loading Chart</div>}
+                    rows={grafico.map((item) =>([
+                        String(item.nomelivro),item.qtdvendas
+                    ]))}
+
+                    columns={["Melhores Livros","Qtd. Vendas"]}
+                    rootProps={{ 'data-testid': '1' }}
                 />
+                
                 </div>
-
-                <div id="container3"></div>
-
-                <div id="Avoltar">
-                     <Link to="/gerenciarfinancas">
-                         <button variant="gray" size="lg" block>
-                             Voltar
-                         </button>
-                     </Link>
-               </div>
+                <div className="botaografico">
+                    <a href="gerenciarfinancas" className="btn btn-primary">Voltar</a>
+                </div>
             </div>
 
             <div id="thirdgerente">
@@ -57,5 +58,3 @@ function grafico(){
         </div>
     )
 }
-
-export default grafico;

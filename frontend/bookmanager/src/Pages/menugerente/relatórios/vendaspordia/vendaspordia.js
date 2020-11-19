@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './vendaspordia.css'
 
-import {Link} from 'react-router-dom';
+import funcoes from '../../../Services/FuncoesGerente'
+import {ToastContainer,toast} from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-bootstrap-icons';
 
-function vendaspordia(){
+export default function VendasPordia(){
+
+    const api = new funcoes();
+    const [vendasdia,setVendasdia] = useState([]);
+
+    const BuscarVendasDia = async() =>{
+        try{
+        const x = await api.VendasdoDia();
+        setVendasdia([...x]);
+        }
+        catch(ex)
+        {
+            toast.warning("😔 " + ex.response.data.motivo);
+        }
+    }
+
+    useEffect(() =>{
+        BuscarVendasDia();
+    }, [])
+
     return(
-        <div className="prigerente">
+        <div className="telavendasdia">
 
             <div className="maingerente">
                 <div id="secgerente">
@@ -13,30 +35,34 @@ function vendaspordia(){
                 </div>
             </div>
 
-            <div id="grandecontainer">
-                <div id="container1"></div>
-
-                <div id="container2">
-                    
-                </div>
-
-                <div id="container3"></div>
-
-                <div id="Avoltar">
-                     <Link to="/gerenciarfinancas">
-                         <button variant="gray" size="lg" block>
-                             Voltar
-                         </button>
-                     </Link>
-               </div>
+            <div className="modelotabelavendasdia">
+                <table className="table">
+                    <thead>
+                        <tr className="orange">
+                            <th>Dia</th>
+                            <th>Cliente</th>
+                            <th>Valor Total</th>
+                        </tr>
+                    </thead>
+                    <tbody className="black">
+                        {vendasdia.map((item) =>(
+                            <tr className="colorwhite">
+                                <td>{item.dia}</td>
+                                <td>{item.cliente}</td>
+                                <td>{item.valortotal}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
 
+            <ToastContainer />
+            <div className="botaozin">
+                <a href="gerenciarfinancas" className="btn btn-primary">Voltar</a>
+            </div>
             <div id="thirdgerente">
                 <h2>Direitos do site reservados @Copyright</h2>
             </div>
-
         </div>
     )
 }
-
-export default vendaspordia;
