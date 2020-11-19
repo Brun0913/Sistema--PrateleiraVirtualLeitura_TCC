@@ -13,8 +13,9 @@ namespace backend.Controllers.Controller
     public class FuncoesGerenteController
     {
         [HttpGet("vendasdodia")]
-        public List<Models.Response.GerenteResponse.VendasdoDiaResponse> VendasDoDia()
+        public ActionResult<List<Models.Response.GerenteResponse.VendasdoDiaResponse>> VendasDoDia()
         {
+            try{
             Utils.ConversorGerenteUtils.ConversordoRelatorioUtils relatorio = new Utils.ConversorGerenteUtils.ConversordoRelatorioUtils();
             Models.TccContext db = new Models.TccContext();
 
@@ -23,7 +24,18 @@ namespace backend.Controllers.Controller
             List<Models.Response.GerenteResponse.VendasdoDiaResponse> retorno = relatorio.ListaVendasdiaUtils(x);
 
             List<Models.Response.GerenteResponse.VendasdoDiaResponse> result = retorno.Where(x => x.dia == dia.Day).ToList();
-            return result;
+
+            if(result.Count() == 0)
+                throw new ArgumentException("Não á Registros de compras");
+            else 
+                return result;
+            }
+            catch(System.Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErroResponse(ex,400)
+                );
+            }
         }
         [HttpGet("topclientes")]
         public List<Models.Response.GerenteResponse.topMelhoresClienteResponse> TopMelhoresClientes()
@@ -65,9 +77,12 @@ namespace backend.Controllers.Controller
 
             foreach(Models.TbCompraLivro item in compra)
             {
-                Models.Response.GerenteResponse.TopMelhoresProdutosResponse x = convert.adicionarprodutos(item);
-
-                produtos.Add(x);
+                Models.Response.GerenteResponse.TopMelhoresProdutosResponse livro = convert.adicionarprodutos(item);
+                Models.Response.GerenteResponse.TopMelhoresProdutosResponse ctx = produtos.FirstOrDefault(x => x.nomeproduto == livro.nomeproduto);
+                if(ctx == null)
+                    produtos.Add(livro);
+                else 
+                    continue;
             }
 
             return produtos.OrderByDescending(x => x.lucrogeral).Take(10).ToList();
@@ -93,7 +108,7 @@ namespace backend.Controllers.Controller
                 else 
                     continue;
             }
-            return itens.OrderBy(x => x.qtdvendas).Take(5).ToList();
+            return itens.OrderByDescending(x => x.qtdvendas).Take(5).ToList();
         }
 
         [HttpPost("cadastrarfuncionario")]

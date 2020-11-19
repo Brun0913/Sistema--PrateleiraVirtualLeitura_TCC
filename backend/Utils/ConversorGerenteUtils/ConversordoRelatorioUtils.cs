@@ -88,20 +88,13 @@ namespace backend.Utils.ConversorGerenteUtils
             Models.TccContext db = new Models.TccContext();
             Models.Response.GerenteResponse.TopMelhoresProdutosResponse item = new Models.Response.GerenteResponse.TopMelhoresProdutosResponse();
             
-            List<Models.TbCompraLivro> compraslivros = db.TbCompraLivro.Where(x => x.IdLivro == req.IdLivro).Include(x => x.IdCompraNavigation).ToList();
+            List<Models.TbCompraLivro> compraslivros = db.TbCompraLivro.Where(x => x.IdLivro == req.IdLivro).Include(x => x.IdLivroNavigation).ToList();
+            Models.TbLivro infolivro = db.TbLivro.First(x => x.IdLivro == req.IdLivro);
 
-            decimal a = 0;
-            foreach(Models.TbCompraLivro produto in compraslivros)
-            {
-                List<decimal> valores = new List<decimal>();
-                valores.Add(produto.IdCompraNavigation.VlTotal);
-
-                a = valores.Sum();
-            }
-
-            item.nomeproduto = req.IdLivroNavigation.NmLivro;
             item.qtdvendidos = compraslivros.Count();
-            item.lucrogeral = a;
+            
+            item.nomeproduto = req.IdLivroNavigation.NmLivro;
+            item.lucrogeral = infolivro.VlPreco * item.qtdvendidos;
 
             return item;
         }

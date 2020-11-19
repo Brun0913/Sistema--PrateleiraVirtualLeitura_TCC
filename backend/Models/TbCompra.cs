@@ -18,13 +18,9 @@ namespace backend.Models
         public int IdCompra { get; set; }
         [Column("dt_compra", TypeName = "date")]
         public DateTime DtCompra { get; set; }
-<<<<<<< HEAD
         [Column("vl_total", TypeName = "decimal(15,2)")]
-        public decimal? VlTotal { get; set; }
-        [Column("id_cliente")]
-=======
         public decimal VlTotal { get; set; }
->>>>>>> a1993ea7bea383b5ada5a1ddcd02e7d2f4364ad4
+        [Column("id_cliente")]
         public int? IdCliente { get; set; }
 
         [ForeignKey(nameof(IdCliente))]
