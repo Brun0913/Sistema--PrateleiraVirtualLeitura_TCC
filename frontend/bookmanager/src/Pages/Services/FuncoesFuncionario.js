@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
 const api = Axios.create({
-    baseURL:"http://localhost:5000/FuncoesFuncionario/"
+    baseURL:"http://3.82.146.171:5000/FuncoesFuncionario/"
 })
 
 export default class{
