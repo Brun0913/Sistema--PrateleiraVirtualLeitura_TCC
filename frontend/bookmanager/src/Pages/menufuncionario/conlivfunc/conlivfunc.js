@@ -35,11 +35,8 @@ export default function ConsultarLivroFunc(){
             <div className="corpotabela">
                 <div id="tituloconsultarlivro">
                     <h2 id="subtituloconsultarlivro">Consultar Livros</h2>
-                    <div>
-                        <Search size={26} style={{ cursor: "pointer" }} onClick={Buscarlivros}/>
-                    </div>
+                    <Search size={26} style={{ cursor: "pointer" }} onClick={Buscarlivros}/>
                 </div>
-
                 <div className="compactador">
                     <div id="filtrostb">
                         <div className="voltartelaconsult">

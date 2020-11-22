@@ -12,7 +12,7 @@
     justify-content: center;
     flex-direction: column;
     background-image: linear-gradient(orange,purple);
-    height: 100vh;
+    height: auto;
 }
 .formularioinserirlivro{
     border-radius: 24px;
@@ -36,6 +36,8 @@
     margin: 20px;
     border-radius: 20px;
     border: 1px solid #191919;
+    justify-content: space-around;
+    display: flex;
 }
 .container2inserirlivro label{
     color: white;

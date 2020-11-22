@@ -20,6 +20,7 @@ export default function InserirLivro(){
     const [numeroserie,setNumeroserie] = useState();
     const [edicaolivro,setEdicaolivro] = useState();
     const [imagem,setImagem] = useState();
+    const [arquivolivro,setArquivo] = useState();
 
     const SalvarLivro = async() =>{
         try{
@@ -35,7 +36,8 @@ export default function InserirLivro(){
                 editora,
                 numeroserie,
                 edicaolivro,
-                imagem
+                imagem,
+                arquivolivro
             });
             toast("Cadastrado com sucesso");
         }
@@ -107,6 +109,10 @@ export default function InserirLivro(){
                     <div className="entradadedados">
                         <label>Imagem do Livro</label>
                         <input type="file" onChange={(e) => setImagem(e.target.files[0])} ></input>
+                    </div>
+                    <div className="entradadedados">
+                        <label>Arquivo do Livro</label>
+                        <input type="file" onChange={(e) => setArquivo(e.target.files[0])} ></input>
                     </div>
                 </div>
             </div>

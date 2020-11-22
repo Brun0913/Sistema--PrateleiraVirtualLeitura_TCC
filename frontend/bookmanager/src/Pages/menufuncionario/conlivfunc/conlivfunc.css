@@ -2,7 +2,7 @@
     flex-direction: column;
     display: flex;
     height: 100vh;
-    justify-content: space-around;
+    justify-content: space-between;
     display: flex;
 }
 .corpo{
@@ -17,7 +17,7 @@
     width: 100vw;
     background-color: orange;
     height: 10vh;
-    position: static;
+    position: fixed;
     display: flex;
     align-items: center;
 }
@@ -29,7 +29,7 @@
     height: auto;
     width: 100vw;
     display: flex;
-    
+    margin-top: 10vh;
     flex-direction: row;
 }
 #filtrostb{
@@ -55,9 +55,8 @@
     display: flex;
 }
 .voltartelaconsult{
-    margin: 5px;
+    margin: 10px;
     position: static;
-    
 }
 .black{
     background-color: black;

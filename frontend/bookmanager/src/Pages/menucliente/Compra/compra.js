@@ -14,8 +14,6 @@ function Compra(props){
     const infocliente = props.location.state.cliente.informacoescliente;
     const infolivro = props.location.state.livro.e;
 
-    console.log(infocliente);
-    console.log(infolivro);
     const fazercompra = async() =>{
         
         if(codigo.length < 6 )
@@ -29,7 +27,7 @@ function Compra(props){
         toast.success("🚀 Comprado!")
         history.push({
             pathname:"/finalizar",
-            state:infocliente
+            state:{cliente:{infocliente},livro:{infolivro}}
         })
         }
     }
@@ -43,7 +41,7 @@ function Compra(props){
                 </div>
                 <div name="containerimglivro" id="containerimglivro">
                     <div name="imagem" id="imagemcapalivro">
-                        <img className="capadolivrocompra" src={"http://3.82.146.171:5000/Funcoescliente/buscarimagem/" + infolivro.nomeimg} height="230"/>
+                        <img className="capadolivrocompra" src={"http://localhost:5000/Funcoescliente/buscarimagem/" + infolivro.nomeimg} height="230"/>
                     </div>
                     
                     <div name="informacoescruciais" id="informacoesrelevante">

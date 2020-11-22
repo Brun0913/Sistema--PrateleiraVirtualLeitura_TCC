@@ -35,7 +35,7 @@ function FazerCompras(props){
           <div className="first">
               <div className="subcontainer">
                 <div id="compradelivros">
-                    <h1>Livros Disponiveis:</h1>
+                    <h1>Livros Disponiveis</h1>
                 </div>
 
                 <Link id="botao" className="btn btn-secondary" to={{
@@ -77,9 +77,7 @@ function FazerCompras(props){
                                 </Link>
                               </td>
                             </tr>
-
                           ))}
-
                       </tbody>                     
                   </table>
                 </div>

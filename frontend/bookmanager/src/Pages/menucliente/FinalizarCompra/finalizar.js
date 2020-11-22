@@ -4,55 +4,37 @@ import {Link} from 'react-router-dom';
 
 import codigo from'./codigo.png'
 
-
-
 function FinalizarCompra(props){
+    
+    const infolivro = props.location.state.livro.infolivro;
+    const infocliente = props.location.state.cliente.infocliente;
+    
     return(
         <div className='nome'>
-
              <div className="titulofinalizar">
                 <div className='drag'>
                     <h1>Parabéns!Compra concluída!</h1>
                 </div>
              </div>  
-
                 <div className='jg'>
                     <h3>Você deseja baixar o livro ?</h3>
                 </div>
-
                 <div className='codigo'>
-                <img src={codigo}/>
+                    <img src={codigo}/>
                 </div>
-
             <div className='escolha'>
-                
                 <div className="sim">
-                    <button variant="gray" size="lg" block className="btn btn-danger">
-                        <h4>Sim</h4>  
-                    </button>
+                    <a className="btn btn-danger" href={"http://localhost:5000/Funcoescliente/buscarimagem/" + infolivro.nomearquivo}>Sim</a>
                 </div>
-                
                 <div className="não">
-                    <Link to={{
+                    <Link className="btn btn-dark" to={{
                         pathname:"/menucliente",
-                        state:props.location.state
+                        state:infocliente
                     }}>Não</Link>
                 </div>
             </div>
-
-                <div className="voltar">
-                    <button variant="gray" size="lg" block>
-                        <Link to={{
-                            pathname:"/menucliente",
-                            state:props.location.state
-                        }}> Voltar </Link>
-                    </button>
-                </div>
         </div>
-
-        
-
-    )
+)
 }
 
 

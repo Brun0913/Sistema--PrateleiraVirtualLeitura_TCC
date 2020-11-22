@@ -2,7 +2,7 @@
 .Gaia{
     margin-top: 0%;
     padding: 0%;
-    height: 100vh;
+    height: auto;
     flex-direction: column;
     background-image: linear-gradient(orange,purple);
 }
@@ -12,7 +12,7 @@
     margin: 10px;
 }
 .Titulo{
-    width: 100vw;
+    width: auto;
     height: auto;
     text-align: center;
     background-color: purple;
@@ -21,8 +21,8 @@
 .zeus{
     justify-content: space-evenly;
     display: flex;
-    width: 100vw;
-    align-items: center;
+    width: auto;
+    align-items: flex-start;
     flex-direction: row;
 }
 #blocodecomandos{

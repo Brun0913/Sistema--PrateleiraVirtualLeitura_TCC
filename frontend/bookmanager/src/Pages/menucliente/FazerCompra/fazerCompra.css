@@ -1,5 +1,5 @@
 .first{
-    height: 100vh;
+    height: auto;
     width: auto;
     flex-direction: row;
     display: flex;
@@ -12,15 +12,15 @@
     display: flex;
     flex-direction: column;
     background-image: linear-gradient(orange,purple);
-    background-attachment: fixed;
+    position: fixed;
 }
 
 .subcontainer2{
-    height: 100vh;
-    width: 70vw;
+    height: auto;
+    width: 100vw;
     display: flex;
-    justify-content: center;
-    background-image: linear-gradient(orange,purple);
+    justify-content: flex-end;
+    align-content: flex-end;
 }
 
 #titulo{
@@ -32,11 +32,15 @@
     border: 3px solid white;
     background-color: black;
     text-align: center;
+    padding: 5px;
 }
 
 #posicaotabela{
     height: auto;
     width: auto;
+}
+#posicaotabela table{
+    width: 60vw;
 }
 
 #tabela{

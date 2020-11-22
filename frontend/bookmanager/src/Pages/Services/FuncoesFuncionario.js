@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
 const api = Axios.create({
-    baseURL:"http://3.82.146.171:5000/FuncoesFuncionario/"
+    baseURL:"http://localhost:5000/FuncoesFuncionario/"
 })
 
 export default class{
@@ -11,7 +11,6 @@ export default class{
         return x.data;
     
     }
-
     async ConsultarLivros(){
         const x = await api.get('consultarlivros');
         return x.data;
@@ -31,11 +30,11 @@ export default class{
         formdata.append('numeroserie', parametro.numeroserie);
         formdata.append('edicaolivro', parametro.edicaolivro);
         formdata.append('imagem', parametro.imagem);
-        
+        formdata.append('arquivolivro',parametro.arquivolivro);
+
         const x = await api.post("NovoLivro", formdata,{
             headers:{ "content-type": "multipart/form-data" }
         });
         return x.data;
     }
-
 }
