@@ -18,6 +18,7 @@ namespace backend.Utils.FuncoesClienteUtils
             ctx.serie = tb.IdLivroNavigation.NrSerie;
             ctx.preco = tb.IdLivroNavigation.VlPreco;
             ctx.datacompra = tb.IdCompraNavigation.DtCompra;
+            ctx.nomearquivo = tb.IdLivroNavigation.PdfLivro;
 
             return ctx;
         }
@@ -51,6 +52,7 @@ namespace backend.Utils.FuncoesClienteUtils
             ctx.editora = req.NmEditora;
             ctx.genero = req.DsGenero;
             ctx.nomeimg = req.ImgImagem;
+            ctx.nomearquivo = req.PdfLivro;
             
             return ctx;
         }

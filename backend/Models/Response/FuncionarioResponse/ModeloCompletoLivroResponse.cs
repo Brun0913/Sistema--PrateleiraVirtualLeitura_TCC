@@ -17,5 +17,6 @@ namespace backend.Models.Response.FuncionarioResponse
         public string numeroserie {get;set;}
         public string edicaolivro {get;set;}
         public string nomeimagem {get;set;}
+        public string nomearquivo {get;set;}
     }
 }

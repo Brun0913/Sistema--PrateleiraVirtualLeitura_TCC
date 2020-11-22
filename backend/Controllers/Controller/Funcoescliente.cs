@@ -39,8 +39,6 @@ namespace backend.Controllers.Controller
             }
         }
         
-
-        
         [HttpGet("fazercompra")]
         public List<Models.Response.ClienteResponse.FazerCompra> fazercompra()
         {
@@ -99,6 +97,5 @@ namespace backend.Controllers.Controller
             string xx = gerenciarfoto.GerarContnttype(foto);
             return File(x,xx);
         }
-
     }
 }

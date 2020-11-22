@@ -52,6 +52,7 @@ namespace backend.Utils.FuncoesFuncionarioUtils
             response.sinopse = request.DsSinopse;
             response.publicacao = request.DtPublicacao;
             response.nomeimagem = request.ImgImagem;
+            response.nomearquivo = request.PdfLivro;
 
             return response;
         }

@@ -16,5 +16,6 @@ namespace backend.Models.Request.RequestFuncionario
         public string numeroserie {get;set;}
         public string edicaolivro {get;set;}
         public IFormFile imagem {get;set;}
+        public IFormFile arquivolivro {get;set;}
     }
 }

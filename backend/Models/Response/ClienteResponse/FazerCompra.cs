@@ -20,5 +20,6 @@ namespace backend.Models.Response.ClienteResponse
         public string genero {get;set;}
         public decimal? preco {get;set;}
         public string nomeimg {get;set;}
+        public string nomearquivo {get;set;}
     }
 }
