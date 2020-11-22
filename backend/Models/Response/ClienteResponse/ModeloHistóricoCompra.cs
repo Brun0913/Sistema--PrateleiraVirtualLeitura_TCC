@@ -11,6 +11,6 @@ namespace backend.Models.Response.ClienteResponse
         public string serie {get;set;}
         public decimal? preco {get;set;}
         public DateTime? datacompra {get;set;}
-
+        public string nomearquivo {get;set;}
     }
 }

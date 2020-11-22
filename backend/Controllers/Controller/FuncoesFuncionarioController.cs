@@ -61,9 +61,11 @@ namespace backend.Controllers.Controller
 
             Models.TbLivro modelotb = converter.RequestTblivroparaTbLivro(req);
             modelotb.ImgImagem = gerenciarimg.GerarNome(req.imagem.FileName);
+            modelotb.PdfLivro = gerenciarimg.GerarNome(req.arquivolivro.FileName);
 
             Models.TbLivro x = verificar.verificarparametros(modelotb);
             gerenciarimg.SalvarFoto(modelotb.ImgImagem, req.imagem);
+            gerenciarimg.SalvarFoto(modelotb.PdfLivro,req.arquivolivro);
 
             Models.Response.FuncionarioResponse.ModeloCompletoLivroRespone result = converter.TbLivroparaLivroResponseCompleto(modelotb);
             return result;
