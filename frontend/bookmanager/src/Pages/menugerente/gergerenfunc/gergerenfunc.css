@@ -32,10 +32,11 @@
 }
 
 .controladordetable2{
+    margin-left: 600px;
     width: 600px;
 }
 .divagergeren{
     align-items: center;
     flex-direction: column;
-
+    margin-left: 15px;
 }

@@ -29,8 +29,8 @@ function gergerenfunc(){
            </div>
 
         <div className="controladordetable2">
-          <div id="tableger" className="table">
-            <thead>
+          <div className="table">
+            <thead id="colunas">
               <tr>
 
                 <th>Nome</th>
