@@ -130,17 +130,17 @@ namespace backend.Controllers.Controller
             return result;
         }
 
-        [HttpDelete]
-        public void DeletarFuncionario(Models.Request.RequestGerente.DeletarFuncRequest funcionario)
+        [HttpDelete("demitirfuncionario/{idcontafunc}")]
+        public void DeletarFuncionario(int idcontafunc)
         {
             Models.TccContext context = new Models.TccContext();
 
-            Models.TbEmpregado paraDeletar = context.TbEmpregado.First(emp => emp.IdEmpregado == funcionario.IdFunc);
+            Models.TbEmpregado paraDeletar = context.TbEmpregado.First(emp => emp.IdLogin == idcontafunc);
             context.Remove(paraDeletar);
-            
-            Models.TbLogin paraDeletarOnLogin = context.TbLogin.First(lgn => lgn.IdLogin == funcionario.IdLogin);
-            context.Remove(paraDeletarOnLogin);
+            context.SaveChanges();
 
+            Models.TbLogin paraDeletarOnLogin = context.TbLogin.First(lgn => lgn.IdLogin == idcontafunc);
+            context.Remove(paraDeletarOnLogin);
             context.SaveChanges();      
         }
         
@@ -149,13 +149,12 @@ namespace backend.Controllers.Controller
         {
             Models.TccContext socorro = new Models.TccContext();
 
-            List<Models.TbEmpregado> socorro1 = socorro.TbEmpregado.Where(x => x.DsCargo == "funcionario").ToList();
+            List<Models.TbEmpregado> socorro1 = socorro.TbEmpregado.Where(x => x.DsCargo == "funcionario").Include(x => x.IdLoginNavigation).ToList();
 
             Utils.ConversorGerenteUtils.ConversorGerenteUtils final = new Utils.ConversorGerenteUtils.ConversorGerenteUtils();
             List<Models.Response.GerenteResponse.ListarFuncResponse> a = final.lists(socorro1);
 
             return a;
-
         }
     }
 }

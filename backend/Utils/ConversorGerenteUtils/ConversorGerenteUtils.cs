@@ -50,6 +50,14 @@ namespace backend.Utils.ConversorGerenteUtils
             aaa.nome = empregados.NmEmpregado;
             aaa.salario = empregados.VlSalario;
             aaa.carteira = empregados.DsCarteiraTrabalho;
+            aaa.idconta = empregados.IdEmpregado;
+            aaa.idlogin = empregados.IdLogin;
+            aaa.nascimento = empregados.DtNascimento;
+            aaa.rg = empregados.DsRg;
+            aaa.cep = empregados.DsCep;
+            aaa.carga = empregados.DsCargaHorariaSemanal;
+            aaa.email = empregados.IdLoginNavigation.DsEmail;
+            aaa.senha = empregados.IdLoginNavigation.DsSenha;
 
             return aaa;
         }
