@@ -141,8 +141,21 @@ namespace backend.Controllers.Controller
             Models.TbLogin paraDeletarOnLogin = context.TbLogin.First(lgn => lgn.IdLogin == funcionario.IdLogin);
             context.Remove(paraDeletarOnLogin);
 
-            context.SaveChanges();
-               
+            context.SaveChanges();      
+        }
+        
+        [HttpGet("listarFuncionarios")]
+        public List<Models.Response.GerenteResponse.ListarFuncResponse> listarGerentes()
+        {
+            Models.TccContext socorro = new Models.TccContext();
+
+            List<Models.TbEmpregado> socorro1 = socorro.TbEmpregado.Where(x => x.DsCargo == "funcionario").ToList();
+
+            Utils.ConversorGerenteUtils.ConversorGerenteUtils final = new Utils.ConversorGerenteUtils.ConversorGerenteUtils();
+            List<Models.Response.GerenteResponse.ListarFuncResponse> a = final.lists(socorro1);
+
+            return a;
+
         }
     }
 }
