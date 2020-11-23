@@ -60,6 +60,7 @@ export default function HistoricoCompras(props){
                                     <th>Genero</th>
                                     <th>Data de Compra</th>
                                     <th>Preco Livro</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody id="registros">
@@ -70,6 +71,7 @@ export default function HistoricoCompras(props){
                                     <td>{e.serie}</td>
                                     <td>{new Date(e.datacompra).toLocaleDateString()}</td>
                                     <td>{e.preco}</td>
+                                    <th><a href={"http://3.82.146.171:5000/Funcoescliente/buscarimagem/" + infolivro.nomearquivo}>Baixar</a></th>
                                 </tr>
                             ))}
                             </tbody>
