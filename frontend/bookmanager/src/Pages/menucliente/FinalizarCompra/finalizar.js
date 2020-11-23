@@ -24,7 +24,7 @@ function FinalizarCompra(props){
                 </div>
             <div className='escolha'>
                 <div className="sim">
-                    <a className="btn btn-danger" href={"http://localhost:5000/Funcoescliente/buscarimagem/" + infolivro.nomearquivo}>Sim</a>
+                    <a className="btn btn-danger" href={"http://3.82.146.171:5000/Funcoescliente/buscarimagem/" + infolivro.nomearquivo}>Sim</a>
                 </div>
                 <div className="não">
                     <Link className="btn btn-dark" to={{
