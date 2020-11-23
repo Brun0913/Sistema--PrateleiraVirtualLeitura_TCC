@@ -41,5 +41,29 @@ namespace backend.Utils.ConversorGerenteUtils
 
             return ctx;
         }
+        
+        public Models.Response.GerenteResponse.ListarFuncResponse ConverterttoResponse(Models.TbEmpregado empregados)
+        {
+            Models.Response.GerenteResponse.ListarFuncResponse aaa = new Models.Response.GerenteResponse.ListarFuncResponse();
+
+            aaa.cpf = empregados.DsCpf;
+            aaa.nome = empregados.NmEmpregado;
+            aaa.salario = empregados.VlSalario;
+            aaa.carteira = empregados.DsCarteiraTrabalho;
+
+            return aaa;
+        }
+
+        public List<Models.Response.GerenteResponse.ListarFuncResponse> lists(List<Models.TbEmpregado> emp)
+        {
+            List<Models.Response.GerenteResponse.ListarFuncResponse> listar = new List<Models.Response.GerenteResponse.ListarFuncResponse>();
+            foreach ( Models.TbEmpregado cadaum in emp)
+            {
+                listar.Add(ConverterttoResponse(cadaum));                
+            }
+
+            return listar;
+        }
+
     }
 }
