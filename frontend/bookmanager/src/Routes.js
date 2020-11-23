@@ -1,25 +1,33 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-
+//Base
 import Home from './Pages/Home/Home'
 import CriarConta from './Pages/CriarConta/App'
 import termos from './Pages/CriarConta/index'
 import menucliente from './Pages/menucliente/menucliente'
 import menugerente from './Pages/menugerente/menugerente'
 import menufuncionario from './Pages/menufuncionario/menufuncionario'
+
+//Gerente
 import gercadfunc from './Pages/menugerente/gercadfunc/gercadfunc'
 import gergerenfunc from './Pages/menugerente/gergerenfunc/gergerenfunc'
+import excluirfunc from './Pages/menugerente/excluirfunc/excluirfunc'
+import GerenciarFinancas from'./Pages/menugerente/GerenciarFinancas/gerenfinancas'
+import VerinfoFunc from './Pages/menugerente/InfoFuncionarios/index'
+
+//Funcionario
 import alterlivfunc from './Pages/menufuncionario/alterlivfunc/alterlivfunc'
 import conlivfunc from './Pages/menufuncionario/conlivfunc/conlivfunc'
-import GerenciarFinancas from'./Pages/menugerente/GerenciarFinancas/gerenfinancas'
+import InserirLivro from './Pages/menufuncionario/TelaInserirLivro/livros'
+
+//Cliente
 import MeuPerfil from'./Pages/menucliente/MeuPerfil/Perfil'
 import HistoricoCompras from'./Pages/menucliente/HistoricoCompras/HistCompras'
 import FazerCompra from './Pages/menucliente/FazerCompra/fazerCompra'
 import Compra from'./Pages/menucliente/Compra/compra'
 import FinalizarCompra from'./Pages/menucliente/FinalizarCompra/finalizar'
-import InserirLivro from './Pages/menufuncionario/TelaInserirLivro/livros'
-import excluirfunc from './Pages/menugerente/excluirfunc/excluirfunc'
+
 //relatórios
 import vendaspormes from './Pages/menugerente/relatórios/vendaspormes/vendaspormes'
 import vendaspordia from './Pages/menugerente/relatórios/vendaspordia/vendaspordia'
@@ -55,6 +63,7 @@ export default function Routes(){
                 <Route path="/topprodutos" component={topprodutos}/>
                 <Route path="/topclientes" component={topclientes}/>
                 <Route path="/grafico" component={grafico}/>
+                <Route path="/informacoesfuncionario" component={VerinfoFunc}/>
             </Switch>
         </BrowserRouter>
     )

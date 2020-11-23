@@ -3,6 +3,7 @@
     background-image: linear-gradient(orange,purple);
     align-items: center;
     display: flex;
+    justify-content: center;
     flex-direction: column;
 }
 #formulariogerente{

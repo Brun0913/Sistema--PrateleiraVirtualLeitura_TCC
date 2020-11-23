@@ -1,20 +1,21 @@
 .maingergerenfunc{
     flex-direction: row;
     display: flex;
-    align-items: center;
+    margin: 5px;
+    height: 20vh;
+    width: auto;
 }
 
 .prigerenfunc{
     margin-top: 0%;
     padding: 0%;
     height: 100vh;
-    flex-direction: column;
+    flex-direction: row;
     background-image: linear-gradient(orange,purple);
 }
 
 .bvoltargerenfunc{
     flex-direction: row;
-    margin-left: 110px;
 }
 
 .titulo{
@@ -27,16 +28,27 @@
 }
 
 #tableger{
-    margin-left: 600px;
     height: 10px;
 }
 
 .controladordetable2{
-    margin-left: 600px;
     width: 600px;
 }
 .divagergeren{
     align-items: center;
     flex-direction: column;
-    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    width: 140px;
+    height: 15vh;
+    margin: 20px;
+    border: 2px solid white;
+    border-radius: 20px;
+    color: white;
+    background-color: black;
 }
+.movimentacao{
+    margin: 20px;
+}
+.m3{margin: 3px;}

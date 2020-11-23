@@ -8,8 +8,8 @@
 .corpo{
     margin: 0px;
     padding: 0px;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     justify-content: space-evenly;
     display: flex;
 }

@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
 const api = Axios.create({
-    baseURL:"http://3.82.146.171:5000/FuncoesGerente/"
+    baseURL:"http://localhost:5000/FuncoesGerente/"
 })
 
 export default class{
@@ -28,6 +28,14 @@ export default class{
     }
     async MelhoresProdutos(){
         const x = await api.get("melhoresprodutos");
+        return x.data;
+    }
+    async BuscarFuncionarios(){
+        const x = await api.get("listarFuncionarios");
+        return x.data;
+    }
+    async ExcluirRegFuncionarios(id){
+        const x = await api.delete("demitirfuncionario/" + id);
         return x.data;
     }
 }
