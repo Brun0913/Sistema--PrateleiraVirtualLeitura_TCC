@@ -16,11 +16,11 @@ function Compra(props){
 
     const fazercompra = async() =>{
         
-        if(codigo.length < 6 )
-            toast.error("😵 Senha do Cartao Inválido");
+        if(codigo.length < 3 )
+            toast.error("😵 Código de Segurança Inválido");
         
-        else if(codigo.length > 6)
-            toast.error("😵 Senha do Cartão Inválido");
+        else if(codigo.length > 3)
+            toast.error("😵 Código de Segurança Inválido");
         
         else{
         await api.FazerCompra(infolivro.idlivro,infocliente.id);
@@ -55,7 +55,7 @@ function Compra(props){
                             <div name="acaocompra" id="acaodecompra">
                                 <button className="btn btn-primary" onClick={fazercompra}>Comprar</button>
                             </div>
-                            <input type="number" placeholder="Senha do cartão de crédito" onChange={(e) => setCodigo(e.target.value)}></input>
+                            <input type="number" placeholder="Código de Segurança do Cartão" onChange={(e) => setCodigo(e.target.value)}></input>
                         </div>
                         <div id="maisumcontainer">
                             {infolivro.sinopse}
