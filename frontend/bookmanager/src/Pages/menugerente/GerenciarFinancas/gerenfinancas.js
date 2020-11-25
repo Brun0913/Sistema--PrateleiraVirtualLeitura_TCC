@@ -35,18 +35,12 @@ function GerenciarFinancas(){
                           </div>
 
                         </div>
-
-                            <div className="Avoltar">
-                                
-                                <Link to="/menugerente">
-                                    <button variant="gray" size="lg" block>
-                                        Voltar
-                                    </button> 
-                                </Link>
-
-                            </div>
                             
-                       
+                        <div>
+                          
+                          <a href="/menugerente" className="btn btn-secondary" id="voltar">Voltar</a>
+    
+                        </div>
 
                     </div>
 
