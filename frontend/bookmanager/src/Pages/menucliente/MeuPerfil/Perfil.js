@@ -66,16 +66,11 @@ function MeuPerfil(props){
                     </div>
             </div>
 
-                    <div className="voltar">
-                        <Link to={{
-                            pathname:"/menucliente",
-                            state:props.location.state
-                        }}>
-                           <button variant="secondary" size="lg" block>
-                                Voltar
-                           </button> 
-                        </Link>
-                    </div>
+            <div>
+                <a href="/menucliente" className="btn btn-secondary" id="voltar1">Voltar</a>
+                
+            </div>
+
 
                         <div className='baixo'>
                         <h3 className="color">Direitos do site reservados @CopyRight</h3>
