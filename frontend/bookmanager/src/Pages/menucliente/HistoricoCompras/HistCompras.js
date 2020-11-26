@@ -12,6 +12,7 @@ export default function HistoricoCompras(props){
     const [lista,setList] = useState([]);
     const loadingBar = useRef(null);
 
+    console.log(props.location.state);
     const BuscarHistorico = async() =>{
         try{
         loadingBar.current.continuousStart();

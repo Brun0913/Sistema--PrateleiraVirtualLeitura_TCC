@@ -33,21 +33,15 @@ function GerenciarFinancas(){
                           <div id="relatorio">
                             <a href="/vendaspormes" className="btn btn-light" id="sub-botao">Vendas por Mês</a>
                           </div>
-
                         </div>
-                            
-                        <div>
-                          
-                          <a href="/menugerente" className="btn btn-secondary" id="voltar">Voltar</a>
-    
-                        </div>
-
+                        
+                        <a href="/menugerente" className="btn btn-outline-dark">
+                            Voltar
+                        </a>
                     </div>
-
-                    <div className='abaixo'>
+                </div>
+                <div className='abaixo'>
                         <h3 className="color">Direitos do site reservados @CopyRight</h3>
-                    </div>
-
                 </div>
         </div>
     )

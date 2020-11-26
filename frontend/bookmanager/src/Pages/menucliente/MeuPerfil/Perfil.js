@@ -10,11 +10,11 @@ function MeuPerfil(props){
     const loadingBar = useRef(null);
     const api = new API();
     const [informacoes,setInfo] = useState([]);
-    const id = props.location.state.id;
 
+    console.log(props.location.state);
     const Perfilcliente = async()=>{
         loadingBar.current.continuousStart(); 
-        const x = await api.Perfil(id);
+        const x = await api.Perfil(props.location.state.id);
         setInfo(x);
         loadingBar.current.complete();
     }
@@ -43,7 +43,7 @@ function MeuPerfil(props){
                     </div>
 
                     <div className='niver'>
-                        <h4>Data de nascimento: {informacoes.nascimento}</h4>
+                        <h4>Data de nascimento: {new Date(informacoes.nascimento).toLocaleDateString()}</h4>
                     </div>
 
                     <div className='cpf'>
@@ -66,9 +66,11 @@ function MeuPerfil(props){
                     </div>
             </div>
 
-            <div>
-                <a href="/menucliente" className="btn btn-secondary" id="voltar1">Voltar</a>
-                
+            <div id="meuperfilvoltar">
+                <Link className="btn btn-outline-dark" to={{
+                    pathname:"/menucliente",
+                    state:props.location.state
+                }}>Voltar</Link>
             </div>
 
 

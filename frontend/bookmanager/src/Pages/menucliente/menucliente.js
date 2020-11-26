@@ -7,6 +7,8 @@ import perfilimage from './perfil-de-usuario.png'
 export default function MenuCliente(props){
       const history = useHistory();
       
+      console.log(props.location.state);
+
       const historico = async() =>{
         const item = props.location.state;
         history.push({

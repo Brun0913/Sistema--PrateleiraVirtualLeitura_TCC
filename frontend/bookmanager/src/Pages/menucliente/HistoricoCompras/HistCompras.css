@@ -2,7 +2,7 @@
 .Gaia{
     margin-top: 0%;
     padding: 0%;
-    height: auto;
+    height: 100vh;
     flex-direction: column;
     background-image: linear-gradient(orange,purple);
 }

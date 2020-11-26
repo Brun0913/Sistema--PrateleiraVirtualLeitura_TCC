@@ -1,33 +1,25 @@
 .financas{
     margin-top: 0%;
     padding: 0%;
-    height: 20vh;
-    background-repeat: no-repeat;   
-    background-size: 100% 100%;
-    background-color: orange;
+    height: 15vh;
+    height: 100vh;
+    justify-content: space-evenly;
 }
 .irmao{
-    height: 55vh;
-    width: 43vw;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     display: flex;
-    font-family: sans-serif;
-    margin-top: 9%;
-    margin-left: 70%;
+    align-items: center;
+    height: 60vh;
+    width: 60vh;
     background-image: linear-gradient(orange,purple);
-    border-right: 2px solid black;
-    border-left: 2px solid black;
-    border-bottom: 2px solid black;
 }
       
 .gerenciamento{
-    flex-direction: column;
+    background-color: orange;
+    justify-content: center;
     display: flex;
-    text-align: center;
-    flex-direction: column;
-    display: flex;
-    margin-bottom: 25px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -75,20 +67,27 @@
 }
 
 .onda{
-    height: 75vh;
-    width: 40vw;
     flex-direction: column;
+    display: flex;
+    padding: 10px;
+    height: auto;
+    justify-content: center;
     align-items: center;
+}
+
+.onda a{
+    margin: 20px;
+    padding: 5px;
+}
+
+.joy{
     justify-content: center;
     display: flex;
-    font-family: sans-serif;
-    margin-left: 15%;
-}
-.joy{
-    background-color: white;
+    align-items: center;
+    height: 80vh;
 }
 .abaixo{
-    height: 12vh;
+    height: 10vh;
 background-color: purple;
 align-items: center;
 justify-content: center;
@@ -96,5 +95,4 @@ display: flex;
 }
 
 #relatorio{
-    margin-left: 200px;
 }

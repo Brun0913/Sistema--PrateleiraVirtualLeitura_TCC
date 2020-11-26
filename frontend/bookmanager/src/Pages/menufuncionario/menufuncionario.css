@@ -10,6 +10,10 @@
     text-align: center;
 }
 
+.titulofuncionario h2{
+    color: white;
+}
+
 .cadastrarlivro, .consultarlivro, .bvoltar{
     margin: 15px;
 }
@@ -67,4 +71,8 @@ h2, h3{
     justify-content: center;
     display: flex;
     align-items: center;
+}
+
+#contenty3 h3{
+    color: white;
 }
